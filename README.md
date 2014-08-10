@@ -10,6 +10,8 @@ This is the pdf report plugin written for testng, this listner will generate the
 
 Download latest version of pdfreport <a href="https://github.com/uttesh/mavenrepos/raw/master/com/uttesh/pdfngreport/1.0.0/pdfngreport-1.0.0.jar">download</a>
 
+Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">download sample</a>
+
 <h4>Environment and dependent jar file</h4>
 ===========================================
 
