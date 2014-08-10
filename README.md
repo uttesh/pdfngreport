@@ -17,6 +17,8 @@ Download latest version of pdfreport <a href="https://github.com/uttesh/mavenrep
 2. Jfree jar 
 3. Itext jar
 
+ant users need to download latest jfree and itext jars from respective links and keep in lib.
+
 for Maven add below jfree and itext dependents
 
 ```
