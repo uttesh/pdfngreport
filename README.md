@@ -12,6 +12,8 @@ Download latest version of pdfreport <a href="https://github.com/uttesh/mavenrep
 
 Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">download sample</a>
 
+PDF report sample <a href="https://github.com/uttesh/pdfngreportdemo/raw/master/automation_report/pdfng_report.pdf">report</a>
+
 <h4>Environment and dependent jar file</h4>
 ===========================================
 
