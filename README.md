@@ -14,6 +14,11 @@ Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">d
 
 PDF report sample <a href="https://github.com/uttesh/pdfngreportdemo/raw/master/automation_report/pdfng_report.pdf">report</a>
 
+ pdf report preview snaps :
+ 
+![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_1.png)
+![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_2.png)
+![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_3.png)
 <h4>Environment and dependent jar file</h4>
 ===========================================
 
@@ -143,5 +148,30 @@ First of all price goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> 
 
 Developer : [@uttesh](https://twitter.com/uttesh) ( my self ;) )
 
+<h3>
+<a name="license" class="anchor" href="#license"><span class="mini-icon mini-icon-link"></span></a>License</h3>
+
+<p>(The MIT license)</p>
+
+<p>Copyright (c) 2013 Uttesh Kumar</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
 
 
