@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Simple Reporter Suite">
+  <listeners>
+    <listener class-name="com.uttesh.pdfngreport.PDFReportListener" />
+  </listeners>
+
+  <test name="Simple Reporter test">
+    <classes>
+      <class name="com.uttesh.pdfngreport.AmazonTests" />
+      <class name="com.uttesh.pdfngreport.GoogleTest" />
+    </classes>
+  </test>
+</suite>
+

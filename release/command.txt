@@ -1,0 +1,2 @@
+D:\git\mavenrepos>mvn install:install-file -DgroupId=pdfreport -DartifactId=pdfreport -Dversion=1.0.0 -Dpackaging=jar -DcreateChecksum=true -Dgenerate
+Pom=true  -Dfile=D:\maven\pdfreport\build\pdfreport-1.0.0.jar -DlocalRepositoryPath=D:\git\mavenrepos
