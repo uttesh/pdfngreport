@@ -1,7 +1,7 @@
 pdfngreport
 ===========
 
-This is the pdf report plugin written for testng, this listner will generate the pdf report on testcases run, its very simple to configure no need to write any code.
+This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
 
 <h3>An PDF reporting plugin for TestNG </h3>
 
@@ -115,7 +115,7 @@ For Maven pom.xml configuration is add the dependecy.
         </dependency> 
  ```
           
-and add reporsitory in <repositories>
+and add repository in <repositories>
 
         <repository>
             <id>git-uttesh</id>
@@ -123,7 +123,7 @@ and add reporsitory in <repositories>
             <url>https://github.com/uttesh/mavenrepos/raw/master</url>
         </repository>
 
-we can configure the listner in the testng suite xml file of application also.
+we can configure the listeners in the testng suite xml file of application also.
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
