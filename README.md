@@ -159,19 +159,21 @@ and add repository in <repositories>
 <b> reporting property setting in ant/maven</b>
 
 ANT :
+```
     <sysproperty key="pdfreport.title" value="My Test Report"/>(Required)
     <sysproperty key="pdfreport.outputdir" value="file:// system path to save generatef pdf report"/>(Required)
     <sysproperty key="pdfreport.chart" value="show"/>(Optional)
     <sysproperty key="pdfreport.logger" value="true"/>(Optional)
-    
+```    
 MAVEN :
+```
     <systemPropertyVariables>
         <pdfreport.title>Testing Title</pdfreport.title>
         <pdfreport.chart>show</pdfreport.chart>
         <pdfreport.logger>true</pdfreport.logger>
         <pdfreport.outputdir>file:// system path to save generatef pdf report</pdfreport.outputdir>
     </systemPropertyVariables>
-
+```
 contributions
 =============
 
