@@ -105,7 +105,7 @@ Your Ant task will probably look something like this:
                 </plugin>
  ``` 
 
-For Maven pom.xml configuration is add the dependecy.
+For Maven pom.xml configuration, Add this dependecy.
 
  ``` 
         <dependency>
