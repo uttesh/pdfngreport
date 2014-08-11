@@ -23,6 +23,11 @@
  */
 package com.uttesh.pdfngreport;
 
+import com.uttesh.pdfngreport.util.ChartStyle;
+import com.uttesh.pdfngreport.util.Style;
+import com.uttesh.pdfngreport.common.Constants;
+import com.uttesh.pdfngreport.model.ResultMeta;
+import com.uttesh.pdfngreport.exceptionHandler.ReportException;
 import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
@@ -33,6 +38,7 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
+import com.uttesh.pdfngreport.util.PdfLogger;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -56,6 +62,7 @@ public class PDFGenerator {
     Font headerFont = new Font(Font.TIMES_ROMAN, 12, Font.BOLD, Color.WHITE);
     Font header1Font = new Font(Font.TIMES_ROMAN, 10, Font.BOLD);
     Font textFont = new Font(Font.HELVETICA, 8);
+    PdfLogger logger = PdfLogger.getLogger(PDFGenerator.class.getName());
 
     private Document document = null;
     static PdfPTable statisticTable = null, chartTable = null, successTable = null, failTable = null, skipTable = null;
@@ -73,8 +80,9 @@ public class PDFGenerator {
      * @param result
      */
     public void generateReport(String location, Map<String, ResultMeta> result) {
+        logger.log("generateReport method");
         String reportTitle = System.getProperty(Constants.SystemProps.REPORT_TITLE_PROP);
-        System.out.println("location :"+location);
+        logger.log("reportTitle :: " + reportTitle);
         this.document = new Document();
         this.throwableMap = new HashMap<Integer, Throwable>();
         file = new File(location);
@@ -85,16 +93,20 @@ public class PDFGenerator {
                 file.delete();
                 file.createNewFile();
             }
+            logger.log("Testcase result set size :: " + result.size());
             if (result != null && result.size() > 0) {
                 PdfWriter writer = PdfWriter.getInstance(this.document, new FileOutputStream(file));
 //                TableHeader event = new TableHeader();
 //                writer.setPageEvent(event);
                 this.document.open();
-
                 populateReportTitle(reportTitle);
                 populateStatisticsTable(result);
                 for (String suiteName : result.keySet()) {
+                    logger.log("suiteName :: " + suiteName);
                     ResultMeta resultMeta = result.get(suiteName);
+                    logger.log("passed resultset size  :: " + resultMeta.getPassedSet().size());
+                    logger.log("failed resultset size  :: " + resultMeta.getFailedSet().size());
+                    logger.log("skipped resultset size ::" + resultMeta.getSkippedSet().size());
                     generateSuccessTable(resultMeta.getPassedSet());
                     generateFailureTable(resultMeta.getFailedSet());
                     generateSkippedTable(resultMeta.getSkippedSet());
@@ -192,18 +204,22 @@ public class PDFGenerator {
      * @throws DocumentException
      */
     private void populateTableData(PdfPTable table, Set<ITestResult> results, String status) throws DocumentException {
+        logger.log("##################### "+status+" Test class/methods "+"##################### ");
         for (ITestResult result : results) {
             String str[] = result.getTestClass().getName().trim().split("\\.");
+            String className = result.getTestClass().getName();
             if (str.length > 0) {
                 String instanceName = result.getTestClass().getName();
-                String className = str[str.length - 1];
+                className = str[str.length - 1];
                 String packageName = instanceName.substring(0, instanceName.indexOf(className) - 1);
                 populateCellData(table, packageName);
                 populateCellData(table, className);
             } else {
-                populateCellData(table, result.getTestClass().getName());
-                populateCellData(table, result.getTestClass().getName());
+                populateCellData(table, className);
+                populateCellData(table, className);
             }
+            logger.log("| class :: "+className+" :: method :: "+result.getMethod().getMethodName()+" |");
+            logger.log("-------------------------------------------------------------------------");
             populateCellData(table, result.getMethod().getMethodName());
             long duration = result.getEndMillis() - result.getStartMillis();
             totalExecutionTime += duration;
@@ -213,6 +229,8 @@ public class PDFGenerator {
                 exceptionLog(table, result);
             }
         }
+        logger.log("##################### END "+status+" Test class/methods "+"##################### ");
+        logger.log("\n\n");
         formatTable(table);
     }
 
@@ -310,10 +328,13 @@ public class PDFGenerator {
      * @throws DocumentException
      */
     private void populateStatisticsTable(Map<String, ResultMeta> result) throws DocumentException {
+        logger.log("populateStatisticsTable() :: ");
+        logger.log("result data map :: " + result);
         String chartDisplay = "show";
         if (System.getProperty(Constants.SystemProps.REPORT_CHART_PROP) != null) {
             chartDisplay = System.getProperty(Constants.SystemProps.REPORT_CHART_PROP);
         }
+        logger.log("Piechart property :: " + chartDisplay);
         Paragraph p = new Paragraph(Constants.HEADER_STATSTICS, headerFont);
 
         p.setAlignment(Element.ALIGN_CENTER);
@@ -364,6 +385,7 @@ public class PDFGenerator {
      * @throws DocumentException
      */
     private void generatePieChart(DefaultPieDataset dataSet) throws DocumentException {
+        logger.log("generatePieChart() :: ");
         this.chartTable = new PdfPTable(new float[]{.3f, .3f, .1f, .3f});
         PdfPCell cell = null;
         Paragraph paragraph = null;

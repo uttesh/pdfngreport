@@ -55,24 +55,22 @@
                         <systemPropertyVariables>
                             <pdfreport.title>Testing Title</pdfreport.title>
                             <pdfreport.chart>show</pdfreport.chart>
+                            <pdfreport.logger>true</pdfreport.logger>
+                            <pdfreport.outputdir>E:\rivetsys\automation</pdfreport.outputdir>
                         </systemPropertyVariables>
                         <properties>
-                            <property>
-                                <name>outputdir</name>
-                                <value>D:\jar apps\pdfngreportdemo</value> 
-                            </property>
                             <property>
                                 <name>usedefaultlisteners</name>
                                 <value>false</value> <!-- disabling default listeners is optional -->
                             </property>
-                            <property>
+<!--                            <property>
                                 <name>listener</name>
                                 <value>com.uttesh.pdfngreport.PDFReportListener</value>
                             </property>
                             <property>
                                 <name>reporter</name>
                                 <value>listenReport.Reporter</value>
-                            </property>
+                            </property>-->
                         </properties>
                     </configuration>
                 </plugin>

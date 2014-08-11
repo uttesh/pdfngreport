@@ -23,6 +23,8 @@
  */
 package com.uttesh.pdfngreport;
 
+import com.uttesh.pdfngreport.common.Constants;
+import com.uttesh.pdfngreport.model.ResultMeta;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +66,8 @@ public class PDFReportListener implements IReporter {
         }
         if(result.size()>0){
             PDFGenerator generator = new PDFGenerator();
-            generator.generateReport(outputFolder+"\\"+Constants.PDF_REPORT_FILE_NAME, result);
+            String outpurDir = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
+            generator.generateReport(outpurDir+"\\"+Constants.PDF_REPORT_FILE_NAME, result);
         }
     }
     
