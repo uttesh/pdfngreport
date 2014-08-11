@@ -26,9 +26,33 @@ PDF report sample <a href="https://github.com/uttesh/pdfngreportdemo/raw/master/
 2. Jfree jar 
 3. Itext jar
 
-ant users need to download latest jfree and itext jars from respective links and keep in lib.
 
-for Maven add below jfree and itext dependents
+<h4> ANT users configuration </h4>
+==================================
+Download latest jfree and itext jars from respective links and keep in lib.
+
+ANT/MAVEN sample demo example <a href="https://github.com/uttesh/pdfngreportdemo" target"_blank">demo source</a>
+
+configure build.xml file with below testng tag
+
+```
+  <testng classpathref="test-path"
+          outputdir="${test-results.dir}"
+          haltonfailure="true"
+          useDefaultListeners="false"
+          listeners="com.uttesh.pdfngreport.PDFReportListener">
+    <sysproperty key="pdfreport.title" value="My Test Report"/>
+    <sysproperty key="pdfreport.chart" value="show"/>
+    <sysproperty key="pdfreport.outputdir" value="// system path to save generatef pdf report"/>
+  </testng>
+ ``` 
+ If linteners configured in ant build.xml then no need configure/set listener in testsuit xml, if configured both placess it will call PDFReportListener class two times.
+
+
+<h4> MAVEN users configuration </h4>
+====================================
+
+Add below jfree and itext dependencies in pom.xml
 
 ```
        <dependency>
@@ -56,18 +80,6 @@ element in your Ant build file.The class names for the pdfreport is:
 You may also want to disable the default TestNG reporters by setting the
 "useDefaultListeners" attribute to "false".
 
-Your Ant task will probably look something like this:
-
-```
-  <testng classpathref="test-path"
-          outputdir="${test-results.dir}"
-          haltonfailure="true"
-          useDefaultListeners="false"
-          listeners="com.uttesh.pdfngreport.PDFReportListener">
-    <sysproperty key="pdfreport.title" value="My Test Report"/>
-  </testng>
- ``` 
- 
  POM testng configuration with pdfngreport plugin paramerters
  
  ``` 
@@ -82,6 +94,8 @@ Your Ant task will probably look something like this:
                         <systemPropertyVariables>
                             <pdfreport.title>Testing Title</pdfreport.title>
                             <pdfreport.chart>show</pdfreport.chart>
+                            <pdfreport.logger>true</pdfreport.logger>
+                            <pdfreport.outputdir>E:\rivetsys\automation</pdfreport.outputdir>
                         </systemPropertyVariables>
                         <properties>
                             <property>
@@ -92,13 +106,15 @@ Your Ant task will probably look something like this:
                                 <name>usedefaultlisteners</name>
                                 <value>false</value> <!-- disabling default listeners is optional -->
                             </property>
-                            <property>
+                            <!-- if testng suit xml file is configured with listener no need here -->
+<!--                            <property>
                                 <name>listener</name>
                                 <value>com.uttesh.pdfngreport.PDFReportListener</value>
                             </property>
                             <property>
                                 <name>reporter</name>
                                 <value>listenReport.Reporter</value>
+                            </property>-->
                             </property>
                         </properties>
                     </configuration>
@@ -123,7 +139,8 @@ and add repository in <repositories>
             <url>https://github.com/uttesh/mavenrepos/raw/master</url>
         </repository>
 
-we can configure the listeners in the testng suite xml file of application also.
+<h4>testng suit xml file </h4>
+=============================
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
