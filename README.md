@@ -1,12 +1,10 @@
-pdfngreport
+pdfngreport (An PDF reporting plugin for TestNG )
 ===========
 
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
 
-<h3>An PDF reporting plugin for TestNG </h3>
-
-<h4>How to use pdfngreport Plugin</h4>
-====================================
+<b>How to use pdfngreport Plugin</b>
+<hr/>
 
 Download latest version of pdfreport <a href="https://github.com/uttesh/mavenrepos/raw/master/com/uttesh/pdfngreport/1.0.0/pdfngreport-1.0.0.jar">download</a>
 
@@ -19,16 +17,17 @@ PDF report sample <a href="https://github.com/uttesh/pdfngreportdemo/raw/master/
 ![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_1.png)
 ![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_2.png)
 ![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_3.png)
-<h4>Environment and dependent jar file</h4>
-===========================================
+
+<b>Environment and dependent jar file</b>
+<hr/>
 
 1. Minimum JDK 1.5 or higher
 2. Jfree jar 
 3. Itext jar
 
 
-<h4> ANT users configuration </h4>
-==================================
+<b> ANT users configuration </b>
+<hr/>
 Download latest jfree and itext jars from respective links and keep in lib.
 
 ANT/MAVEN sample demo example <a href="https://github.com/uttesh/pdfngreportdemo" target"_blank">demo source</a>
@@ -49,8 +48,8 @@ configure build.xml file with below testng tag
  If linteners configured in ant build.xml then no need configure/set listener in testsuit xml, if configured both placess it will call PDFReportListener class two times.
 
 
-<h4> MAVEN users configuration </h4>
-====================================
+<b> MAVEN users configuration </b>
+<hr/>
 
 Add below jfree and itext dependencies in pom.xml
 
@@ -139,8 +138,8 @@ and add repository in <repositories>
             <url>https://github.com/uttesh/mavenrepos/raw/master</url>
         </repository>
 
-<h4>testng suit xml file </h4>
-=============================
+<b>testng suit xml file </b>
+<hr/>
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
