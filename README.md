@@ -1,12 +1,10 @@
-pdfngreport
+pdfngreport (An PDF reporting plugin for TestNG )
 ===========
 
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
 
-<h3>An PDF reporting plugin for TestNG </h3>
-
-<h4>How to use pdfngreport Plugin</h4>
-====================================
+<b>How to use pdfngreport Plugin</b>
+<hr/>
 
 Download latest version of pdfreport <a href="https://github.com/uttesh/mavenrepos/raw/master/com/uttesh/pdfngreport/1.0.0/pdfngreport-1.0.0.jar">download</a>
 
@@ -19,16 +17,41 @@ PDF report sample <a href="https://github.com/uttesh/pdfngreportdemo/raw/master/
 ![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_1.png)
 ![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_2.png)
 ![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_3.png)
-<h4>Environment and dependent jar file</h4>
-===========================================
+
+<b>Environment and dependent jar file</b>
+<hr/>
 
 1. Minimum JDK 1.5 or higher
 2. Jfree jar 
 3. Itext jar
 
-ant users need to download latest jfree and itext jars from respective links and keep in lib.
 
-for Maven add below jfree and itext dependents
+<b> ANT users configuration </b>
+<hr/>
+Download latest jfree and itext jars from respective links and keep in lib.
+
+ANT/MAVEN sample demo example <a href="https://github.com/uttesh/pdfngreportdemo" target"_blank">demo source</a>
+
+configure build.xml file with below testng tag
+
+```
+  <testng classpathref="test-path"
+          outputdir="${test-results.dir}"
+          haltonfailure="true"
+          useDefaultListeners="false"
+          listeners="com.uttesh.pdfngreport.PDFReportListener">
+    <sysproperty key="pdfreport.title" value="My Test Report"/>
+    <sysproperty key="pdfreport.chart" value="show"/>
+    <sysproperty key="pdfreport.outputdir" value="// system path to save generatef pdf report"/>
+  </testng>
+ ``` 
+ If linteners configured in ant build.xml then no need configure/set listener in testsuit xml, if configured both placess it will call PDFReportListener class two times.
+
+
+<b> MAVEN users configuration </b>
+<hr/>
+
+Add below jfree and itext dependencies in pom.xml
 
 ```
        <dependency>
@@ -56,18 +79,6 @@ element in your Ant build file.The class names for the pdfreport is:
 You may also want to disable the default TestNG reporters by setting the
 "useDefaultListeners" attribute to "false".
 
-Your Ant task will probably look something like this:
-
-```
-  <testng classpathref="test-path"
-          outputdir="${test-results.dir}"
-          haltonfailure="true"
-          useDefaultListeners="false"
-          listeners="com.uttesh.pdfngreport.PDFReportListener">
-    <sysproperty key="pdfreport.title" value="My Test Report"/>
-  </testng>
- ``` 
- 
  POM testng configuration with pdfngreport plugin paramerters
  
  ``` 
@@ -82,6 +93,8 @@ Your Ant task will probably look something like this:
                         <systemPropertyVariables>
                             <pdfreport.title>Testing Title</pdfreport.title>
                             <pdfreport.chart>show</pdfreport.chart>
+                            <pdfreport.logger>true</pdfreport.logger>
+                            <pdfreport.outputdir>E:\rivetsys\automation</pdfreport.outputdir>
                         </systemPropertyVariables>
                         <properties>
                             <property>
@@ -92,13 +105,15 @@ Your Ant task will probably look something like this:
                                 <name>usedefaultlisteners</name>
                                 <value>false</value> <!-- disabling default listeners is optional -->
                             </property>
-                            <property>
+                            <!-- if testng suit xml file is configured with listener no need here -->
+<!--                            <property>
                                 <name>listener</name>
                                 <value>com.uttesh.pdfngreport.PDFReportListener</value>
                             </property>
                             <property>
                                 <name>reporter</name>
                                 <value>listenReport.Reporter</value>
+                            </property>-->
                             </property>
                         </properties>
                     </configuration>
@@ -123,7 +138,8 @@ and add repository in <repositories>
             <url>https://github.com/uttesh/mavenrepos/raw/master</url>
         </repository>
 
-we can configure the listeners in the testng suite xml file of application also.
+<b>testng suit xml file </b>
+<hr/>
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -140,13 +156,30 @@ we can configure the listeners in the testng suite xml file of application also.
   </test>
 </suite>
 ```
+<b> reporting property setting in ant/maven</b>
 
+ANT :
+```
+    <sysproperty key="pdfreport.title" value="My Test Report"/>(Required)
+    <sysproperty key="pdfreport.outputdir" value="file:// system path to save generatef pdf report"/>(Required)
+    <sysproperty key="pdfreport.chart" value="show"/>(Optional)
+    <sysproperty key="pdfreport.logger" value="true"/>(Optional)
+```    
+MAVEN :
+```
+    <systemPropertyVariables>
+        <pdfreport.title>Testing Title</pdfreport.title>
+        <pdfreport.chart>show</pdfreport.chart>
+        <pdfreport.logger>true</pdfreport.logger>
+        <pdfreport.outputdir>file:// system path to save generatef pdf report</pdfreport.outputdir>
+    </systemPropertyVariables>
+```
 contributions
 =============
 
-First of all price goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="http://itextpdf.com/">itext</a> open source jar file which i used to generate the pdf report and pie chart statistic graph.
+All credit goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="http://itextpdf.com/">itext</a> open source jar file which i used to generate the pdf report and pie chart statistic graph.
 
-Developer : [@uttesh](https://twitter.com/uttesh) ( my self ;) )
+PDFngreport Developer : [@uttesh](https://twitter.com/uttesh) ( my self ;) )
 
 <h3>
 <a name="license" class="anchor" href="#license"><span class="mini-icon mini-icon-link"></span></a>License</h3>
