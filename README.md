@@ -177,9 +177,9 @@ MAVEN :
 contributions
 =============
 
-First of all price goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="http://itextpdf.com/">itext</a> open source jar file which i used to generate the pdf report and pie chart statistic graph.
+All credit goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="http://itextpdf.com/">itext</a> open source jar file which i used to generate the pdf report and pie chart statistic graph.
 
-Developer : [@uttesh](https://twitter.com/uttesh) ( my self ;) )
+PDFngreport Developer : [@uttesh](https://twitter.com/uttesh) ( my self ;) )
 
 <h3>
 <a name="license" class="anchor" href="#license"><span class="mini-icon mini-icon-link"></span></a>License</h3>
