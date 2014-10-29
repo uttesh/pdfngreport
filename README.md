@@ -1,5 +1,6 @@
 pdfngreport (An PDF reporting plugin for TestNG )
 ===========
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/uttesh/pdfngreport?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
 
