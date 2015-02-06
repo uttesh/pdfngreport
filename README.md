@@ -1,4 +1,4 @@
-pdfngreport (An PDF reporting plugin for TestNG )
+pdfngreport (An PDF reporting plugin for TestNG )  [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/uttesh/pdfngreport/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 ===========
 
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
