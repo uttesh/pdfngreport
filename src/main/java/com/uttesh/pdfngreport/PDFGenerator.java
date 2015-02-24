@@ -204,7 +204,7 @@ public class PDFGenerator {
      * @throws DocumentException
      */
     private void populateTableData(PdfPTable table, Set<ITestResult> results, String status) throws DocumentException {
-        logger.log("##################### "+status+" Test class/methods "+"##################### ");
+        logger.log("----------------------- "+status+" Test class/methods "+"-----------------");
         for (ITestResult result : results) {
             String str[] = result.getTestClass().getName().trim().split("\\.");
             String className = result.getTestClass().getName();
@@ -229,7 +229,7 @@ public class PDFGenerator {
                 exceptionLog(table, result);
             }
         }
-        logger.log("##################### END "+status+" Test class/methods "+"##################### ");
+        logger.log("--------------------- END "+status+" Test class/methods "+"--------------------");
         logger.log("\n\n");
         formatTable(table);
     }
@@ -352,8 +352,8 @@ public class PDFGenerator {
         int skipped = 0;
         int failed = 0;
         double percent = 0;
-        for (String suiteName : result.keySet()) {
-            ResultMeta resultMeta = result.get(suiteName);
+        for (String className : result.keySet()) {
+            ResultMeta resultMeta = result.get(className);
             passed = passed + resultMeta.getPassedSet().size();
             skipped = skipped + resultMeta.getSkippedSet().size();
             failed = failed + resultMeta.getFailedSet().size();

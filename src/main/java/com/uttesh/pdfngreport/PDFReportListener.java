@@ -61,7 +61,7 @@ public class PDFReportListener implements IReporter {
                 resultMeta.setFailedSet(tc.getFailedTests().getAllResults());
                 resultMeta.setPassedSet(tc.getPassedTests().getAllResults());
                 resultMeta.setSkippedSet(tc.getSkippedTests().getAllResults());
-                result.put(suiteName, resultMeta);
+                result.put(suiteName+":"+System.currentTimeMillis(), resultMeta);
             }
         }
         if(result.size()>0){
