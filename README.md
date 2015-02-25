@@ -1,4 +1,4 @@
-pdfngreport (An PDF reporting plugin for TestNG )  [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/uttesh/pdfngreport/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+pdfngreport (PDF report plugin for TestNG)  [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/uttesh/pdfngreport/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 ===========
 This is the part of maven repository now,Directly add in pom following.
 
