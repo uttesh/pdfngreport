@@ -183,7 +183,7 @@ PDFngreport Developer : [@uttesh](https://twitter.com/uttesh) ( my self ;) )
 <h3>
 <a name="license" class="anchor" href="#license"><span class="mini-icon mini-icon-link"></span></a>License</h3>
 
-<p>(The MIT license)</p>
+<p>(The Apache License)</p>
 
 <p>Copyright (c) 2013 Uttesh Kumar T.H.</p>
 
