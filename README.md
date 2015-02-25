@@ -178,7 +178,7 @@ contributions
 
 All credit goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="http://itextpdf.com/">itext</a> open source jar file which i used to generate the pdf report and pie chart statistic graph.
 
-PDFngreport Developer : [@uttesh](https://twitter.com/uttesh) <a href="uttesh.com">uttesh.com</a>
+PDFngreport Developer : <a href="uttesh.com">uttesh.com</a>
 
 <h3>
 <a name="license" class="anchor" href="#license"><span class="mini-icon mini-icon-link"></span></a>License</h3>
