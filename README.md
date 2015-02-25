@@ -1,6 +1,13 @@
 pdfngreport (An PDF reporting plugin for TestNG )  [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/uttesh/pdfngreport/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 ===========
+This is the part of maven repository now,Directly add in pom following.
 
+        <dependency>
+            <groupId>com.uttesh</groupId>
+            <artifactId>pdfngreport</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
 
 <b>How to use pdfngreport Plugin</b>
