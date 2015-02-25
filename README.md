@@ -136,14 +136,6 @@ For Maven pom.xml configuration, Add this dependecy.
             <version>1.0.0</version>
         </dependency> 
  ```
-          
-and add repository in <repositories>
-
-        <repository>
-            <id>git-uttesh</id>
-            <name>uttesh's Git based repo</name>
-            <url>https://github.com/uttesh/mavenrepos/raw/master</url>
-        </repository>
 
 <b>testng suit xml file </b>
 <hr/>
