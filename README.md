@@ -1,6 +1,8 @@
-pdfngreport (PDF report plugin for TestNG)  [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/uttesh/pdfngreport/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+pdfngreport (PDF report plugin for TestNG) 
+==========================================
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/uttesh/pdfngreport/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.uttesh/pdfngreport/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.uttesh/pdfngreport/)
-===========
+======================================================================
 This is the part of maven repository now,Directly add in pom following.
 
         <dependency>
