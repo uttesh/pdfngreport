@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>pdfngreport:Generate PDF report for testng framework</title>
+		<meta name="description" content="An Free, Open source PDF report generator for testng/selenium framework test cases execution results, no need to write any code and just configuration" />
+		<meta name="keywords" content="PDF report generator for testng, selenium framework" />
+		<meta name="author" content="Uttesh Kumar T.H." />
+		<!-- Bootstrap -->
+		<script src="js/modernizr.custom.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/jquery.fancybox.css" rel="stylesheet">
+		<link href="css/flickity.css" rel="stylesheet" >
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+		<link href="css/styles.css" rel="stylesheet">
+		<link href="css/queries.css" rel="stylesheet">
+		<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content=""/>
+		<meta property="og:image" content=""/>
+		<meta property="og:url" content=""/>
+		<meta property="og:site_name" content=""/>
+		<meta property="og:description" content=""/>
+		<meta name="twitter:title" content="" />
+		<meta name="twitter:image" content="" />
+		<meta name="twitter:url" content="" />
+		<meta name="twitter:card" content="" />
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<!-- open/close -->
+		<header>
+			<section class="hero">
+				<div class="texture-overlay"></div>
+				<div class="container">
+					<div class="row nav-wrapper">
+						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+							<h1><a href="#">PDFngreport</a></h1>
+							<h2 class="animated fadeInDown">No Coding Just Configuration !!!! </h2>
+							<h4>Free, Open source PDF report generator for testng/selenium framework</h4>
+							<a href="https://github.com/uttesh/pdfngreportdemo/blob/master/automation_report/pdfng_report.pdf?raw=true" target="_blank" class="use-btn animated fadeInUp">Sample pdf report</a> 
+							<a href="#about" class="learn-btn animated fadeInUp">Configuration Details<i class="fa fa-arrow-down"></i></a>
+						</div>
+						<!--div class="col-md-6 col-sm-6 col-xs-6 text-right navicon">
+							<p>MENU</p><a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
+						</div-->
+						<div class="col-md-6 nopadding">
+							<div style="position: relative;margin-top:100px;height: 400px;">
+									<ul class="slides" id="featuresSlider">
+									    <li>
+											<img src="img/slide1.png" alt="" style="height:350px;">
+										</li>
+									   	<li>
+											<img src="img/slide2.png" alt="" style="height:350px;">
+										</li>
+										<li>
+											<img src="img/slide3.png" alt="" style="height:350px;">
+										</li>
+										<li>
+											<img src="img/slide4.png" alt="" style="height:350px;">
+										</li>
+									</ul>
+							</div>
+						</div>
+					</div>
+					<!--div class="row hero-content">
+						<div class="col-md-12">
+							<h2 class="animated fadeInDown">No Coding Just Configuration !!!! </h2>
+							<h4>Free, Open source PDF report generator for testng/selenium framework</h4>
+							<a href="https://github.com/uttesh/pdfngreportdemo/blob/master/automation_report/pdfng_report.pdf?raw=true" target="_blank" class="use-btn animated fadeInUp">Sample pdf report</a> 
+							<a href="#about" class="learn-btn animated fadeInUp">Configuration Details<i class="fa fa-arrow-down"></i></a>
+						</div>
+					</div-->
+				</div>
+			</section>
+		</header>
+		<section class="video" id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h1><a href="https://github.com/uttesh/pdfngreportdemo"  target="_blank"><i class="fa fa-play-circle-o"></i> Sample application code</a></h1>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="features-intro">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 nopadding features-intro-img">
+						<div class="features-bg">
+							<div class="texture-overlay"></div>
+							<div class="features-img wp1">
+								
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 nopadding">
+						<div class="features-slider">
+								<ul >
+									<li>
+										<h1>Maven Repository</h1>
+										<p>
+										<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
+        <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
+        <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
+        <span style="color: #007700">&lt;version&gt;</span>1.0.0<span style="color: #007700">&lt;/version&gt;</span>
+<span style="color: #007700">&lt;/dependency&gt;</span>
+</pre></div>
+
+									    </p>
+										<p><a href="http://search.maven.org/#artifactdetails%7Ccom.uttesh%7Cpdfngreport%7C1.0.0%7Cjar" target="_blank" class="arrow-btn">Simple Its in Maven central repository! <i class="fa fa-long-arrow-right"></i></a></p>
+									</li>
+								</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="screenshots-intro" style="padding:0px">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Full Configuration of the pdf listener</h1>
+						
+						<b>Environment and dependent jar file</b>
+						<hr/>
+							<ol>
+								<li>Minimum JDK 1.5 or higher</li>
+								<li>Jfree jar </li>
+								<li>Itext jar </li>
+							</ol>
+						<b> ANT build configuration </b>
+						<hr/>
+						 <span>Download latest jfree and itext jars from respective links and keep in lib.
+						configure build.xml file with below testng tag </span></br></br>
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">  <span style="color: #007700">&lt;testng</span> <span style="color: #0000CC">classpathref=</span><span style="background-color: #fff0f0">&quot;test-path&quot;</span>
+          <span style="color: #0000CC">outputdir=</span><span style="background-color: #fff0f0">&quot;${test-results.dir}&quot;</span>
+          <span style="color: #0000CC">haltonfailure=</span><span style="background-color: #fff0f0">&quot;true&quot;</span>
+          <span style="color: #0000CC">useDefaultListeners=</span><span style="background-color: #fff0f0">&quot;false&quot;</span>
+          <span style="color: #0000CC">listeners=</span><span style="background-color: #fff0f0">&quot;com.uttesh.pdfngreport.PDFReportListener&quot;</span><span style="color: #007700">&gt;</span>
+    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.title&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;My Test Report&quot;</span><span style="color: #007700">/&gt;</span>
+    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.chart&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;show&quot;</span><span style="color: #007700">/&gt;</span>
+    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.outputdir&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;// system path to save generatef pdf report&quot;</span><span style="color: #007700">/&gt;</span>
+<span style="color: #007700">&lt;/testng&gt;</span>
+</pre></div>
+ </br></br>
+ <span style="color:red">If linteners configured in ant build.xml then no need configure/set listener in testsuit xml, if configured both placess it will call PDFReportListener class two times. </span>
+</br></br>
+<b> MAVEN build configuration </b>
+<hr/>
+
+Add below jfree and itext dependencies in pom.xml
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">       <span style="color: #007700">&lt;dependency&gt;</span>
+            <span style="color: #007700">&lt;groupId&gt;</span>jfree<span style="color: #007700">&lt;/groupId&gt;</span>
+            <span style="color: #007700">&lt;artifactId&gt;</span>jfreechart<span style="color: #007700">&lt;/artifactId&gt;</span>
+            <span style="color: #007700">&lt;version&gt;</span>1.0.13<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;/dependency&gt;</span>
+        
+        <span style="color: #007700">&lt;dependency&gt;</span>
+            <span style="color: #007700">&lt;groupId&gt;</span>com.lowagie<span style="color: #007700">&lt;/groupId&gt;</span>
+            <span style="color: #007700">&lt;artifactId&gt;</span>itext<span style="color: #007700">&lt;/artifactId&gt;</span>
+            <span style="color: #007700">&lt;version&gt;</span>4.2.1<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;/dependency&gt;</span>
+</pre></div>
+</br></br>
+For Maven pom.xml configuration, Add pdfngreport dependency.
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
+        <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
+        <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
+        <span style="color: #007700">&lt;version&gt;</span>1.0.0<span style="color: #007700">&lt;/version&gt;</span>
+<span style="color: #007700">&lt;/dependency&gt;</span>
+</pre></div>
+To use the reporting plug-in, set the "listeners" attribute of the "testng"
+element in your Ant build file.The class names for the pdfreport is:
+
+<pre>
+  com.uttesh.pdfngreport.PDFReportListener
+</pre>
+
+POM testng configuration with pdfngreport plug-in parameters
+</br></br>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">             <span style="color: #007700">&lt;plugin&gt;</span>
+                    <span style="color: #007700">&lt;groupId&gt;</span>org.apache.maven.plugins<span style="color: #007700">&lt;/groupId&gt;</span>
+                    <span style="color: #007700">&lt;artifactId&gt;</span>maven-surefire-plugin<span style="color: #007700">&lt;/artifactId&gt;</span>
+                    <span style="color: #007700">&lt;version&gt;</span>2.17<span style="color: #007700">&lt;/version&gt;</span>
+                    <span style="color: #007700">&lt;configuration&gt;</span>
+                        <span style="color: #007700">&lt;suiteXmlFiles&gt;</span>
+                            <span style="color: #007700">&lt;suiteXmlFile&gt;</span>testng.xml<span style="color: #007700">&lt;/suiteXmlFile&gt;</span>
+                        <span style="color: #007700">&lt;/suiteXmlFiles&gt;</span>
+                        <span style="color: #007700">&lt;systemPropertyVariables&gt;</span>
+                            <span style="color: #007700">&lt;pdfreport.title&gt;</span>Testing Title<span style="color: #007700">&lt;/pdfreport.title&gt;</span>
+                            <span style="color: #007700">&lt;pdfreport.chart&gt;</span>show<span style="color: #007700">&lt;/pdfreport.chart&gt;</span>
+                            <span style="color: #007700">&lt;pdfreport.logger&gt;</span>true<span style="color: #007700">&lt;/pdfreport.logger&gt;</span>
+                            <span style="color: #007700">&lt;pdfreport.outputdir&gt;</span>E:\rivetsys\automation<span style="color: #007700">&lt;/pdfreport.outputdir&gt;</span>
+                        <span style="color: #007700">&lt;/systemPropertyVariables&gt;</span>
+                        <span style="color: #007700">&lt;properties&gt;</span>
+                            <span style="color: #007700">&lt;property&gt;</span>
+                                <span style="color: #007700">&lt;name&gt;</span>outputdir<span style="color: #007700">&lt;/name&gt;</span>
+                                <span style="color: #007700">&lt;value&gt;</span>D:\maven\automation_report<span style="color: #007700">&lt;/value&gt;</span> 
+                            <span style="color: #007700">&lt;/property&gt;</span>
+                            <span style="color: #007700">&lt;property&gt;</span>
+                                <span style="color: #007700">&lt;name&gt;</span>usedefaultlisteners<span style="color: #007700">&lt;/name&gt;</span>
+                                <span style="color: #007700">&lt;value&gt;</span>false<span style="color: #007700">&lt;/value&gt;</span> <span style="color: #888888">&lt;!-- disabling default listeners is optional --&gt;</span>
+                            <span style="color: #007700">&lt;/property&gt;</span>
+                            <span style="color: #888888">&lt;!-- if testng suit xml file is configured with listener no need here --&gt;</span>
+<span style="color: #888888">&lt;!--                            &lt;property&gt;</span>
+<span style="color: #888888">                                &lt;name&gt;listener&lt;/name&gt;</span>
+<span style="color: #888888">                                &lt;value&gt;com.uttesh.pdfngreport.PDFReportListener&lt;/value&gt;</span>
+<span style="color: #888888">                            &lt;/property&gt;</span>
+<span style="color: #888888">                            &lt;property&gt;</span>
+<span style="color: #888888">                                &lt;name&gt;reporter&lt;/name&gt;</span>
+<span style="color: #888888">                                &lt;value&gt;listenReport.Reporter&lt;/value&gt;</span>
+<span style="color: #888888">                            &lt;/property&gt;--&gt;</span>
+                            <span style="color: #007700">&lt;/property&gt;</span>
+                        <span style="color: #007700">&lt;/properties&gt;</span>
+                    <span style="color: #007700">&lt;/configuration&gt;</span>
+                <span style="color: #007700">&lt;/plugin&gt;</span>
+</pre></div>
+</br></br>
+<b>testng suit xml file </b>
+<hr/>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span style="color: #007700">&lt;suite</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;Simple Reporter Suite&quot;</span><span style="color: #007700">&gt;</span>
+  <span style="color: #007700">&lt;listeners&gt;</span>
+    <span style="color: #007700">&lt;listener</span> <span style="color: #0000CC">class-name=</span><span style="background-color: #fff0f0">&quot;com.uttesh.pdfngreport.PDFReportListener&quot;</span> <span style="color: #007700">/&gt;</span>
+  <span style="color: #007700">&lt;/listeners&gt;</span>
+
+  <span style="color: #007700">&lt;test</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;Simple Reporter test&quot;</span><span style="color: #007700">&gt;</span>
+    <span style="color: #007700">&lt;classes&gt;</span>
+      <span style="color: #007700">&lt;class</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;xyz&quot;</span> <span style="color: #007700">/&gt;</span>
+      <span style="color: #007700">&lt;class</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;abc&quot;</span> <span style="color: #007700">/&gt;</span>
+    <span style="color: #007700">&lt;/classes&gt;</span>
+  <span style="color: #007700">&lt;/test&gt;</span>
+<span style="color: #007700">&lt;/suite&gt;</span>
+</pre></div>
+</br></br>
+
+<b> reporting property setting in ant/maven</b>
+
+<h4>ANT :</h4>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.title&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;My Test Report&quot;</span><span style="color: #007700">/&gt;</span>(Required)
+    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.outputdir&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;file:// system path to save generatef pdf report&quot;</span><span style="color: #007700">/&gt;</span>(Required)
+    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.chart&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;show&quot;</span><span style="color: #007700">/&gt;</span>(Optional)
+    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.logger&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;true&quot;</span><span style="color: #007700">/&gt;</span>(Optional)
+</pre></div>
+   
+<h4>MAVEN :</h4>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007700">&lt;systemPropertyVariables&gt;</span>
+        <span style="color: #007700">&lt;pdfreport.title&gt;</span>Testing Title<span style="color: #007700">&lt;/pdfreport.title&gt;</span>
+        <span style="color: #007700">&lt;pdfreport.chart&gt;</span>show<span style="color: #007700">&lt;/pdfreport.chart&gt;</span>
+        <span style="color: #007700">&lt;pdfreport.logger&gt;</span>true<span style="color: #007700">&lt;/pdfreport.logger&gt;</span>
+        <span style="color: #007700">&lt;pdfreport.outputdir&gt;</span>file:// system path to save generatef pdf report<span style="color: #007700">&lt;/pdfreport.outputdir&gt;</span>
+    <span style="color: #007700">&lt;/systemPropertyVariables&gt;</span>
+</pre></div>
+</br></br>
+<b>Contributions</b>
+</hr>
+</br></br>
+All credit goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="http://itextpdf.com/">itext</a> open source jar file which i used to generate the pdf report and pie chart statistic graph.
+</br></br>
+PDFngreport Developer : <a href="http://www.uttesh.com" target="_blank">uttesh.com</a>
+
+<h3>
+<a name="license" class="anchor" href="#license"><span class="mini-icon mini-icon-link"></span></a>License</h3>
+
+<p>(The Apache License)</p>
+
+<p>Copyright (c) 2013-2015 Uttesh Kumar T.H.</p>
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.</p>
+   
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+						<p><a href="#screenshots" class="arrow-btn">See the screenshots! <i class="fa fa-long-arrow-right"></i></a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="screenshots" id="screenshots">
+			<div class="container-fluid">
+				<div class="row">
+					<ul class="grid">
+						<li>
+							<figure>
+								<img src="img/Image 9.png" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<a href="img/Image 9.png" class="single_image">
+										<i class="fa fa-search"></i><br>
+										<p>Overview</p>
+									</a>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="img/status_table.png" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<a href="img/status_table.png" class="single_image">
+										<i class="fa fa-search"></i><br>
+										<p>Status table</p>
+									</a>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+
+						<li>
+							<figure>
+								<img src="img/status_chart.png" alt="Screenshot 01">
+								<figcaption>
+								<div class="caption-content">
+									<a href="img/status_chart.png" class="single_image">
+										<i class="fa fa-search"></i><br>
+										<p>statuc chart</p>
+									</a>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="img/pdfngreport_3.png" alt="Screenshot 01" >
+								<figcaption>
+								<div class="caption-content">
+									<a href="img/pdfngreport_3.png" class="single_image">
+										<i class="fa fa-search"></i><br>
+										<p>Exception summary page</p>
+									</a>
+								</div>
+								</figcaption>
+							</figure>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+		</section>
+		<section class="download" id="download">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center wp4">
+						<h1>Seen Enough?</h1>
+						<a href="https://github.com/uttesh/pdfngreportdemo" target="_blank" class="download-btn">Download Implemented sample code! <i class="fa fa-download"></i></a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+						<h1 class="footer-logo">
+						<img src="img/logo-blue.png" alt="Footer Logo Blue">
+						</h1>
+						<p>© Boxify 2015 - <a href="http://tympanus.net/codrops/licensing/">Licence</a> - Designed &amp; Developed by <a href="http://www.peterfinlan.com/">Peter Finlan</a></p>
+					</div>
+					<div class="col-md-7">
+						<ul class="footer-nav">
+							<li><a href="#about">About</a></li>
+							<li><a href="#features">Features</a></li>
+							<li><a href="#screenshots">Screenshots</a></li>
+							<li><a href="#download">Download</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer-->
+		<!--div class="overlay overlay-boxify">
+			<nav>
+				<ul>
+					<li><a href="#about"><i class="fa fa-heart"></i>About</a></li>
+					<li><a href="#features"><i class="fa fa-flash"></i>Features</a></li>
+				</ul>
+				<ul>
+					<li><a href="#screenshots"><i class="fa fa-desktop"></i>Screenshots</a></li>
+					<li><a href="#download"><i class="fa fa-download"></i>Download</a></li>
+				</ul>
+			</nav>
+		</div-->
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/min/toucheffects-min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/flickity.pkgd.min.js"></script>
+		<script src="js/jquery.fancybox.pack.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/retina.js"></script>
+		<script src="js/waypoints.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/min/scripts-min.js"></script>
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+		function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+		e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+		e.src='//www.google-analytics.com/analytics.js';
+		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+		ga('create','UA-XXXXX-X');ga('send','pageview');
+		</script>
+	</body>
+</html>
