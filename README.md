@@ -3,6 +3,7 @@ pdfngreport (PDF report plugin for TestNG)
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/uttesh/pdfngreport/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.uttesh/pdfngreport/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.uttesh/pdfngreport/)
+[![Build Status](https://travis-ci.org/uttesh/pdfngreport.svg)](https://travis-ci.org/uttesh/pdfngreport)
 
 [![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/uttesh/)
 
