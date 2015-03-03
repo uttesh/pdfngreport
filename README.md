@@ -7,6 +7,11 @@ pdfngreport (PDF report plugin for TestNG)
 
 [![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/uttesh/)
 
+
+Join our online chat at [![Gitter](https://badges.gitter.im/pdfngreport/gitter.svg)](https://gitter.im/pdfngreport/gitter)
+
+More info at [gitter.im](https://gitter.im)
+
 ======================================================================
 This is the part of maven repository now,Directly add in pom following.
 
