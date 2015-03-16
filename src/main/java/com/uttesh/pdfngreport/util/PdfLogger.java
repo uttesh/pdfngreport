@@ -18,8 +18,8 @@ package com.uttesh.pdfngreport.util;
 import com.uttesh.pdfngreport.common.Constants;
 
 /**
- *
- * @author Rivet Systems
+ *  Logger for the logging the debug statements.
+ * @author Uttesh Kumar T.H.
  */
 public class PdfLogger {
 

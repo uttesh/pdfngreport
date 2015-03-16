@@ -17,7 +17,7 @@ This is the part of maven repository now,Directly add in pom following.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
@@ -40,14 +40,14 @@ PDF report sample <a href="https://github.com/uttesh/pdfngreportdemo/raw/master/
 <b>Environment and dependent jar file</b>
 <hr/>
 
-1. Minimum JDK 1.5 or higher
+1. Minimum JDK 1.6 or higher
 2. Jfree jar 
-3. Itext jar
+3. Apache fop jar
 
 
 <b> ANT users configuration </b>
 <hr/>
-Download latest jfree and itext jars from respective links and keep in lib.
+Download latest jfree and Apache fop jars from respective links and keep in lib.
 
 ANT/MAVEN sample demo example <a href="https://github.com/uttesh/pdfngreportdemo" target"_blank">demo source</a>
 
@@ -70,7 +70,7 @@ configure build.xml file with below testng tag
 <b> MAVEN users configuration </b>
 <hr/>
 
-Add below jfree and itext dependencies in pom.xml
+Add below jfree and apache fop dependencies in pom.xml
 
 ```
        <dependency>
@@ -78,11 +78,20 @@ Add below jfree and itext dependencies in pom.xml
             <artifactId>jfreechart</artifactId>
             <version>1.0.13</version>
         </dependency>
-        
         <dependency>
-            <groupId>com.lowagie</groupId>
-            <artifactId>itext</artifactId>
-            <version>4.2.1</version>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>fop</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-api</artifactId>
+            <version>4.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-impl</artifactId>
+            <version>4.3.1</version>
         </dependency>
 ```
 
@@ -113,13 +122,9 @@ You may also want to disable the default TestNG reporters by setting the
                             <pdfreport.title>Testing Title</pdfreport.title>
                             <pdfreport.chart>show</pdfreport.chart>
                             <pdfreport.logger>true</pdfreport.logger>
-                            <pdfreport.outputdir>E:\rivetsys\automation</pdfreport.outputdir>
+                            <pdfreport.outputdir>E:/rivetsys/automation/pdfngreport</pdfreport.outputdir>
                         </systemPropertyVariables>
                         <properties>
-                            <property>
-                                <name>outputdir</name>
-                                <value>D:\maven\automation_report</value> 
-                            </property>
                             <property>
                                 <name>usedefaultlisteners</name>
                                 <value>false</value> <!-- disabling default listeners is optional -->
@@ -145,7 +150,7 @@ For Maven pom.xml configuration, Add this dependecy.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency> 
  ```
 
@@ -188,7 +193,7 @@ MAVEN :
 contributions
 =============
 
-All credit goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="http://itextpdf.com/">itext</a> open source jar file which i used to generate the pdf report and pie chart statistic graph.
+All credit goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="https://xmlgraphics.apache.org">Apache fop</a> open source jar file which were used to generate the pdf report and pie chart statistic graph.
 
 PDFngreport Developer : <a href="http://www.uttesh.com" target="_blank">uttesh.com</a>
 

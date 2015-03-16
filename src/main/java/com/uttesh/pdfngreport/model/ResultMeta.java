@@ -23,6 +23,8 @@ import org.testng.ITestResult;
 /**
  *
  * @author Uttesh Kumar T.H.
+ * 
+ * This bean class holds the test execution result set.
  */
 public class ResultMeta {
     

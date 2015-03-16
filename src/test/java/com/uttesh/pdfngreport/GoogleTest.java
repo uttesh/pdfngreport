@@ -1,8 +1,8 @@
 package com.uttesh.pdfngreport;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertTrue;
+
 import org.testng.Assert;
+import static org.testng.Assert.assertTrue;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.Test;

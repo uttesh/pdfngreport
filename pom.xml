@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.uttesh</groupId>
     <artifactId>pdfngreport</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.5</maven.compiler.source>
-        <maven.compiler.target>1.5</maven.compiler.target>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
     </properties>
     
     <parent>
@@ -21,6 +21,11 @@
             <name>Uttesh Kumar T.H.</name>
             <email>uttesh@gmail.com</email>
             <url>http://www.uttesh.com</url>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>Asia/Kolkata</timezone>
         </developer>
     </developers>
     
@@ -36,10 +41,10 @@
         </license>
     </licenses>
     
-	<issueManagement>
-      <system>GitHub Issue Tracker</system>
-      <url>https://github.com/uttesh/pdfngreport/issues</url>
-   </issueManagement>
+    <issueManagement>
+        <system>GitHub Issue Tracker</system>
+        <url>https://github.com/uttesh/pdfngreport/issues</url>
+    </issueManagement>
    
     <scm>
         <url>http://svn.apache.org/viewvc/maven</url>
@@ -52,28 +57,46 @@
             <version>1.0.13</version>
         </dependency>
         <dependency>
-            <groupId>com.lowagie</groupId>
-            <artifactId>itext</artifactId>
-            <version>4.2.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.8</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>fop</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-api</artifactId>
+            <version>4.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-impl</artifactId>
+            <version>4.3.1</version>
+        </dependency>
     </dependencies>
     
     <build>
-
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xsl</include>
+                </includes>
+            </resource>
+        </resources>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
-                        <source>1.5</source>
-                        <target>1.5</target>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                        <executable>F:/devtools/jdk1.6.0_31/bin/javac</executable>
                     </configuration>
                     <version>2.3.2</version>
                 </plugin>
@@ -87,10 +110,10 @@
                             <suiteXmlFile>testng.xml</suiteXmlFile>
                         </suiteXmlFiles>
                         <systemPropertyVariables>
-                            <pdfreport.title>Testing Title</pdfreport.title>
+                            <pdfreport.title>PDF NG Report Title</pdfreport.title>
                             <pdfreport.chart>show</pdfreport.chart>
                             <pdfreport.logger>true</pdfreport.logger>
-                            <pdfreport.outputdir>E:\rivetsys\automation</pdfreport.outputdir>
+                            <pdfreport.outputdir>E:/rivetsys/automation/pdfngreport</pdfreport.outputdir>
                         </systemPropertyVariables>
                         <properties>
                             <property>
@@ -130,7 +153,6 @@
                         <notree>true</notree>
                         <nocomment>true</nocomment>
                         <nohelp>true</nohelp>
-
                     </configuration>
                     <executions>
                         <execution>

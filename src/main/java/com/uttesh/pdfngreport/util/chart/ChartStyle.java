@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-package com.uttesh.pdfngreport.util;
+package com.uttesh.util.chart;
 
 import java.awt.Color;
 import java.awt.Font;
