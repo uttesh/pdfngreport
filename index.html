@@ -9,7 +9,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>pdfngreport:Generate PDF report for testng framework</title>
-		<meta name="description" content="An Free, Open source PDF report generator for testng/selenium framework test cases execution results, no need to write any code and just configuration" />
+		<meta name="description" content="An Free, Open source PDF report generator library for testng/selenium framework test cases execution results, no need to write any code and just configuration" />
 		<meta name="keywords" content="PDF report generator for testng, selenium framework" />
 		<meta name="author" content="Uttesh Kumar T.H." />
 		<!-- Bootstrap -->
@@ -51,10 +51,10 @@
 				<div class="container">
 					<div class="row nav-wrapper">
 						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-							<h1><a href="#">PDFngreport 1.0.0 GA</a></h1>
+							<h1><a href="#">PDFngreport 2.0.0 GA</a></h1>
 							<h2 class="animated fadeInDown">No Coding Just Configuration !!!! </h2>
-							<h4>Free, Open source PDF report generator for testng/selenium framework</h4>
-							<a href="https://github.com/uttesh/pdfngreportdemo/blob/master/automation_report/pdfng_report.pdf?raw=true" target="_blank" class="use-btn animated fadeInUp">Sample pdf report</a> 
+							<h4>Free, Open source PDF report generator library for testng/selenium framework</h4>
+							<a href="https://github.com/uttesh/pdfngreportdemo/blob/master/report/pdfng_report.pdf?raw=true" target="_blank" class="use-btn animated fadeInUp">Sample pdf report</a> 
 							<a href="#about" class="learn-btn animated fadeInUp">Configuration Details<i class="fa fa-arrow-down"></i></a>
 							<a href="https://github.com/uttesh/pdfngreport/issues" target="_blank" class="learn-btn animated fadeInUp"><i class="fa fa-git"></i> Report a Bug</a>
 						</div>
@@ -64,17 +64,24 @@
 						<div class="col-md-6 nopadding">
 							<div style="position: relative;margin-top:100px;height: 400px;">
 									<ul class="slides" id="featuresSlider">
-									    <li>
-											<img src="img/slide1.png" alt="" style="height:350px;">
+									  <li>
+											<img src="img/slide2.png" alt="" style="height:350px;">
+
 										</li>
 									   	<li>
-											<img src="img/slide2.png" alt="" style="height:350px;">
-										</li>
-										<li>
 											<img src="img/slide3.png" alt="" style="height:350px;">
 										</li>
 										<li>
 											<img src="img/slide4.png" alt="" style="height:350px;">
+
+										</li>
+										<li>
+											<img src="img/slide5.png" alt="" style="height:350px;">
+
+										</li>
+										<li>
+											<img src="img/slide6.png" alt="" style="height:350px;">
+
 										</li>
 									</ul>
 							</div>
@@ -131,12 +138,12 @@
 										<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
         <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
         <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
-        <span style="color: #007700">&lt;version&gt;</span>1.0.0<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;version&gt;</span>2.0.0<span style="color: #007700">&lt;/version&gt;</span>
 <span style="color: #007700">&lt;/dependency&gt;</span>
 </pre></div>
 
 									    </p>
-										<p><a href="http://search.maven.org/#artifactdetails%7Ccom.uttesh%7Cpdfngreport%7C1.0.0%7Cjar" target="_blank" class="arrow-btn">Simple Its in Maven central repository! <i class="fa fa-long-arrow-right"></i></a></p>
+										<p><a href="http://search.maven.org/#artifactdetails%7Ccom.uttesh%7Cpdfngreport%7C2.0.0%7Cjar" target="_blank" class="arrow-btn">Simple Its in Maven central repository! <i class="fa fa-long-arrow-right"></i></a></p>
 									</li>
 								</ul>
 						</div>
@@ -154,15 +161,15 @@
 						<b>Environment and dependent jar file</b>
 						<hr/>
 							<ol>
-								<li>Minimum JDK 1.5 or higher</li>
+								<li>Minimum JDK 1.6 or higher</li>
 								<li>Jfree jar </li>
-								<li>Itext jar </li>
+								<li>Apache FOP jar </li>
 							</ol>
 						<b> ANT build configuration </b>
 						<hr/>
-						 <span>Download latest jfree and itext jars from respective links and keep in lib.
-						configure build.xml file with below testng tag </span></br>
-						<a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/1.0.0/pdfngreport-1.0.0.jar">Latest pdfngreport jar download </a>
+						 <span>Download latest jfree and Apache FOP jars from respective links and keep in lib.
+						configure build.xml file with below testng tag  </span></br>
+						<a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.0/pdfngreport-2.0.0.jar">Latest pdfngreport jar download </a>
 						Sample demo application is having all required jar for ANT</br>
 
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">  <span style="color: #007700">&lt;testng</span> <span style="color: #0000CC">classpathref=</span><span style="background-color: #fff0f0">&quot;test-path&quot;</span>
@@ -181,18 +188,28 @@
 <b> MAVEN build configuration </b>
 <hr/>
 
-Add below jfree and itext dependencies in pom.xml
+Add below jfree and Apache FOP dependencies in pom.xml
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">       <span style="color: #007700">&lt;dependency&gt;</span>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">        <span style="color: #007700">&lt;dependency&gt;</span>
             <span style="color: #007700">&lt;groupId&gt;</span>jfree<span style="color: #007700">&lt;/groupId&gt;</span>
             <span style="color: #007700">&lt;artifactId&gt;</span>jfreechart<span style="color: #007700">&lt;/artifactId&gt;</span>
             <span style="color: #007700">&lt;version&gt;</span>1.0.13<span style="color: #007700">&lt;/version&gt;</span>
         <span style="color: #007700">&lt;/dependency&gt;</span>
-        
         <span style="color: #007700">&lt;dependency&gt;</span>
-            <span style="color: #007700">&lt;groupId&gt;</span>com.lowagie<span style="color: #007700">&lt;/groupId&gt;</span>
-            <span style="color: #007700">&lt;artifactId&gt;</span>itext<span style="color: #007700">&lt;/artifactId&gt;</span>
-            <span style="color: #007700">&lt;version&gt;</span>4.2.1<span style="color: #007700">&lt;/version&gt;</span>
+            <span style="color: #007700">&lt;groupId&gt;</span>org.apache.xmlgraphics<span style="color: #007700">&lt;/groupId&gt;</span>
+            <span style="color: #007700">&lt;artifactId&gt;</span>fop<span style="color: #007700">&lt;/artifactId&gt;</span>
+            <span style="color: #007700">&lt;version&gt;</span>1.1<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;/dependency&gt;</span>
+        <span style="color: #007700">&lt;dependency&gt;</span>
+            <span style="color: #007700">&lt;groupId&gt;</span>org.apache.avalon.framework<span style="color: #007700">&lt;/groupId&gt;</span>
+            <span style="color: #007700">&lt;artifactId&gt;</span>avalon-framework-api<span style="color: #007700">&lt;/artifactId&gt;</span>
+            <span style="color: #007700">&lt;version&gt;</span>4.3.1<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;/dependency&gt;</span>
+
+        <span style="color: #007700">&lt;dependency&gt;</span>
+            <span style="color: #007700">&lt;groupId&gt;</span>org.apache.avalon.framework<span style="color: #007700">&lt;/groupId&gt;</span>
+            <span style="color: #007700">&lt;artifactId&gt;</span>avalon-framework-impl<span style="color: #007700">&lt;/artifactId&gt;</span>
+            <span style="color: #007700">&lt;version&gt;</span>4.3.1<span style="color: #007700">&lt;/version&gt;</span>
         <span style="color: #007700">&lt;/dependency&gt;</span>
 </pre></div>
 </br></br>
@@ -201,7 +218,7 @@ For Maven pom.xml configuration, Add pdfngreport dependency.
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
         <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
         <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
-        <span style="color: #007700">&lt;version&gt;</span>1.0.0<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;version&gt;</span>2.0.0<span style="color: #007700">&lt;/version&gt;</span>
 <span style="color: #007700">&lt;/dependency&gt;</span>
 </pre></div>
 To use the reporting plug-in, set the "listeners" attribute of the "testng"
@@ -225,12 +242,12 @@ POM testng configuration with pdfngreport plug-in parameters
                             <span style="color: #007700">&lt;pdfreport.title&gt;</span>Testing Title<span style="color: #007700">&lt;/pdfreport.title&gt;</span>
                             <span style="color: #007700">&lt;pdfreport.chart&gt;</span>show<span style="color: #007700">&lt;/pdfreport.chart&gt;</span>
                             <span style="color: #007700">&lt;pdfreport.logger&gt;</span>true<span style="color: #007700">&lt;/pdfreport.logger&gt;</span>
-                            <span style="color: #007700">&lt;pdfreport.outputdir&gt;</span>E:\rivetsys\automation<span style="color: #007700">&lt;/pdfreport.outputdir&gt;</span>
+                            <span style="color: #007700">&lt;pdfreport.outputdir&gt;</span>E:/rivetsys/automation<span style="color: #007700">&lt;/pdfreport.outputdir&gt;</span>
                         <span style="color: #007700">&lt;/systemPropertyVariables&gt;</span>
                         <span style="color: #007700">&lt;properties&gt;</span>
                             <span style="color: #007700">&lt;property&gt;</span>
                                 <span style="color: #007700">&lt;name&gt;</span>outputdir<span style="color: #007700">&lt;/name&gt;</span>
-                                <span style="color: #007700">&lt;value&gt;</span>D:\maven\automation_report<span style="color: #007700">&lt;/value&gt;</span> 
+                                <span style="color: #007700">&lt;value&gt;</span>D:/maven/automation_report<span style="color: #007700">&lt;/value&gt;</span> 
                             <span style="color: #007700">&lt;/property&gt;</span>
                             <span style="color: #007700">&lt;property&gt;</span>
                                 <span style="color: #007700">&lt;name&gt;</span>usedefaultlisteners<span style="color: #007700">&lt;/name&gt;</span>
@@ -290,7 +307,7 @@ POM testng configuration with pdfngreport plug-in parameters
 <b>Contributions</b>
 </hr>
 </br></br>
-All credit goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="http://itextpdf.com/">itext</a> open source jar file which i used to generate the pdf report and pie chart statistic graph.
+All credit goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="https://xmlgraphics.apache.org/">Apache FOP</a> open source jar file which i used to generate the pdf report and pie chart statistic graph.
 </br></br>
 PDFngreport Developer : <a href="http://www.uttesh.com" target="_blank">uttesh.com</a>
 
@@ -324,10 +341,10 @@ PDFngreport Developer : <a href="http://www.uttesh.com" target="_blank">uttesh.c
 					<ul class="grid">
 						<li>
 							<figure>
-								<img src="img/Image 9.png" alt="Screenshot 01">
+								<img src="img/report_2.0.png" alt="Screenshot 01">
 								<figcaption>
 								<div class="caption-content">
-									<a href="img/Image 9.png" class="single_image">
+									<a href="img/report_2.0.png" class="single_image">
 										<i class="fa fa-search"></i><br>
 										<p>Overview</p>
 									</a>
@@ -337,10 +354,10 @@ PDFngreport Developer : <a href="http://www.uttesh.com" target="_blank">uttesh.c
 						</li>
 						<li>
 							<figure>
-								<img src="img/status_table.png" alt="Screenshot 01">
+								<img src="img/pdfngreport_2.png" alt="Screenshot 01">
 								<figcaption>
 								<div class="caption-content">
-									<a href="img/status_table.png" class="single_image">
+									<a href="img/pdfngreport_2.png" class="single_image">
 										<i class="fa fa-search"></i><br>
 										<p>Status table</p>
 									</a>
@@ -351,10 +368,11 @@ PDFngreport Developer : <a href="http://www.uttesh.com" target="_blank">uttesh.c
 
 						<li>
 							<figure>
-								<img src="img/status_chart.png" alt="Screenshot 01">
+								<img src="img/pdfngreport_3.png" alt="Screenshot 01">
 								<figcaption>
 								<div class="caption-content">
-									<a href="img/status_chart.png" class="single_image">
+									<a href="img/pdfngreport_3.png" class="single_image">
+
 										<i class="fa fa-search"></i><br>
 										<p>statuc chart</p>
 									</a>
@@ -364,10 +382,11 @@ PDFngreport Developer : <a href="http://www.uttesh.com" target="_blank">uttesh.c
 						</li>
 						<li>
 							<figure>
-								<img src="img/pdfngreport_3.png" alt="Screenshot 01" >
+								<img src="img/pdfngreport_5.png" alt="Screenshot 01" >
 								<figcaption>
 								<div class="caption-content">
-									<a href="img/pdfngreport_3.png" class="single_image">
+									<a href="img/pdfngreport_5.png" class="single_image">
+
 										<i class="fa fa-search"></i><br>
 										<p>Exception summary page</p>
 									</a>
