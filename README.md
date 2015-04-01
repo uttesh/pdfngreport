@@ -17,7 +17,7 @@ This is the part of maven repository now,Directly add in pom following.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.0</version>
+            <version>2.0.1</version>
         </dependency>
         
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
@@ -25,7 +25,7 @@ This is the pdf report plugin written for testng, this listener will generate th
 <b>How to use pdfngreport Plugin</b>
 <hr/>
 
-Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.0/">download</a>
+Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.1/">download</a>
 
 Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">download sample</a>
 
@@ -59,9 +59,6 @@ configure build.xml file with below testng tag
           haltonfailure="true"
           useDefaultListeners="false"
           listeners="com.uttesh.pdfngreport.PDFReportListener">
-    <sysproperty key="pdfreport.title" value="My Test Report"/>
-    <sysproperty key="pdfreport.chart" value="show"/>
-    <sysproperty key="pdfreport.outputdir" value="// system path to save generatef pdf report"/>
   </testng>
  ``` 
  If linteners configured in ant build.xml then no need configure/set listener in testsuit xml, if configured both placess it will call PDFReportListener class two times.
@@ -118,26 +115,10 @@ You may also want to disable the default TestNG reporters by setting the
                         <suiteXmlFiles>
                             <suiteXmlFile>testng.xml</suiteXmlFile>
                         </suiteXmlFiles>
-                        <systemPropertyVariables>
-                            <pdfreport.title>Testing Title</pdfreport.title>
-                            <pdfreport.chart>show</pdfreport.chart>
-                            <pdfreport.logger>true</pdfreport.logger>
-                            <pdfreport.outputdir>E:/rivetsys/automation/pdfngreport</pdfreport.outputdir>
-                        </systemPropertyVariables>
                         <properties>
                             <property>
                                 <name>usedefaultlisteners</name>
                                 <value>false</value> <!-- disabling default listeners is optional -->
-                            </property>
-                            <!-- if testng suit xml file is configured with listener no need here -->
-<!--                            <property>
-                                <name>listener</name>
-                                <value>com.uttesh.pdfngreport.PDFReportListener</value>
-                            </property>
-                            <property>
-                                <name>reporter</name>
-                                <value>listenReport.Reporter</value>
-                            </property>-->
                             </property>
                         </properties>
                     </configuration>
@@ -150,7 +131,7 @@ For Maven pom.xml configuration, Add this dependecy.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.0</version>
+            <version>2.0.1</version>
         </dependency> 
  ```
 
@@ -160,6 +141,9 @@ For Maven pom.xml configuration, Add this dependecy.
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Simple Reporter Suite">
+
+  <parameter name="pdfngreport-properties" value="D:\property_files\pdfngreport.properties" />
+  
   <listeners>
     <listener class-name="com.uttesh.pdfngreport.PDFReportListener" />
   </listeners>
@@ -172,23 +156,13 @@ For Maven pom.xml configuration, Add this dependecy.
   </test>
 </suite>
 ```
-<b> reporting property setting in ant/maven</b>
+<b> set the following in the respective properties file for globel parameter pdfngreport-properties</b>
+```
+pdfreport.title=PDF NG Report Title 
+pdfreport.chart=show
+pdfreport.logger=true
+pdfreport.outputdir=E:/pdfngreport
 
-ANT :
-```
-    <sysproperty key="pdfreport.title" value="My Test Report"/>(Required)
-    <sysproperty key="pdfreport.outputdir" value="file:// system path to save generatef pdf report"/>(Required)
-    <sysproperty key="pdfreport.chart" value="show"/>(Optional)
-    <sysproperty key="pdfreport.logger" value="true"/>(Optional)
-```    
-MAVEN :
-```
-    <systemPropertyVariables>
-        <pdfreport.title>Testing Title</pdfreport.title>
-        <pdfreport.chart>show</pdfreport.chart>
-        <pdfreport.logger>true</pdfreport.logger>
-        <pdfreport.outputdir>file:// system path to save generatef pdf report</pdfreport.outputdir>
-    </systemPropertyVariables>
 ```
 contributions
 =============
