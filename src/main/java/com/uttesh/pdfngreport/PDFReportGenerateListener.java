@@ -17,6 +17,7 @@ package com.uttesh.pdfngreport;
 
 import com.uttesh.pdfngreport.common.Constants;
 import com.uttesh.pdfngreport.model.ResultMeta;
+import com.uttesh.pdfngreport.util.PDFCache;
 import java.util.HashMap;
 import java.util.Map;
 import org.testng.ISuite;
@@ -43,6 +44,9 @@ public class PDFReportGenerateListener implements ITestListener, ISuiteListener 
         if (result.size() > 0) {
             PDFGenerator generator = new PDFGenerator();
             String outpurDir = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
+            if (outpurDir == null || outpurDir.trim().length() == 0) {
+                outpurDir = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
+            }
             generator.generateReport(outpurDir + "\\" + Constants.PDF_REPORT_FILE_NAME, result);
         }
     }

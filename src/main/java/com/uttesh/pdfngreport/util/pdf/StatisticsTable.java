@@ -18,6 +18,8 @@ package com.uttesh.pdfngreport.util.pdf;
 import com.uttesh.pdfngreport.common.Constants;
 import com.uttesh.pdfngreport.handler.PdfReportHandler;
 import com.uttesh.pdfngreport.model.ResultMeta;
+import com.uttesh.pdfngreport.util.PDFCache;
+import com.uttesh.pdfngreport.util.PdfngUtil;
 import com.uttesh.pdfngreport.util.xml.ColumnHeader;
 import com.uttesh.pdfngreport.util.xml.Row;
 import com.uttesh.pdfngreport.util.xml.RowMeta;
@@ -38,7 +40,7 @@ public class StatisticsTable {
     int skipped = 0;
     int failed = 0;
     double percent = 0;
-    String reportLocation = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
+    String reportLocation = PdfngUtil.getReportLocation();
 
     public void populateData(Map<String, ResultMeta> result, Table statisticsTable) throws IOException {
         List<ColumnHeader> columns = new ArrayList<ColumnHeader>();
@@ -47,6 +49,9 @@ public class StatisticsTable {
         String chartDisplay = "show";
         if (System.getProperty(Constants.SystemProps.REPORT_CHART_PROP) != null) {
             chartDisplay = System.getProperty(Constants.SystemProps.REPORT_CHART_PROP);
+            if (chartDisplay == null || chartDisplay.trim().length() == 0) {
+                chartDisplay = (String) PDFCache.get(Constants.SystemProps.REPORT_CHART_PROP);
+            }
         }
 
         for (String className : result.keySet()) {

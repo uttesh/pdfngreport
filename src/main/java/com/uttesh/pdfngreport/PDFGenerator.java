@@ -20,6 +20,7 @@ import com.uttesh.pdfngreport.exceptionHandler.ReportException;
 import com.uttesh.pdfngreport.handler.PdfReportHandler;
 import com.uttesh.pdfngreport.model.ResultMeta;
 import com.uttesh.pdfngreport.util.ExceptionSummary;
+import com.uttesh.pdfngreport.util.PDFCache;
 import com.uttesh.pdfngreport.util.PdfLogger;
 import com.uttesh.pdfngreport.util.pdf.FailedTable;
 import com.uttesh.pdfngreport.util.pdf.ITable;
@@ -58,7 +59,13 @@ public class PDFGenerator {
         ReportData reportData = new ReportData();
         List<Table> tables = new ArrayList<Table>();
         String reportTitle = System.getProperty(Constants.SystemProps.REPORT_TITLE_PROP);
+        if (reportTitle == null || reportTitle.trim().length() == 0) {
+            reportTitle = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TITLE_PROP);
+        }
         String reportLocation = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
+        if (reportLocation == null || reportLocation.trim().length() == 0) {
+            reportLocation = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
+        }
         reportData.setReportTitle(reportTitle);
         reportData.setReportLocation(reportLocation);
         try {
@@ -67,9 +74,15 @@ public class PDFGenerator {
                 tables.add(getStatisticsTable(result));
                 for (String suiteName : result.keySet()) {
                     ResultMeta resultMeta = result.get(suiteName);
-                    tables.add(getTable(resultMeta.getPassedSet(),Constants.TestCaseStatus.PASS));
-                    tables.add(getTable(resultMeta.getFailedSet(),Constants.TestCaseStatus.FAILED));
-                    tables.add(getTable(resultMeta.getSkippedSet(),Constants.TestCaseStatus.SKIPPED));
+                    if (resultMeta.getPassedSet() != null && resultMeta.getPassedSet().size() > 0) {
+                        tables.add(getTable(resultMeta.getPassedSet(), Constants.TestCaseStatus.PASS));
+                    }
+                    if (resultMeta.getFailedSet() != null && resultMeta.getFailedSet().size() > 0) {
+                        tables.add(getTable(resultMeta.getFailedSet(), Constants.TestCaseStatus.FAILED));
+                    }
+                    if (resultMeta.getSkippedSet() != null && resultMeta.getSkippedSet().size() > 0) {
+                        tables.add(getTable(resultMeta.getSkippedSet(), Constants.TestCaseStatus.SKIPPED));
+                    }
                 }
                 ExceptionSummary exceptionSummary = new ExceptionSummary();
                 reportData.setExceptionMeta(exceptionSummary.getSummary());
@@ -85,7 +98,7 @@ public class PDFGenerator {
 
     private void createFile(String location) throws IOException {
         file = new File(location);
-        System.out.println("pdf report file path :"+file.getAbsolutePath());
+        System.out.println("pdf report file path :" + file.getAbsolutePath());
         new File(location).mkdirs();
         if (!file.exists()) {
             file.createNewFile();

@@ -25,6 +25,7 @@ import java.util.Set;
 public class PDFCache {
 
     private static HashMap<Object, Object> cache = new HashMap<Object, Object>();
+    private static HashMap<Object, Object> configCache = new HashMap<Object, Object>();
 
     public static Object get(Object key) {
         return cache.get(key);
@@ -44,6 +45,23 @@ public class PDFCache {
 
     public static void setCache(HashMap<Object, Object> cache) {
         PDFCache.cache = cache;
+    }
+
+    public static HashMap<Object, Object> getConfigCache() {
+        return configCache;
+    }
+
+    public static void setConfigCache(HashMap<Object, Object> configCache) {
+        PDFCache.configCache = configCache;
+    }
+    
+    
+    public static Object getConfig(Object key) {
+        return configCache.get(key);
+    }
+
+    public static void putConfig(Object key, Object value) {
+        configCache.put(key, value);
     }
     
 }

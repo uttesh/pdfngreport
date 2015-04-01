@@ -1,0 +1,3 @@
+1. run mvn clean javadoc:jar source:jar gpg:sign -Dgpg.passphrase=utt1234$ install
+2. run "gpg -ab target\pdfngreport-2.0.0.jar" to create the jar file ".asc" file.
+3. run mvn clean javadoc:jar source:jar gpg:sign -Dgpg.passphrase=utt1234$ deploy

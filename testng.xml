@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Simple Reporter Suite">
+    <parameter name="pdfngreport-properties" value="D:\property_files\pdfngreport.properties" />
   <listeners>
     <listener class-name="com.uttesh.pdfngreport.PDFReportListener" />
   </listeners>
@@ -8,6 +9,7 @@
     <classes>
       <class name="com.uttesh.pdfngreport.AmazonTests" />
       <class name="com.uttesh.pdfngreport.GoogleTest" />
+      <class name="com.uttesh.pdfngreport.SunalpsTest" />
     </classes>
   </test>
 </suite>

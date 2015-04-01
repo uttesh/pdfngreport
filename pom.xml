@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.uttesh</groupId>
     <artifactId>pdfngreport</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -109,18 +109,18 @@
                         <suiteXmlFiles>
                             <suiteXmlFile>testng.xml</suiteXmlFile>
                         </suiteXmlFiles>
-                        <systemPropertyVariables>
+                        <!--systemPropertyVariables>
                             <pdfreport.title>PDF NG Report Title</pdfreport.title>
                             <pdfreport.chart>show</pdfreport.chart>
                             <pdfreport.logger>true</pdfreport.logger>
                             <pdfreport.outputdir>E:/rivetsys/automation/pdfngreport</pdfreport.outputdir>
-                        </systemPropertyVariables>
+                        </systemPropertyVariables-->
                         <properties>
                             <property>
                                 <name>usedefaultlisteners</name>
-                                <value>false</value> <!-- disabling default listeners is optional -->
+                                <value>false</value>
                             </property>
-                            <!--                            <property>
+                            <!--property>
                                 <name>listener</name>
                                 <value>com.uttesh.pdfngreport.PDFReportListener</value>
                             </property>
