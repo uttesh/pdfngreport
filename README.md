@@ -29,7 +29,7 @@ Download latest version of pdfreport <a href="https://oss.sonatype.org/content/r
 
 Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">download sample</a>
 
-PDF report sample <a href="https://github.com/uttesh/pdfngreportdemo/blob/master/report/pdfng_report.pdf">report</a>
+PDF report sample <a href="https://github.com/uttesh/pdfngreportdemo/raw/master/report/pdfng_report.pdf">report</a>
 
  pdf report preview snaps :
  
