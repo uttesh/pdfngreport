@@ -51,7 +51,7 @@
 				<div class="container">
 					<div class="row nav-wrapper">
 						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-							<h1><a href="#">PDFngreport 2.0.0 GA</a></h1>
+							<h1><a href="#">PDFngreport 2.0.1</a></h1>
 							<h2 class="animated fadeInDown">No Coding Just Configuration !!!! </h2>
 							<h4>Free, Open source PDF report generator library for testng/selenium framework</h4>
 							<a href="https://github.com/uttesh/pdfngreportdemo/blob/master/report/pdfng_report.pdf?raw=true" target="_blank" class="use-btn animated fadeInUp">Sample pdf report</a> 
@@ -138,12 +138,12 @@
 										<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
         <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
         <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
-        <span style="color: #007700">&lt;version&gt;</span>2.0.0<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;version&gt;</span>2.0.1<span style="color: #007700">&lt;/version&gt;</span>
 <span style="color: #007700">&lt;/dependency&gt;</span>
 </pre></div>
 
 									    </p>
-										<p><a href="http://search.maven.org/#artifactdetails%7Ccom.uttesh%7Cpdfngreport%7C2.0.0%7Cjar" target="_blank" class="arrow-btn">Simple Its in Maven central repository! <i class="fa fa-long-arrow-right"></i></a></p>
+										<p><a href="http://search.maven.org/#artifactdetails%7Ccom.uttesh%7Cpdfngreport%7C2.0.1%7Cjar" target="_blank" class="arrow-btn">Simple Its in Maven central repository! <i class="fa fa-long-arrow-right"></i></a></p>
 									</li>
 								</ul>
 						</div>
@@ -165,25 +165,50 @@
 								<li>Jfree jar </li>
 								<li>Apache FOP jar </li>
 							</ol>
-						<b> ANT build configuration </b>
-						<hr/>
-						 <span>Download latest jfree and Apache FOP jars from respective links and keep in lib.
-						configure build.xml file with below testng tag  </span></br>
-						<a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.0/pdfngreport-2.0.0.jar">Latest pdfngreport jar download </a>
-						Sample demo application is having all required jar for ANT</br>
+							
+<b>testng suit xml file </b>
+<hr/>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span style="color: #007700">&lt;suite</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;Simple Reporter Suite&quot;</span><span style="color: #007700">&gt;</span>
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">  <span style="color: #007700">&lt;testng</span> <span style="color: #0000CC">classpathref=</span><span style="background-color: #fff0f0">&quot;test-path&quot;</span>
-          <span style="color: #0000CC">outputdir=</span><span style="background-color: #fff0f0">&quot;${test-results.dir}&quot;</span>
-          <span style="color: #0000CC">haltonfailure=</span><span style="background-color: #fff0f0">&quot;true&quot;</span>
-          <span style="color: #0000CC">useDefaultListeners=</span><span style="background-color: #fff0f0">&quot;false&quot;</span>
-          <span style="color: #0000CC">listeners=</span><span style="background-color: #fff0f0">&quot;com.uttesh.pdfngreport.PDFReportListener&quot;</span><span style="color: #007700">&gt;</span>
-    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.title&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;My Test Report&quot;</span><span style="color: #007700">/&gt;</span>
-    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.chart&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;show&quot;</span><span style="color: #007700">/&gt;</span>
-    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.outputdir&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;// system path to save generatef pdf report&quot;</span><span style="color: #007700">/&gt;</span>
-<span style="color: #007700">&lt;/testng&gt;</span>
+  <span style="color: #007700">&lt;parameter</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;pdfngreport-properties&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;D:\property_files\pdfngreport.properties&quot;</span> <span style="color: #007700">/&gt;</span>
+
+  <span style="color: #007700">&lt;listeners&gt;</span>
+    <span style="color: #007700">&lt;listener</span> <span style="color: #0000CC">class-name=</span><span style="background-color: #fff0f0">&quot;com.uttesh.pdfngreport.PDFReportListener&quot;</span> <span style="color: #007700">/&gt;</span>
+  <span style="color: #007700">&lt;/listeners&gt;</span>
+
+  <span style="color: #007700">&lt;test</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;Simple Reporter test&quot;</span><span style="color: #007700">&gt;</span>
+    <span style="color: #007700">&lt;classes&gt;</span>
+      <span style="color: #007700">&lt;class</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;xyz&quot;</span> <span style="color: #007700">/&gt;</span>
+      <span style="color: #007700">&lt;class</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;abc&quot;</span> <span style="color: #007700">/&gt;</span>
+    <span style="color: #007700">&lt;/classes&gt;</span>
+  <span style="color: #007700">&lt;/test&gt;</span>
+<span style="color: #007700">&lt;/suite&gt;</span>
 </pre></div>
- </br></br>
- <span style="color:red">If linteners configured in ant build.xml then no need configure/set listener in testsuit xml, if configured both placess it will call PDFReportListener class two times. </span>
+
+
+</br></br>
+
+<b> pdfngreport.properties file</b>
+
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000CC">pdfreport.title</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">PDF NG Report Title loading properties</span>
+<span style="color: #0000CC">pdfreport.chart</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">show</span>
+<span style="color: #0000CC">pdfreport.logger</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">true</span>
+<span style="color: #0000CC">pdfreport.outputdir</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">E:/automation/pdfngreport</span>
+</pre></div>
+
+</br>
+<a href="https://github.com/uttesh/pdfngreportdemo"  target="_blank">Full working sample code</a>
+
+</br></br>
+<b> Below configuration for ant/maven build</b>
+
+</br></br>
+						<b> ANT </b>
+						<hr/>
+						 <span>Download latest jfree and Apache FOP jars from respective links and keep in lib.</span></br>
+						<a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.1/pdfngreport-2.0.1.jar">Latest pdfngreport jar download </a>
+						Sample demo application is having all required jar for ANT</br>
 </br></br>
 <b> MAVEN build configuration </b>
 <hr/>
@@ -214,11 +239,11 @@ Add below jfree and Apache FOP dependencies in pom.xml
 </pre></div>
 </br></br>
 For Maven pom.xml configuration, Add pdfngreport dependency.
-	<a href="http://mvnrepository.com/artifact/com.uttesh/pdfngreport/1.0.0" target="_blank">Maven repository</a>
+	<a href="http://mvnrepository.com/artifact/com.uttesh/pdfngreport/2.0.1" target="_blank">Maven repository</a>
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
         <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
         <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
-        <span style="color: #007700">&lt;version&gt;</span>2.0.0<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;version&gt;</span>2.0.1<span style="color: #007700">&lt;/version&gt;</span>
 <span style="color: #007700">&lt;/dependency&gt;</span>
 </pre></div>
 To use the reporting plug-in, set the "listeners" attribute of the "testng"
@@ -238,72 +263,18 @@ POM testng configuration with pdfngreport plug-in parameters
                         <span style="color: #007700">&lt;suiteXmlFiles&gt;</span>
                             <span style="color: #007700">&lt;suiteXmlFile&gt;</span>testng.xml<span style="color: #007700">&lt;/suiteXmlFile&gt;</span>
                         <span style="color: #007700">&lt;/suiteXmlFiles&gt;</span>
-                        <span style="color: #007700">&lt;systemPropertyVariables&gt;</span>
-                            <span style="color: #007700">&lt;pdfreport.title&gt;</span>Testing Title<span style="color: #007700">&lt;/pdfreport.title&gt;</span>
-                            <span style="color: #007700">&lt;pdfreport.chart&gt;</span>show<span style="color: #007700">&lt;/pdfreport.chart&gt;</span>
-                            <span style="color: #007700">&lt;pdfreport.logger&gt;</span>true<span style="color: #007700">&lt;/pdfreport.logger&gt;</span>
-                            <span style="color: #007700">&lt;pdfreport.outputdir&gt;</span>E:/rivetsys/automation<span style="color: #007700">&lt;/pdfreport.outputdir&gt;</span>
-                        <span style="color: #007700">&lt;/systemPropertyVariables&gt;</span>
                         <span style="color: #007700">&lt;properties&gt;</span>
-                            <span style="color: #007700">&lt;property&gt;</span>
-                                <span style="color: #007700">&lt;name&gt;</span>outputdir<span style="color: #007700">&lt;/name&gt;</span>
-                                <span style="color: #007700">&lt;value&gt;</span>D:/maven/automation_report<span style="color: #007700">&lt;/value&gt;</span> 
-                            <span style="color: #007700">&lt;/property&gt;</span>
                             <span style="color: #007700">&lt;property&gt;</span>
                                 <span style="color: #007700">&lt;name&gt;</span>usedefaultlisteners<span style="color: #007700">&lt;/name&gt;</span>
                                 <span style="color: #007700">&lt;value&gt;</span>false<span style="color: #007700">&lt;/value&gt;</span> <span style="color: #888888">&lt;!-- disabling default listeners is optional --&gt;</span>
                             <span style="color: #007700">&lt;/property&gt;</span>
                             <span style="color: #888888">&lt;!-- if testng suit xml file is configured with listener no need here --&gt;</span>
-<span style="color: #888888">&lt;!--                            &lt;property&gt;</span>
-<span style="color: #888888">                                &lt;name&gt;listener&lt;/name&gt;</span>
-<span style="color: #888888">                                &lt;value&gt;com.uttesh.pdfngreport.PDFReportListener&lt;/value&gt;</span>
-<span style="color: #888888">                            &lt;/property&gt;</span>
-<span style="color: #888888">                            &lt;property&gt;</span>
-<span style="color: #888888">                                &lt;name&gt;reporter&lt;/name&gt;</span>
-<span style="color: #888888">                                &lt;value&gt;listenReport.Reporter&lt;/value&gt;</span>
-<span style="color: #888888">                            &lt;/property&gt;--&gt;</span>
-                            <span style="color: #007700">&lt;/property&gt;</span>
                         <span style="color: #007700">&lt;/properties&gt;</span>
                     <span style="color: #007700">&lt;/configuration&gt;</span>
                 <span style="color: #007700">&lt;/plugin&gt;</span>
 </pre></div>
 </br></br>
-<b>testng suit xml file </b>
-<hr/>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span style="color: #007700">&lt;suite</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;Simple Reporter Suite&quot;</span><span style="color: #007700">&gt;</span>
-  <span style="color: #007700">&lt;listeners&gt;</span>
-    <span style="color: #007700">&lt;listener</span> <span style="color: #0000CC">class-name=</span><span style="background-color: #fff0f0">&quot;com.uttesh.pdfngreport.PDFReportListener&quot;</span> <span style="color: #007700">/&gt;</span>
-  <span style="color: #007700">&lt;/listeners&gt;</span>
 
-  <span style="color: #007700">&lt;test</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;Simple Reporter test&quot;</span><span style="color: #007700">&gt;</span>
-    <span style="color: #007700">&lt;classes&gt;</span>
-      <span style="color: #007700">&lt;class</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;xyz&quot;</span> <span style="color: #007700">/&gt;</span>
-      <span style="color: #007700">&lt;class</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;abc&quot;</span> <span style="color: #007700">/&gt;</span>
-    <span style="color: #007700">&lt;/classes&gt;</span>
-  <span style="color: #007700">&lt;/test&gt;</span>
-<span style="color: #007700">&lt;/suite&gt;</span>
-</pre></div>
-</br></br>
-
-<b> reporting property setting in ant/maven</b>
-
-<h4>ANT :</h4>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.title&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;My Test Report&quot;</span><span style="color: #007700">/&gt;</span>(Required)
-    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.outputdir&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;file:// system path to save generatef pdf report&quot;</span><span style="color: #007700">/&gt;</span>(Required)
-    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.chart&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;show&quot;</span><span style="color: #007700">/&gt;</span>(Optional)
-    <span style="color: #007700">&lt;sysproperty</span> <span style="color: #0000CC">key=</span><span style="background-color: #fff0f0">&quot;pdfreport.logger&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;true&quot;</span><span style="color: #007700">/&gt;</span>(Optional)
-</pre></div>
-   
-<h4>MAVEN :</h4>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007700">&lt;systemPropertyVariables&gt;</span>
-        <span style="color: #007700">&lt;pdfreport.title&gt;</span>Testing Title<span style="color: #007700">&lt;/pdfreport.title&gt;</span>
-        <span style="color: #007700">&lt;pdfreport.chart&gt;</span>show<span style="color: #007700">&lt;/pdfreport.chart&gt;</span>
-        <span style="color: #007700">&lt;pdfreport.logger&gt;</span>true<span style="color: #007700">&lt;/pdfreport.logger&gt;</span>
-        <span style="color: #007700">&lt;pdfreport.outputdir&gt;</span>file:// system path to save generatef pdf report<span style="color: #007700">&lt;/pdfreport.outputdir&gt;</span>
-    <span style="color: #007700">&lt;/systemPropertyVariables&gt;</span>
-</pre></div>
-</br></br>
 <b>Contributions</b>
 </hr>
 </br></br>
