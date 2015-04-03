@@ -8,9 +8,9 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>pdfngreport:Generate PDF report for testng framework</title>
+		<title>pdfngreport:Generate PDF report for testng framework,selenium</title>
 		<meta name="description" content="An Free, Open source PDF report generator library for testng/selenium framework test cases execution results, no need to write any code and just configuration" />
-		<meta name="keywords" content="PDF report generator for testng, selenium framework" />
+		<meta name="keywords" content="pdfngreport:Generate PDF report for testng framework,selenium, selenium framework" />
 		<meta name="author" content="Uttesh Kumar T.H." />
 		<!-- Bootstrap -->
 		<script src="js/modernizr.custom.js"></script>
@@ -53,8 +53,8 @@
 						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
 							<h1><a href="#">PDFngreport 2.0.1</a></h1>
 							<h2 class="animated fadeInDown">No Coding Just Configuration !!!! </h2>
-							<h4>Free, Open source PDF report generator library for testng/selenium framework</h4>
-							<a href="https://github.com/uttesh/pdfngreportdemo/blob/master/report/pdfng_report.pdf?raw=true" target="_blank" class="use-btn animated fadeInUp">Sample pdf report</a> 
+							<h3>Free, Open source PDF report generator library for testng/selenium framework</h3>
+							<a href="https://github.com/uttesh/pdfngreportdemo/blob/master/report/pdfng_report.pdf?raw=true" target="_blank" class="use-btn animated fadeInUp">Download sample pdf report</a> 
 							<a href="#about" class="learn-btn animated fadeInUp">Configuration Details<i class="fa fa-arrow-down"></i></a>
 							<a href="https://github.com/uttesh/pdfngreport/issues" target="_blank" class="learn-btn animated fadeInUp"><i class="fa fa-git"></i> Report a Bug</a>
 						</div>
@@ -113,7 +113,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
-						<h1><a href="https://github.com/uttesh/pdfngreportdemo"  target="_blank"><i class="fa fa-play-circle-o"></i> Sample application code</a></h1>
+						<h1><a href="https://github.com/uttesh/pdfngreportdemo"  target="_blank"><i class="fa fa-play-circle-o"></i> Sample code</a></h1>
 					</div>
 				</div>
 			</div>
@@ -201,78 +201,15 @@
 <a href="https://github.com/uttesh/pdfngreportdemo"  target="_blank">Full working sample code</a>
 
 </br></br>
-<b> Below configuration for ant/maven build</b>
 
-</br></br>
-						<b> ANT </b>
-						<hr/>
-						 <span>Download latest jfree and Apache FOP jars from respective links and keep in lib.</span></br>
-						<a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.1/pdfngreport-2.0.1.jar">Latest pdfngreport jar download </a>
-						Sample demo application is having all required jar for ANT</br>
-</br></br>
-<b> MAVEN build configuration </b>
-<hr/>
+<h2>Code examples </h2>
+</hr>
+<a href="https://github.com/uttesh/pdfngreport/raw/gh-pages/download/eclipse_archieve/pdfngreport_sample.zip"  target="_blank">Eclipse sample code</a>
+</br>
+<a href="https://github.com/uttesh/pdfngreportdemo"  target="_blank">Ant/Maven sample code</a>
 
-Add below jfree and Apache FOP dependencies in pom.xml
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">        <span style="color: #007700">&lt;dependency&gt;</span>
-            <span style="color: #007700">&lt;groupId&gt;</span>jfree<span style="color: #007700">&lt;/groupId&gt;</span>
-            <span style="color: #007700">&lt;artifactId&gt;</span>jfreechart<span style="color: #007700">&lt;/artifactId&gt;</span>
-            <span style="color: #007700">&lt;version&gt;</span>1.0.13<span style="color: #007700">&lt;/version&gt;</span>
-        <span style="color: #007700">&lt;/dependency&gt;</span>
-        <span style="color: #007700">&lt;dependency&gt;</span>
-            <span style="color: #007700">&lt;groupId&gt;</span>org.apache.xmlgraphics<span style="color: #007700">&lt;/groupId&gt;</span>
-            <span style="color: #007700">&lt;artifactId&gt;</span>fop<span style="color: #007700">&lt;/artifactId&gt;</span>
-            <span style="color: #007700">&lt;version&gt;</span>1.1<span style="color: #007700">&lt;/version&gt;</span>
-        <span style="color: #007700">&lt;/dependency&gt;</span>
-        <span style="color: #007700">&lt;dependency&gt;</span>
-            <span style="color: #007700">&lt;groupId&gt;</span>org.apache.avalon.framework<span style="color: #007700">&lt;/groupId&gt;</span>
-            <span style="color: #007700">&lt;artifactId&gt;</span>avalon-framework-api<span style="color: #007700">&lt;/artifactId&gt;</span>
-            <span style="color: #007700">&lt;version&gt;</span>4.3.1<span style="color: #007700">&lt;/version&gt;</span>
-        <span style="color: #007700">&lt;/dependency&gt;</span>
 
-        <span style="color: #007700">&lt;dependency&gt;</span>
-            <span style="color: #007700">&lt;groupId&gt;</span>org.apache.avalon.framework<span style="color: #007700">&lt;/groupId&gt;</span>
-            <span style="color: #007700">&lt;artifactId&gt;</span>avalon-framework-impl<span style="color: #007700">&lt;/artifactId&gt;</span>
-            <span style="color: #007700">&lt;version&gt;</span>4.3.1<span style="color: #007700">&lt;/version&gt;</span>
-        <span style="color: #007700">&lt;/dependency&gt;</span>
-</pre></div>
-</br></br>
-For Maven pom.xml configuration, Add pdfngreport dependency.
-	<a href="http://mvnrepository.com/artifact/com.uttesh/pdfngreport/2.0.1" target="_blank">Maven repository</a>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
-        <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
-        <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
-        <span style="color: #007700">&lt;version&gt;</span>2.0.1<span style="color: #007700">&lt;/version&gt;</span>
-<span style="color: #007700">&lt;/dependency&gt;</span>
-</pre></div>
-To use the reporting plug-in, set the "listeners" attribute of the "testng"
-element in your Ant build file.The class names for the pdfreport is:
-
-<pre>
-  com.uttesh.pdfngreport.PDFReportListener
-</pre>
-
-POM testng configuration with pdfngreport plug-in parameters
-</br></br>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">             <span style="color: #007700">&lt;plugin&gt;</span>
-                    <span style="color: #007700">&lt;groupId&gt;</span>org.apache.maven.plugins<span style="color: #007700">&lt;/groupId&gt;</span>
-                    <span style="color: #007700">&lt;artifactId&gt;</span>maven-surefire-plugin<span style="color: #007700">&lt;/artifactId&gt;</span>
-                    <span style="color: #007700">&lt;version&gt;</span>2.17<span style="color: #007700">&lt;/version&gt;</span>
-                    <span style="color: #007700">&lt;configuration&gt;</span>
-                        <span style="color: #007700">&lt;suiteXmlFiles&gt;</span>
-                            <span style="color: #007700">&lt;suiteXmlFile&gt;</span>testng.xml<span style="color: #007700">&lt;/suiteXmlFile&gt;</span>
-                        <span style="color: #007700">&lt;/suiteXmlFiles&gt;</span>
-                        <span style="color: #007700">&lt;properties&gt;</span>
-                            <span style="color: #007700">&lt;property&gt;</span>
-                                <span style="color: #007700">&lt;name&gt;</span>usedefaultlisteners<span style="color: #007700">&lt;/name&gt;</span>
-                                <span style="color: #007700">&lt;value&gt;</span>false<span style="color: #007700">&lt;/value&gt;</span> <span style="color: #888888">&lt;!-- disabling default listeners is optional --&gt;</span>
-                            <span style="color: #007700">&lt;/property&gt;</span>
-                            <span style="color: #888888">&lt;!-- if testng suit xml file is configured with listener no need here --&gt;</span>
-                        <span style="color: #007700">&lt;/properties&gt;</span>
-                    <span style="color: #007700">&lt;/configuration&gt;</span>
-                <span style="color: #007700">&lt;/plugin&gt;</span>
-</pre></div>
 </br></br>
 
 <b>Contributions</b>
