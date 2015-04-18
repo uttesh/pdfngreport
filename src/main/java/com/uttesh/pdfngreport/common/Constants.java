@@ -15,6 +15,9 @@
  */
 package com.uttesh.pdfngreport.common;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Uttesh Kumar T.H.
@@ -72,7 +75,7 @@ public interface Constants {
     String HEADER_SKIPPED = "Skipped";
     String HEADER_STATSTICS = "Statistic's";
 
-    String PDF_REPORT_FILE_NAME = "pdfng_report.pdf";
+    String PDF_REPORT_FILE_NAME = "pdfng-report-"+new SimpleDateFormat("dd-MMM-yyyy-hh-mm-s-a").format(new Date())+".pdf";
 
     String STATISTIC_TABLE_PASSED_HEADER = "Passed";
     String STATISTIC_TABLE_SKIPPED_HEADER = "Skipped";

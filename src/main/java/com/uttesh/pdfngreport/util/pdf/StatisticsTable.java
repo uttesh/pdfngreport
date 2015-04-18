@@ -28,7 +28,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import org.jfree.data.general.DefaultPieDataset;
+import org.testng.ITestResult;
 
 /**
  *
@@ -56,9 +58,9 @@ public class StatisticsTable {
 
         for (String className : result.keySet()) {
             ResultMeta resultMeta = result.get(className);
-            passed = passed + resultMeta.getPassedSet().size();
-            skipped = skipped + resultMeta.getSkippedSet().size();
-            failed = failed + resultMeta.getFailedSet().size();
+            passed = passed + getPassedCount(resultMeta);
+            skipped = skipped + getFailedCount(resultMeta);
+            failed = failed + getSkippedCount(resultMeta);
             double total = passed + skipped + failed;
             percent = ((double) passed / total) * 100;
             percent = Math.round(percent * 100) / 100.0d;
@@ -66,7 +68,7 @@ public class StatisticsTable {
         populateColumnHeader(columns, names, Constants.STATISTIC_TABLE_HEADER_COLOR);
         List<Row> rows = new ArrayList<Row>();
         RowMeta rowMeta = new RowMeta();
-        
+
         rowMeta.setPassed("" + passed);
         rowMeta.setSkipped("" + skipped);
         rowMeta.setFailed("" + failed);
@@ -80,7 +82,7 @@ public class StatisticsTable {
         statisticsTable.setTableName("Statistics");
         statisticsTable.setTableHeaderColor("#0079B6");
         statisticsTable.setReportLocation(reportLocation);
-        
+
         if (chartDisplay.equalsIgnoreCase("show")) {
             DefaultPieDataset dataSet = new DefaultPieDataset();
             dataSet.setValue("Failed", failed);
@@ -98,6 +100,30 @@ public class StatisticsTable {
             columnHeader.setName(name);
             columns.add(columnHeader);
         }
+    }
+
+    private int getPassedCount(ResultMeta resultMeta) {
+        int count = 0;
+        for (Set<ITestResult> passed : resultMeta.getPassedList()) {
+            count = count + passed.size();
+        }
+        return count;
+    }
+
+    private int getFailedCount(ResultMeta resultMeta) {
+        int count = 0;
+        for (Set<ITestResult> passed : resultMeta.getFailedList()) {
+            count = count + passed.size();
+        }
+        return count;
+    }
+
+    private int getSkippedCount(ResultMeta resultMeta) {
+        int count = 0;
+        for (Set<ITestResult> passed : resultMeta.getSkippedList()) {
+            count = count + passed.size();
+        }
+        return count;
     }
 
 }

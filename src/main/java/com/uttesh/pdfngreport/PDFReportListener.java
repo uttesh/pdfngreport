@@ -53,29 +53,32 @@ public class PDFReportListener implements IReporter {
             pdfngUtil.loadProperties(configPath);
             Map<String, ISuiteResult> suiteResults = suite.getResults();
             for (ISuiteResult sr : suiteResults.values()) {
-                resultMeta = new ResultMeta();
+                if (result.get(suiteName) != null) {
+                    resultMeta = result.get(suiteName);
+                } else {
+                    resultMeta = new ResultMeta();
+                    resultMeta.setSuiteName(suiteName);
+                }
                 ITestContext tc = sr.getTestContext();
-                resultMeta.setSuiteName(suiteName);
                 if (tc.getFailedTests().getAllResults() != null && tc.getFailedTests().getAllResults().size() > 0) {
-                    resultMeta.setFailedSet(tc.getFailedTests().getAllResults());
+                    resultMeta.getFailedList().add(tc.getFailedTests().getAllResults());
                 }
                 if (tc.getPassedTests().getAllResults() != null && tc.getPassedTests().getAllResults().size() > 0) {
-                    resultMeta.setPassedSet(tc.getPassedTests().getAllResults());
+                    resultMeta.getPassedList().add(tc.getPassedTests().getAllResults());
                 }
                 if (tc.getSkippedTests().getAllResults() != null && tc.getSkippedTests().getAllResults().size() > 0) {
-                    resultMeta.setSkippedSet(tc.getSkippedTests().getAllResults());
+                    resultMeta.getSkippedList().add(tc.getSkippedTests().getAllResults());
                 }
-                result.put(suiteName + ":" + System.currentTimeMillis(), resultMeta);
+                result.put(suiteName, resultMeta);
             }
-        }
-        if (result.size() > 0) {
-            PDFGenerator generator = new PDFGenerator();
-            String outpurDir = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
-            if (outpurDir == null || outpurDir.trim().length() == 0) {
-                outpurDir = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
+            if (result.size() > 0) {
+                PDFGenerator generator = new PDFGenerator();
+                String outpurDir = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
+                if (outpurDir == null || outpurDir.trim().length() == 0) {
+                    outpurDir = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
+                }
+                generator.generateReport(outpurDir + "\\" + Constants.PDF_REPORT_FILE_NAME, result);
             }
-            generator.generateReport(outpurDir + "\\" + Constants.PDF_REPORT_FILE_NAME, result);
         }
     }
-
 }

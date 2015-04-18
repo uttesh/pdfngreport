@@ -18,6 +18,8 @@ package com.uttesh.pdfngreport.util.pdf;
 
 import com.uttesh.pdfngreport.common.Constants;
 import com.uttesh.pdfngreport.util.xml.Table;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.testng.ITestResult;
 
@@ -32,6 +34,15 @@ public class SkippedTable implements ITable {
         generateTable.generate(results, skippedTable, Constants.STATUS_SKIPPED);
         skippedTable.setTableName("Skipped");
         skippedTable.setTableHeaderColor("#D79333");
+    }
+
+    @Override
+    public void populateSingleTableData(List<ITestResult> results, Table table) {
+        Set<ITestResult> resultSet = new HashSet<ITestResult>();
+        for(ITestResult testResult : results){
+            resultSet.add(testResult);
+        }
+        populateData(resultSet, table);
     }
     
 }

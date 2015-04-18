@@ -18,6 +18,8 @@ package com.uttesh.pdfngreport.util.pdf;
 
 import com.uttesh.pdfngreport.common.Constants;
 import com.uttesh.pdfngreport.util.xml.Table;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.testng.ITestResult;
 
@@ -32,6 +34,15 @@ public class FailedTable implements ITable {
         generateTable.generate(results, failedTable, Constants.STATUS_FAILED);
         failedTable.setTableName("Failed");
         failedTable.setTableHeaderColor("#D22722");
+    }
+
+    @Override
+    public void populateSingleTableData(List<ITestResult> results, Table table) {
+        Set<ITestResult> resultSet = new HashSet<ITestResult>();
+        for(ITestResult testResult : results){
+            resultSet.add(testResult);
+        }
+        populateData(resultSet, table);
     }
     
 }

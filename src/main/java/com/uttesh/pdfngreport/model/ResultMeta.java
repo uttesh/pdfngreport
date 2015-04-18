@@ -16,7 +16,9 @@
 
 package com.uttesh.pdfngreport.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.testng.ITestResult;
 
@@ -29,10 +31,10 @@ import org.testng.ITestResult;
 public class ResultMeta {
     
     String suiteName;
-        
-    public  Set<ITestResult> passedSet = new HashSet<ITestResult>();
-    public  Set<ITestResult> failedSet = new HashSet<ITestResult>();
-    public  Set<ITestResult> skippedSet = new HashSet<ITestResult>();
+    
+    public List<Set<ITestResult>> passedList = new ArrayList<Set<ITestResult>>();
+    public List<Set<ITestResult>> failedList = new ArrayList<Set<ITestResult>>();
+    public List<Set<ITestResult>> skippedList = new ArrayList<Set<ITestResult>>();
 
     public String getSuiteName() {
         return suiteName;
@@ -42,28 +44,28 @@ public class ResultMeta {
         this.suiteName = suiteName;
     }
 
-    public Set<ITestResult> getPassedSet() {
-        return passedSet;
+    public List<Set<ITestResult>> getPassedList() {
+        return passedList;
     }
 
-    public void setPassedSet(Set<ITestResult> passedSet) {
-        this.passedSet = passedSet;
+    public void setPassedList(List<Set<ITestResult>> passedList) {
+        this.passedList = passedList;
     }
 
-    public Set<ITestResult> getFailedSet() {
-        return failedSet;
+    public List<Set<ITestResult>> getFailedList() {
+        return failedList;
     }
 
-    public void setFailedSet(Set<ITestResult> failedSet) {
-        this.failedSet = failedSet;
+    public void setFailedList(List<Set<ITestResult>> failedList) {
+        this.failedList = failedList;
     }
 
-    public Set<ITestResult> getSkippedSet() {
-        return skippedSet;
+    public List<Set<ITestResult>> getSkippedList() {
+        return skippedList;
     }
 
-    public void setSkippedSet(Set<ITestResult> skippedSet) {
-        this.skippedSet = skippedSet;
+    public void setSkippedList(List<Set<ITestResult>> skippedList) {
+        this.skippedList = skippedList;
     }
     
 }

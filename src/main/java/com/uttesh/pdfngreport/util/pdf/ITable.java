@@ -17,6 +17,7 @@
 package com.uttesh.pdfngreport.util.pdf;
 
 import com.uttesh.pdfngreport.util.xml.Table;
+import java.util.List;
 import java.util.Set;
 import org.testng.ITestResult;
 
@@ -26,4 +27,5 @@ import org.testng.ITestResult;
  */
 public interface ITable {
     public void populateData(Set<ITestResult> results,Table table);
+    public void populateSingleTableData(List<ITestResult> results,Table table);
 }

@@ -18,6 +18,8 @@ package com.uttesh.pdfngreport.util.pdf;
 
 import com.uttesh.pdfngreport.common.Constants;
 import com.uttesh.pdfngreport.util.xml.Table;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.testng.ITestResult;
 
@@ -27,11 +29,21 @@ import org.testng.ITestResult;
  */
 public class SuccessTable implements ITable {
 
+    @Override
     public void populateData(Set<ITestResult> results,Table successTable) {
         GenerateTable generateTable = new GenerateTable();
         generateTable.generate(results, successTable, Constants.STATUS_PASSED);
         successTable.setTableName("Passed");
         successTable.setTableHeaderColor("#009900");
+    }
+
+    @Override
+    public void populateSingleTableData(List<ITestResult> results, Table table) {
+        Set<ITestResult> resultSet = new HashSet<ITestResult>();
+        for(ITestResult testResult : results){
+            resultSet.add(testResult);
+        }
+        populateData(resultSet, table);
     }
     
 }

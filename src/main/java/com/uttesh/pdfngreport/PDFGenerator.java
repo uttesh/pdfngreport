@@ -74,14 +74,14 @@ public class PDFGenerator {
                 tables.add(getStatisticsTable(result));
                 for (String suiteName : result.keySet()) {
                     ResultMeta resultMeta = result.get(suiteName);
-                    if (resultMeta.getPassedSet() != null && resultMeta.getPassedSet().size() > 0) {
-                        tables.add(getTable(resultMeta.getPassedSet(), Constants.TestCaseStatus.PASS));
+                    if (resultMeta.getPassedList() != null && resultMeta.getPassedList().size() > 0) {
+                        populatePassedListTable(resultMeta, tables);
                     }
-                    if (resultMeta.getFailedSet() != null && resultMeta.getFailedSet().size() > 0) {
-                        tables.add(getTable(resultMeta.getFailedSet(), Constants.TestCaseStatus.FAILED));
+                    if (resultMeta.getFailedList() != null && resultMeta.getFailedList().size() > 0) {
+                        populateFailedListTable(resultMeta, tables);
                     }
-                    if (resultMeta.getSkippedSet() != null && resultMeta.getSkippedSet().size() > 0) {
-                        tables.add(getTable(resultMeta.getSkippedSet(), Constants.TestCaseStatus.SKIPPED));
+                    if (resultMeta.getSkippedList() != null && resultMeta.getSkippedList().size() > 0) {
+                        populateSkippedListTable(resultMeta, tables);
                     }
                 }
                 ExceptionSummary exceptionSummary = new ExceptionSummary();
@@ -94,6 +94,30 @@ public class PDFGenerator {
         } catch (Exception exception) {
             throw new ReportException("Failed generating PDF report.", exception);
         }
+    }
+
+    private void populatePassedListTable(ResultMeta resultMeta, List<Table> tables) {
+        List<ITestResult> results = new ArrayList<ITestResult>();
+        for (Set<ITestResult> itrs : resultMeta.getPassedList()) {
+            results.addAll(itrs);
+        }
+        tables.add(getTable(results, Constants.TestCaseStatus.PASS));
+    }
+
+    private void populateFailedListTable(ResultMeta resultMeta, List<Table> tables) {
+        List<ITestResult> results = new ArrayList<ITestResult>();
+        for (Set<ITestResult> failed : resultMeta.getFailedList()) {
+            results.addAll(failed);
+        }
+        tables.add(getTable(results, Constants.TestCaseStatus.FAILED));
+    }
+
+    private void populateSkippedListTable(ResultMeta resultMeta, List<Table> tables) {
+        List<ITestResult> results = new ArrayList<ITestResult>();
+        for (Set<ITestResult> skipped : resultMeta.getSkippedList()) {
+            results.addAll(skipped);
+        }
+        tables.add(getTable(results, Constants.TestCaseStatus.SKIPPED));
     }
 
     private void createFile(String location) throws IOException {
@@ -115,7 +139,7 @@ public class PDFGenerator {
         return table;
     }
 
-    private Table getTable(Set<ITestResult> results, Constants.TestCaseStatus status) {
+    private Table getTable(List<ITestResult> results, Constants.TestCaseStatus status) {
         Table table = new Table();
         ITable itable = null;
         switch (status) {
@@ -129,7 +153,7 @@ public class PDFGenerator {
                 itable = new SkippedTable();
                 break;
         }
-        itable.populateData(results, table);
+        itable.populateSingleTableData(results, table);
         return table;
     }
 }
