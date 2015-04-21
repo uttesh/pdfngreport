@@ -59,8 +59,8 @@ public class StatisticsTable {
         for (String className : result.keySet()) {
             ResultMeta resultMeta = result.get(className);
             passed = passed + getPassedCount(resultMeta);
-            skipped = skipped + getFailedCount(resultMeta);
-            failed = failed + getSkippedCount(resultMeta);
+            skipped = skipped + getSkippedCount(resultMeta);
+            failed = failed + getFailedCount(resultMeta);
             double total = passed + skipped + failed;
             percent = ((double) passed / total) * 100;
             percent = Math.round(percent * 100) / 100.0d;
@@ -112,16 +112,16 @@ public class StatisticsTable {
 
     private int getFailedCount(ResultMeta resultMeta) {
         int count = 0;
-        for (Set<ITestResult> passed : resultMeta.getFailedList()) {
-            count = count + passed.size();
+        for (Set<ITestResult> failed : resultMeta.getFailedList()) {
+            count = count + failed.size();
         }
         return count;
     }
 
     private int getSkippedCount(ResultMeta resultMeta) {
         int count = 0;
-        for (Set<ITestResult> passed : resultMeta.getSkippedList()) {
-            count = count + passed.size();
+        for (Set<ITestResult> skipped : resultMeta.getSkippedList()) {
+            count = count + skipped.size();
         }
         return count;
     }

@@ -67,7 +67,7 @@
 											on
 											<xsl:value-of
 												select="java:format(java:java.text.SimpleDateFormat.new
-												('MM/d/yyyy h:mm:ss a'), java:java.util.Date.new())" />
+												('dd MMM yyyy h:mm:ss a'), java:java.util.Date.new())" />
 										</fo:block>
 									</fo:table-cell>
 								</fo:table-row>
@@ -228,7 +228,7 @@
                                        <xsl:value-of select="SKIPPED"/> 
                                     </xsl:when>
                                     <xsl:otherwise>
-                                    <xsl:value-of select="TIME"/>
+                                    
                                     </xsl:otherwise>
                              </xsl:choose>
                          
@@ -244,7 +244,7 @@
                                        <xsl:value-of select="PERCENTAGE"/> 
                                     </xsl:when>
                                     <xsl:otherwise>
-                                    
+                                        <xsl:value-of select="TIME"/>
                                     </xsl:otherwise>
                              </xsl:choose>
                           

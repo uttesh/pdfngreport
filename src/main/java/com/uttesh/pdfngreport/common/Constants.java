@@ -56,13 +56,15 @@ public interface Constants {
         //Constants.COLUMN_PACKAGE,
         Constants.COLUMN_CLASS,
         Constants.COLUMN_METHOD,
-        Constants.COLUMN_TIME,""};
+        "",
+        Constants.COLUMN_TIME};
 
     String[] FAILED_STATUS_TABLE_COLUMS = {
         //Constants.COLUMN_PACKAGE,
         Constants.COLUMN_CLASS,
         Constants.COLUMN_METHOD,
-        Constants.COLUMN_TIME,"",
+        "",
+        Constants.COLUMN_TIME,
         Constants.STATUS_EXCEPTION};
 
     String STATUS_FAILED = "FAILED";
