@@ -1,381 +1,103 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html lang="en" class="no-js" xmlns:fb="http://ogp.me/ns/fb#">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>pdfngreport:Generate PDF report for testng framework,selenium</title>
-		<meta name="description" content="An Free, Open source PDF report generator library for testng/selenium framework test cases execution results, no need to write any code and just configuration" />
-		<meta name="keywords" content="pdfngreport:Generate PDF report for testng framework,selenium, selenium framework" />
-		<meta name="author" content="Uttesh Kumar T.H." />
-		<!-- Bootstrap -->
-		<script src="js/modernizr.custom.js"></script>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/jquery.fancybox.css" rel="stylesheet">
-		<link href="css/flickity.css" rel="stylesheet" >
-		<link href="css/animate.css" rel="stylesheet">
-		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
-		<link href="css/styles.css" rel="stylesheet">
-		<link href="css/queries.css" rel="stylesheet">
-		<!-- Facebook and Twitter integration -->
-		<meta property="og:title" content=""/>
-		<meta property="og:image" content=""/>
-		<meta property="og:url" content=""/>
-		<meta property="og:site_name" content=""/>
-		<meta property="og:description" content=""/>
-		<meta name="twitter:title" content="" />
-		<meta name="twitter:image" content="" />
-		<meta name="twitter:url" content="" />
-		<meta name="twitter:card" content="" />
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-		
-	</head>
-	<body>
-		<!--[if lt IE 7]>
-		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
-		<!-- open/close -->
-		<header>
-			<section class="hero">
-				<div class="texture-overlay"></div>
-				<div class="container">
-					<div class="row nav-wrapper">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-							<h1><a href="#">PDFngreport 2.0.3</a></h1>
-							<h2 class="animated fadeInDown">No Coding Just Configuration !!!! </h2>
-							<h3>Free, Open source PDF report generator library for testng/selenium framework</h3>
-							<a href="https://github.com/uttesh/pdfngreportdemo/blob/master/report/pdfng_report.pdf?raw=true" target="_blank" class="use-btn animated fadeInUp">Download sample pdf report</a> 
-							<a href="#about" class="learn-btn animated fadeInUp">Configuration Details<i class="fa fa-arrow-down"></i></a>
-							<a href="https://github.com/uttesh/pdfngreport/issues" target="_blank" class="learn-btn animated fadeInUp"><i class="fa fa-git"></i> Report a Bug</a>
-						</div>
-						<!--div class="col-md-6 col-sm-6 col-xs-6 text-right navicon">
-							<p>MENU</p><a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
-						</div-->
-						<div class="col-md-6 nopadding">
-							<div style="position: relative;margin-top:100px;height: 400px;">
-									<ul class="slides" id="featuresSlider">
-									  <li>
-											<img src="img/slide2.png" alt="" style="height:350px;">
+<html ng-app="pdfngreportApp">
+   <head>
+      <meta charset="utf-8" />
+      <title>pdfngreport</title>
+      <link rel="icon" href="static/img/logo.png" type="image/png">
+      <script src="static/lib/angular.js"></script>
+      <script src="static/js/app.js"></script>
+      <link rel="stylesheet" href="static/css/bootstrap/css/bootstrap-paper.css" />
+      <link rel="stylesheet" href="static/css/font-awesome/css/font-awesome.min.css">
+   </head>
+ <body>
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><i class="fa fa-pie-chart " style="color:white"></i> pdfngreport</a>
+    </div>
+<a href="https://github.com/uttesh/ngtimeago">
+	<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 
-										</li>
-									   	<li>
-											<img src="img/slide3.png" alt="" style="height:350px;">
-										</li>
-										<li>
-											<img src="img/slide4.png" alt="" style="height:350px;">
+  </div>
+</nav>
 
-										</li>
-										<li>
-											<img src="img/slide5.png" alt="" style="height:350px;">
+<div class="container">
+<div class="jumbotron">
+  <h1><i class="fa fa-file-pdf-o" style="color:rgb(255, 174, 0);"></i> PDF Ng Report</h1>
+  <p>This is the pdf report plugin library written for testng/selenium, this listener will generate the pdf report on test cases run, its very simple to configure no need to write any code.</p>
+  <br/>
+  <p>
+  <b>No Coding Just Configuration !!!!</b>
+	Free, Open source PDF report generator library for testng/selenium framework
+  </p>
+  <p><a target="_blank" class="btn btn-primary" href="https://github.com/uttesh/pdfngreportdemo/blob/master/report/pdfng_report.pdf?raw=true"><i class="fa fa-file-pdf-o" style="color:rgb(255, 174, 0);"></i> Download sample pdf report</a>
+  <a href="https://github.com/uttesh/pdfngreport/raw/gh-pages/download/eclipse_archieve/pdfngreport_sample.zip" class="btn btn-success"><i class="fa fa-file-archive-o"></i> Eclipse sample code</a>
+<a href="https://github.com/uttesh/pdfngreportdemo/archive/master.zip" class="btn btn-warning"><i class="fa fa-file-archive-o"></i> Ant/Maven sample code </a>
+  </p>
+</div>
 
-										</li>
-										<li>
-											<img src="img/slide6.png" alt="" style="height:350px;">
-
-										</li>
-									</ul>
-							</div>
-						</div>
-					</div>
-					<!--div class="row hero-content">
-						<div class="col-md-12">
-							<h2 class="animated fadeInDown">No Coding Just Configuration !!!! </h2>
-							<h4>Free, Open source PDF report generator for testng/selenium framework</h4>
-							<a href="https://github.com/uttesh/pdfngreportdemo/blob/master/automation_report/pdfng_report.pdf?raw=true" target="_blank" class="use-btn animated fadeInUp">Sample pdf report</a> 
-							<a href="#about" class="learn-btn animated fadeInUp">Configuration Details<i class="fa fa-arrow-down"></i></a>
-						</div>
-					</div-->
-				</div>
-			</section>
-		</header>
-<!-- facebook sdk -->
-		<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1587186584832783&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-		<section class="video" id="about">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<h1><a href="https://github.com/uttesh/pdfngreportdemo"  target="_blank"><i class="fa fa-play-circle-o"></i> Sample code</a></h1>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="features-intro">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-6 nopadding features-intro-img">
-						<div class="features-bg">
-							<div class="texture-overlay"></div>
-							<div class="features-img wp1">
-								
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 nopadding">
-						<div class="features-slider">
-								<ul >
-									<li>
-										<h1>Maven Repository</h1>
-										<p>
-										<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
+      <div class="jumbotron">
+         <div class="container">
+            <h2><i class="fa fa-paper-plane"></i> Quick start</h2>
+			<h4>Environment and dependent jar file</h4>
+			<hr/>
+			<ul style="list-style-type: none;">
+			 <li><i class="fa fa-2x fa-check-square-o" style="color:green"></i>  <span style="margin-left:10px">Minimum JDK 1.6 or higher</span></li>
+			 <li><i class="fa fa-2x fa-check-square-o" style="color:green"></i>  <span style="margin-left:10px">Jfree jar</span></li>
+			 <li><i class="fa fa-2x fa-check-square-o" style="color:green"></i>  <span style="margin-left:10px">Apache FOP jar</span></li>
+			</ul>
+		    <h4>POM.xml</h4>
+			<hr/>
+			<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
         <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
         <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
         <span style="color: #007700">&lt;version&gt;</span>2.0.3<span style="color: #007700">&lt;/version&gt;</span>
 <span style="color: #007700">&lt;/dependency&gt;</span>
 </pre></div>
+<a href="http://search.maven.org/#artifactdetails%7Ccom.uttesh%7Cpdfngreport%7C2.0.1%7Cjar" target="_blank" >Maven central repository! <i class="fa fa-long-arrow-right"></i></a>
+			 <h4>testng suit xml file</h4>
+			<hr/>
+			<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span style="color: #007700">&lt;suite</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">"Simple Reporter Suite"</span><span style="color: #007700">&gt;</span>
 
-									    </p>
-										<p><a href="http://search.maven.org/#artifactdetails%7Ccom.uttesh%7Cpdfngreport%7C2.0.1%7Cjar" target="_blank" class="arrow-btn">Simple Its in Maven central repository! <i class="fa fa-long-arrow-right"></i></a></p>
-									</li>
-								</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		
-		<section class="screenshots-intro" style="padding:0px">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1>Full Configuration of the pdf listener</h1>
-						
-						<b>Environment and dependent jar file</b>
-						<hr/>
-							<ol>
-								<li>Minimum JDK 1.6 or higher</li>
-								<li>Jfree jar </li>
-								<li>Apache FOP jar </li>
-							</ol>
-							
-<b>testng suit xml file </b>
-<hr/>
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span style="color: #007700">&lt;suite</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;Simple Reporter Suite&quot;</span><span style="color: #007700">&gt;</span>
-
-  <span style="color: #007700">&lt;parameter</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;pdfngreport-properties&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;D:\property_files\pdfngreport.properties&quot;</span> <span style="color: #007700">/&gt;</span>
+  <span style="color: #007700">&lt;parameter</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">"pdfngreport-properties"</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">"D:\property_files\pdfngreport.properties"</span> <span style="color: #007700">/&gt;</span>
 
   <span style="color: #007700">&lt;listeners&gt;</span>
-    <span style="color: #007700">&lt;listener</span> <span style="color: #0000CC">class-name=</span><span style="background-color: #fff0f0">&quot;com.uttesh.pdfngreport.PDFReportListener&quot;</span> <span style="color: #007700">/&gt;</span>
+    <span style="color: #007700">&lt;listener</span> <span style="color: #0000CC">class-name=</span><span style="background-color: #fff0f0">"com.uttesh.pdfngreport.PDFReportListener"</span> <span style="color: #007700">/&gt;</span>
   <span style="color: #007700">&lt;/listeners&gt;</span>
 
-  <span style="color: #007700">&lt;test</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;Simple Reporter test&quot;</span><span style="color: #007700">&gt;</span>
+  <span style="color: #007700">&lt;test</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">"Simple Reporter test"</span><span style="color: #007700">&gt;</span>
     <span style="color: #007700">&lt;classes&gt;</span>
-      <span style="color: #007700">&lt;class</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;xyz&quot;</span> <span style="color: #007700">/&gt;</span>
-      <span style="color: #007700">&lt;class</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;abc&quot;</span> <span style="color: #007700">/&gt;</span>
+      <span style="color: #007700">&lt;class</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">"xyz"</span> <span style="color: #007700">/&gt;</span>
+      <span style="color: #007700">&lt;class</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">"abc"</span> <span style="color: #007700">/&gt;</span>
     <span style="color: #007700">&lt;/classes&gt;</span>
   <span style="color: #007700">&lt;/test&gt;</span>
 <span style="color: #007700">&lt;/suite&gt;</span>
 </pre></div>
-
-
-</br></br>
-
-<b> pdfngreport.properties file</b>
-
+<h4> pdfngreport.properties file</h4>
+<hr/>
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000CC">pdfreport.title</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">PDF NG Report Title loading properties</span>
 <span style="color: #0000CC">pdfreport.chart</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">show</span>
 <span style="color: #0000CC">pdfreport.logger</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">true</span>
 <span style="color: #0000CC">pdfreport.outputdir</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">E:/automation/pdfngreport</span>
 </pre></div>
 
-</br>
-<a href="https://github.com/uttesh/pdfngreportdemo"  target="_blank">Full working sample code</a>
-
-</br></br>
-
-<h2>Code examples </h2>
-</hr>
-<a href="https://github.com/uttesh/pdfngreport/raw/gh-pages/download/eclipse_archieve/pdfngreport_sample.zip"  target="_blank">Eclipse sample code</a>
-</br>
-<a href="https://github.com/uttesh/pdfngreportdemo"  target="_blank">Ant/Maven sample code</a>
+<h4><i class="fa fa-file-code-o"></i> Code examples</h4>
+			<hr/>
+<a href="https://github.com/uttesh/pdfngreport/raw/gh-pages/download/eclipse_archieve/pdfngreport_sample.zip" class="btn btn-success"><i class="fa fa-download"></i> Eclipse sample code</a>
+<a href="https://github.com/uttesh/pdfngreportdemo" class="btn btn-warning"><i class="fa fa-download"></i> Ant/Maven sample code </a>
 
 
 
-</br></br>
+         </div>
+      </div>
 
-<b>Contributions</b>
-</hr>
-</br></br>
-All credit goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="https://xmlgraphics.apache.org/">Apache FOP</a> open source jar file which i used to generate the pdf report and pie chart statistic graph.
-</br></br>
-PDFngreport Developer : <a href="http://www.uttesh.com" target="_blank">uttesh.com</a>
 
-<h3>
-<a name="license" class="anchor" href="#license"><span class="mini-icon mini-icon-link"></span></a>License</h3>
-
-<p>(The Apache License)</p>
-
-<p>Copyright (c) 2013-2015 Uttesh Kumar T.H.</p>
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.</p>
-   
-<p><a href="#screenshots" class="arrow-btn">See the screenshots! <i class="fa fa-long-arrow-right"></i></a></p>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="screenshots" id="screenshots">
-			<div class="container-fluid">
-				<div class="row">
-					<ul class="grid">
-						<li>
-							<figure>
-								<img src="img/report_2.0.png" alt="Screenshot 01">
-								<figcaption>
-								<div class="caption-content">
-									<a href="img/report_2.0.png" class="single_image">
-										<i class="fa fa-search"></i><br>
-										<p>Overview</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<img src="img/pdfngreport_2.png" alt="Screenshot 01">
-								<figcaption>
-								<div class="caption-content">
-									<a href="img/pdfngreport_2.png" class="single_image">
-										<i class="fa fa-search"></i><br>
-										<p>Status table</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
-						</li>
-
-						<li>
-							<figure>
-								<img src="img/pdfngreport_3.png" alt="Screenshot 01">
-								<figcaption>
-								<div class="caption-content">
-									<a href="img/pdfngreport_3.png" class="single_image">
-
-										<i class="fa fa-search"></i><br>
-										<p>statuc chart</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<img src="img/pdfngreport_5.png" alt="Screenshot 01" >
-								<figcaption>
-								<div class="caption-content">
-									<a href="img/pdfngreport_5.png" class="single_image">
-
-										<i class="fa fa-search"></i><br>
-										<p>Exception summary page</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
-						</li>
-					</ul>
-				</div>
-				
-			</div>
-		</section>
-		<section class="download" id="download">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center wp4">
-						<h1>Seen Enough?</h1>
-						<a href="https://github.com/uttesh/pdfngreportdemo" target="_blank" class="download-btn">Download Implemented sample code! <i class="fa fa-download"></i></a>
-					</div>
-				</div>
-			</div>
-		</section>
-<!-- comments -->
-<div id="disqus_thread" class="container"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'pdfngreport';
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-		<!--fb:comments href="http://developers.facebook.com/docs/plugins/comments/" numposts="5" colorscheme="light"></fb:comments-->
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-5">
-					template credit	<p>Boxify 2015 - <a href="http://tympanus.net/codrops/licensing/">Licence</a> - Designed &amp; Developed by <a href="http://www.peterfinlan.com/">Peter Finlan</a></p>
-					</div>
-
-				</div>
-			</div>
-		</footer>
-		<!--div class="overlay overlay-boxify">
-			<nav>
-				<ul>
-					<li><a href="#about"><i class="fa fa-heart"></i>About</a></li>
-					<li><a href="#features"><i class="fa fa-flash"></i>Features</a></li>
-				</ul>
-				<ul>
-					<li><a href="#screenshots"><i class="fa fa-desktop"></i>Screenshots</a></li>
-					<li><a href="#download"><i class="fa fa-download"></i>Download</a></li>
-				</ul>
-			</nav>
-		</div-->
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="js/min/toucheffects-min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="js/flickity.pkgd.min.js"></script>
-		<script src="js/jquery.fancybox.pack.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/retina.js"></script>
-		<script src="js/waypoints.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/min/scripts-min.js"></script>
-		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-		<script>
-			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			
-			  ga('create', 'UA-59747875-2', 'auto');
-			  ga('send', 'pageview');
-
-		</script>
-<a href="http://www.freecounterstat.com" target="_Blank" title="hit counter">hit counter</a><br/>
-<script type="text/javascript" src="http://counter1.allfreecounter.com/private/countertab.js?c=460bc5f74f500b1af68a555b792243c4"></script>
-	</body>
-</html>
+</div>
+ </body>
