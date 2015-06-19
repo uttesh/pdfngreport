@@ -209,7 +209,7 @@
 				font-style="normal" text-align="left" wrap-option="wrap">
                             <xsl:choose>
                                     <xsl:when test="TableName = 'Statistics'">
-                                      <xsl:value-of select="FAILED"/>
+                                      <xsl:value-of select="SKIPPED"/>
                                     </xsl:when>
                                     <xsl:otherwise>
                                     <xsl:value-of select="METHOD"/>
@@ -225,7 +225,7 @@
 				font-style="normal" text-align="left" wrap-option="wrap">
                              <xsl:choose>
                                     <xsl:when test="TableName = 'Statistics'">
-                                       <xsl:value-of select="SKIPPED"/> 
+                                       <xsl:value-of select="FAILED"/> 
                                     </xsl:when>
                                     <xsl:otherwise>
                                     
