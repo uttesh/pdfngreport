@@ -2,6 +2,8 @@
 <html ng-app="pdfngreportApp">
    <head>
       <meta charset="utf-8" />
+      <meta name="keywords" content="pdf report,testng pdf report,selenium pdf report,maven pdf report library">
+      <meta name="description" content="This is the pdf report plugin library written for testng/selenium, this listener will generate the pdf report on test cases run, its very simple to configure no need to write any code.">
       <title>pdfngreport</title>
       <link rel="icon" href="static/img/logo.png" type="image/png">
       <script src="static/lib/angular.js"></script>
@@ -21,7 +23,7 @@
       </button>
       <a class="navbar-brand" href="#"><i class="fa fa-pie-chart " style="color:white"></i> pdfngreport</a>
     </div>
-<a href="https://github.com/uttesh/ngtimeago">
+<a href="https://github.com/uttesh/pdfngreport">
 	<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 
   </div>
@@ -54,12 +56,15 @@
 			</ul>
 		    <h4>POM.xml</h4>
 			<hr/>
-			<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
         <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
         <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
-        <span style="color: #007700">&lt;version&gt;</span>2.0.4<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;version&gt;</span>2.0.5<span style="color: #007700">&lt;/version&gt;</span>
 <span style="color: #007700">&lt;/dependency&gt;</span>
 </pre></div>
+
+
+
 <br/>
 <a href="http://search.maven.org/#artifactdetails%7Ccom.uttesh%7Cpdfngreport%7C2.0.4%7Cjar" class="btn btn-info" target="_blank" >Maven central repository <i class="fa fa-long-arrow-right"></i></a>
 
@@ -85,11 +90,31 @@
 <h4> pdfngreport.properties file</h4>
 <hr/>
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000CC">pdfreport.title</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">PDF NG Report Title loading properties</span>
-<span style="color: #0000CC">pdfreport.chart</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">show</span>
-<span style="color: #0000CC">pdfreport.logger</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">true</span>
-<span style="color: #0000CC">pdfreport.outputdir</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">E:/automation/pdfngreport</span>
+<div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">#Title</span>
+<span style="color: #330099">pdfreport.title.text</span><span style="color: #555555">=</span><span style="color: #CC3300">Report Title Here</span>
+<span style="color: #330099">pdfreport.title.align</span><span style="color: #555555">=</span><span style="color: #CC3300">left</span>
+
+
+<span style="color: #0099FF; font-style: italic">#Logo</span>
+<span style="color: #330099">pdfreport.logo</span><span style="color: #555555">=</span><span style="color: #CC3300">show</span>
+<span style="color: #330099">pdfreport.report.logo.file</span><span style="color: #555555">=</span><span style="color: #CC3300">E:/rivetsys/automation/pdfnglogo/logo.jpg</span>
+<span style="color: #330099">pdfreport.report.logo.align</span><span style="color: #555555">=</span><span style="color: #CC3300">right</span>
+
+<span style="color: #0099FF; font-style: italic"># chat related</span>
+<span style="color: #0099FF; font-style: italic">#pdfreport.pie.chart.type=normal</span>
+<span style="color: #330099">pdfreport.pie.chart.type</span><span style="color: #555555">=</span><span style="color: #CC3300">explode</span>
+
+<span style="color: #0099FF; font-style: italic"># pdf report output location</span>
+<span style="color: #330099">pdfreport.outputdir</span><span style="color: #555555">=</span><span style="color: #CC3300">E:/rivetsys/automation/pdfngreport</span>
+
+<span style="color: #0099FF; font-style: italic"># Custom color setting Coming soon on 3.0.0 version</span>
+
+
+<span style="color: #0099FF; font-style: italic"># Below setting only for selenium user for selenium failed screen shot link show related</span>
+<span style="color: #0099FF; font-style: italic">#pdfreport.show.selenium.screenshot.link=show</span>
+<span style="color: #0099FF; font-style: italic">#pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots</span>
 </pre></div>
+
 
 <br/>
  pdfngreport.properties file can be in any location just provide full real path of the file.
@@ -115,3 +140,4 @@ linux :
 
 </div>
  </body>
+ </html>
