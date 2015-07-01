@@ -51,9 +51,15 @@ public class GenerateTable {
     public void generate(Set<ITestResult> results, Table table, String status) {
         List<ColumnHeader> columns = new ArrayList<ColumnHeader>();
         String[] names = Constants.STATUS_TABLE_COLUMS;
+        String failedTestScreenShotLink = null;
+        String showLink =null;
         if (status.equalsIgnoreCase(Constants.STATUS_PASSED)) {
             populateColumnHeader(columns, names, Constants.SUCCESS_TABLE_HEADER_COLOR);
         } else if (status.equalsIgnoreCase(Constants.STATUS_FAILED)) {
+            showLink = (String) PDFCache.getConfig(Constants.SystemProps.SHOW_SELENIUM_FAILED_SCREENSHOT_LINK);
+            if(showLink!=null){
+                failedTestScreenShotLink = (String) PDFCache.getConfig(Constants.SystemProps.SELENIUM_FAILED_TEST_SCREENSHOT_OUPUT_DIR);
+            }
             names = Constants.FAILED_STATUS_TABLE_COLUMS;
             populateColumnHeader(columns, names, Constants.FAILED_TABLE_HEADER_COLOR);
         } else {
@@ -68,6 +74,10 @@ public class GenerateTable {
         for (TableMeta tableMeta : dataList) {
             row = new Row();
             rowMeta = new RowMeta();
+            if(failedTestScreenShotLink!=null){
+                rowMeta.setFailedScreenShotLocation(failedTestScreenShotLink);
+                rowMeta.setShowScreenshotLink("show");
+            }
             rowMeta.setPackagePath(tableMeta.getPackagePath());
             rowMeta.setClassName(tableMeta.getClassName());
             rowMeta.setMethod(tableMeta.getMethod());
@@ -114,7 +124,7 @@ public class GenerateTable {
             long duration = result.getEndMillis() - result.getStartMillis();
             totalExecutionTime += duration;
             tableMeta.setTime(duration + "");
-            tableMeta.setBlockId(result.getTestClass().getInstanceCount() + System.currentTimeMillis());
+            tableMeta.setBlockId(className +"_"+ result.getMethod().getMethodName());
             if (status.equalsIgnoreCase(Constants.STATUS_FAILED)) {
                 ExceptionBean exceptionBean = new ExceptionBean();
                 exceptionBean.setLable(className + "(" + result.getMethod().getMethodName()+")");
@@ -135,7 +145,7 @@ public class GenerateTable {
     private void exceptionLog(ITestResult result, TableMeta tableMeta,ExceptionBean exceptionBean) {
         Throwable throwable = result.getThrowable();
         if (throwable != null) {
-            tableMeta.setBlockId(throwable.hashCode() + System.currentTimeMillis());
+            tableMeta.setBlockId(tableMeta.getClassName() +"_"+tableMeta.getMethod());
             exceptionBean.setThrowable(throwable);
             PDFCache.put(tableMeta.getBlockId(), exceptionBean);
             this.exceptionCount++;

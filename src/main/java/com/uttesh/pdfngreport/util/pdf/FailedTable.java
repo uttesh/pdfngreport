@@ -13,14 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.uttesh.pdfngreport.util.pdf;
 
 import com.uttesh.pdfngreport.common.Constants;
+import com.uttesh.pdfngreport.common.ImageUtils;
 import com.uttesh.pdfngreport.util.xml.Table;
+import java.io.InputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.testng.ITestResult;
 
 /**
@@ -29,20 +32,28 @@ import org.testng.ITestResult;
  */
 public class FailedTable implements ITable {
 
-    public void populateData(Set<ITestResult> results,Table failedTable) {
+    public void populateData(Set<ITestResult> results, Table failedTable) {
         GenerateTable generateTable = new GenerateTable();
         generateTable.generate(results, failedTable, Constants.STATUS_FAILED);
         failedTable.setTableName("Failed");
         failedTable.setTableHeaderColor("#D22722");
+        try {
+            InputStream failedio = getClass().getClassLoader().getResourceAsStream(Constants.Icons.FAILED_ICON);
+            failedTable.setTableHeaderIcon(ImageUtils.imageToBase64String(failedio));
+
+           
+        } catch (Exception ex) {
+            Logger.getLogger(SuccessTable.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void populateSingleTableData(List<ITestResult> results, Table table) {
         Set<ITestResult> resultSet = new HashSet<ITestResult>();
-        for(ITestResult testResult : results){
+        for (ITestResult testResult : results) {
             resultSet.add(testResult);
         }
         populateData(resultSet, table);
     }
-    
+
 }

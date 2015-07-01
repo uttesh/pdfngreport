@@ -40,7 +40,7 @@ public class ExceptionSummary {
             for (Object key : keys) {
                 exceptionMeta = new ExceptionMeta();
                 ExceptionBean exceptionBean = (ExceptionBean)cache.get(key);
-                exceptionMeta.setErrorCode((Long)key);
+                exceptionMeta.setErrorCode((String)key);
                 exceptionMeta.setDescription(getStackTraceString(exceptionBean.getThrowable()));
                 StackTraceElement[] elems = exceptionBean.getThrowable().getStackTrace();
                 exceptionMeta.setHeading(exceptionBean.getLable());
@@ -49,7 +49,7 @@ public class ExceptionSummary {
                 }
                 if (exceptionMeta != null
                         && exceptionMeta.getDescription().length() > 0
-                        && exceptionMeta.getErrorCode() > 0
+                        //&& exceptionMeta.getErrorCode() > 0
                         && exceptionMeta.getStackTrace().length() > 0) {
                     list.add(exceptionMeta);
                 }

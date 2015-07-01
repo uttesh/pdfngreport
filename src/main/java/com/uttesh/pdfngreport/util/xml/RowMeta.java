@@ -31,7 +31,7 @@ public class RowMeta {
     String status;
 
     @XmlElement(name = "BLOCKID")
-    Long blockId;
+    String blockId;
 
     @XmlElement(name = "PACKAGEPATH")
     String packagePath;
@@ -57,6 +57,12 @@ public class RowMeta {
     @XmlElement(name = "TableName")
     String tableName;
 
+    @XmlElement(name = "FAILED_SCREEN_SHOT_LOCATION")
+    String failedScreenShotLocation;
+    
+    @XmlElement(name = "SHOW_SCREEN_SHOT_LINK")
+    String showScreenshotLink="hide";
+
     @XmlTransient
     public String getStatus() {
         return status;
@@ -67,11 +73,11 @@ public class RowMeta {
     }
 
     @XmlTransient
-    public Long getBlockId() {
+    public String getBlockId() {
         return blockId;
     }
 
-    public void setBlockId(Long blockId) {
+    public void setBlockId(String blockId) {
         this.blockId = blockId;
     }
 
@@ -155,4 +161,24 @@ public class RowMeta {
     public void setTableName(String tableName) {
         this.tableName = tableName;
     }
+
+    @XmlTransient
+    public String getFailedScreenShotLocation() {
+        return failedScreenShotLocation;
+    }
+
+    public void setFailedScreenShotLocation(String failedScreenShotLocation) {
+        this.failedScreenShotLocation = failedScreenShotLocation;
+    }
+
+    @XmlTransient
+    public String getShowScreenshotLink() {
+        return showScreenshotLink;
+    }
+
+    public void setShowScreenshotLink(String showScreenshotLink) {
+        this.showScreenshotLink = showScreenshotLink;
+    }
+
+
 }

@@ -17,7 +17,7 @@ This is the part of maven repository now,Directly add in pom following.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.3</version>
+            <version>2.0.5</version>
         </dependency>
         
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
@@ -25,7 +25,7 @@ This is the pdf report plugin written for testng, this listener will generate th
 <b>How to use pdfngreport Plugin</b>
 <hr/>
 
-Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.1/">download</a>
+Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.5/">download</a>
 
 Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">download sample</a>
 
@@ -131,7 +131,7 @@ For Maven pom.xml configuration, Add this dependecy.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.3</version>
+            <version>2.0.5</version>
         </dependency> 
  ```
 

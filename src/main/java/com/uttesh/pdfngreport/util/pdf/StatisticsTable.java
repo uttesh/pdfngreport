@@ -16,6 +16,7 @@
 package com.uttesh.pdfngreport.util.pdf;
 
 import com.uttesh.pdfngreport.common.Constants;
+import com.uttesh.pdfngreport.common.ImageUtils;
 import com.uttesh.pdfngreport.handler.PdfReportHandler;
 import com.uttesh.pdfngreport.model.ResultMeta;
 import com.uttesh.pdfngreport.util.PDFCache;
@@ -25,10 +26,13 @@ import com.uttesh.pdfngreport.util.xml.Row;
 import com.uttesh.pdfngreport.util.xml.RowMeta;
 import com.uttesh.pdfngreport.util.xml.Table;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jfree.data.general.DefaultPieDataset;
 import org.testng.ITestResult;
 
@@ -52,7 +56,15 @@ public class StatisticsTable {
         if (System.getProperty(Constants.SystemProps.REPORT_CHART_PROP) != null) {
             chartDisplay = System.getProperty(Constants.SystemProps.REPORT_CHART_PROP);
             if (chartDisplay == null || chartDisplay.trim().length() == 0) {
-                chartDisplay = (String) PDFCache.get(Constants.SystemProps.REPORT_CHART_PROP);
+                chartDisplay = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_CHART_PROP);
+            }
+        }
+        String pieChartType = "normal";
+        if (chartDisplay.equalsIgnoreCase("show")) {
+            pieChartType = System.getProperty(Constants.SystemProps.REPORT_PIE_CHART_TYPE_PROP);
+            if (pieChartType == null || pieChartType.trim().length() == 0) {
+                pieChartType = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_PIE_CHART_TYPE_PROP);
+                System.out.println("inside if loop pieChartType :"+pieChartType);
             }
         }
 
@@ -81,6 +93,12 @@ public class StatisticsTable {
         statisticsTable.setRow(rows);
         statisticsTable.setTableName("Statistics");
         statisticsTable.setTableHeaderColor("#0079B6");
+        try {
+            InputStream input = getClass().getClassLoader().getResourceAsStream(Constants.Icons.CHART_ICON);
+            statisticsTable.setTableHeaderIcon(ImageUtils.imageToBase64String(input));
+        } catch (Exception ex) {
+            Logger.getLogger(SuccessTable.class.getName()).log(Level.SEVERE, null, ex);
+        }
         statisticsTable.setReportLocation(reportLocation);
 
         if (chartDisplay.equalsIgnoreCase("show")) {
@@ -88,7 +106,11 @@ public class StatisticsTable {
             dataSet.setValue("Failed", failed);
             dataSet.setValue("Skipped", skipped);
             dataSet.setValue("Passed", passed);
-            pdfReportHandler.generateChart(dataSet);
+            if (pieChartType.equalsIgnoreCase("normal")) {
+                pdfReportHandler.generateChart(dataSet);
+            } else {
+                pdfReportHandler.pieExplodeChart(dataSet);
+            }
         }
     }
 

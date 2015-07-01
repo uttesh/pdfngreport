@@ -132,7 +132,7 @@ public class PdfReportHandler {
         InputStream input = getClass().getClassLoader().getResourceAsStream(Constants.REPORT_XSL_TEMPLATE);
         //File xsltfile = new File(Thread.currentThread().getContextClassLoader().getResource("pl/shenlon/io/gui/appData/list.txt").getFile());
         File pdffile = reportFile;
-        FopFactory fopFactory = FopFactory.newInstance();
+        FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
         FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
         OutputStream out = new java.io.FileOutputStream(pdffile);
         out = new java.io.BufferedOutputStream(out);
@@ -172,9 +172,9 @@ public class PdfReportHandler {
             PiePlot3D plot = (PiePlot3D) chart.getPlot();
             plot.setForegroundAlpha(0.6f);
             plot.setCircular(true);
-            plot.setSectionPaint("Passed", new Color(92, 184, 92));
-            plot.setSectionPaint("Failed", new Color(217, 83, 79));
-            plot.setSectionPaint("Skipped", new Color(240, 173, 78));
+            plot.setSectionPaint("Passed", Color.decode("#019244"));
+            plot.setSectionPaint("Failed", Color.decode("#EE6044"));
+            plot.setSectionPaint("Skipped", Color.decode("#F0AD4E"));
             Color transparent = new Color(0.0f, 0.0f, 0.0f, 0.0f);
             plot.setLabelOutlinePaint(transparent);
             plot.setLabelBackgroundPaint(transparent);
@@ -197,16 +197,16 @@ public class PdfReportHandler {
      *
      * @param dataSet
      */
-    private void pieExplodeChart(DefaultPieDataset dataSet) {
+    public void pieExplodeChart(DefaultPieDataset dataSet) {
         try {
             JFreeChart chart = ChartFactory.createPieChart("", dataSet, true, true, false);
             ChartStyle.theme(chart);
             PiePlot plot = (PiePlot) chart.getPlot();
             plot.setForegroundAlpha(0.6f);
             plot.setCircular(true);
-            plot.setSectionPaint("Passed", new Color(92, 184, 92));
-            plot.setSectionPaint("Failed", new Color(217, 83, 79));
-            plot.setSectionPaint("Skipped", new Color(240, 173, 78));
+            plot.setSectionPaint("Passed", Color.decode("#019244"));
+            plot.setSectionPaint("Failed", Color.decode("#EE6044"));
+            plot.setSectionPaint("Skipped", Color.decode("#F0AD4E"));
             Color transparent = new Color(0.0f, 0.0f, 0.0f, 0.0f);
             //plot.setLabelLinksVisible(Boolean.FALSE);
             plot.setLabelOutlinePaint(transparent);
@@ -215,12 +215,12 @@ public class PdfReportHandler {
             plot.setLabelLinkPaint(Color.GRAY);
             Font font = new Font("SansSerif", Font.PLAIN, 10);
             plot.setLabelFont(font);
-            //plot.setLabelPaint(Color.GRAY);
+            plot.setLabelPaint(Color.DARK_GRAY);
             plot.setExplodePercent("Passed", 0.10);
-            plot.setExplodePercent("Failed", 0.10);
-            plot.setExplodePercent("Skipped", 0.10);
+            //plot.setExplodePercent("Failed", 0.10);
+            //plot.setExplodePercent("Skipped", 0.10);
             plot.setSimpleLabels(true);
-            PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator("{0}: {1} ({2})", new DecimalFormat("0"), new DecimalFormat("0%"));
+            PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator("{1} ({2})", new DecimalFormat("0"), new DecimalFormat("0%"));
             plot.setLabelGenerator(gen);
             ChartUtilities.saveChartAsPNG(new File(reportLocation + "\\" + "chart.png"), chart, 560, 240);
         } catch (Exception e) {

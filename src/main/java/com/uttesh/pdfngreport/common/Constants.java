@@ -94,10 +94,29 @@ public interface Constants {
     String FORWARD_SLASH = "\\";
 
     public interface SystemProps {
-
-        String REPORT_TITLE_PROP = "pdfreport.title";
+        
+        String REPORT_TITLE_TYPE="pdfreport.title.type";
+        String REPORT_TITLE_PROP = "pdfreport.title.text";
+        String REPORT_TITLE_ALIGN = "pdfreport.title.align";
+        String REPORT_TITLE_LOGO = "pdfreport.title.logo";
         String REPORT_CHART_PROP = "pdfreport.chart";
         String REPORT_LOGGER_PROP = "pdfreport.logger";
         String REPORT_OUPUT_DIR = "pdfreport.outputdir";
+        String SELENIUM_FAILED_TEST_SCREENSHOT_OUPUT_DIR = "pdfreport.selenium.failed.test.screenshot.outputdir";
+        String SHOW_SELENIUM_FAILED_SCREENSHOT_LINK = "pdfreport.show.selenium.screenshot.link";
+        String REPORT_PIE_CHART_TYPE_PROP = "pdfreport.pie.chart.type";
+        String REPORT_LOGO = "pdfreport.logo";
+        String REPORT_LOGO_FILE = "pdfreport.report.logo.file";
+        String REPORT_LOGO_ALIGN ="pdfreport.report.logo.align";
     }
+	
+	public interface Icons {
+		String SUCCESS_ICON = "com/uttesh/images/round/pass.png";
+		String FAILED_ICON = "com/uttesh/images/round/failed.png";
+		String SKIPPED_ICON = "com/uttesh/images/round/skip.png";
+		String CHART_ICON = "com/uttesh/images/round/statistics.png";
+                String EXCEPTION_ICON = "com/uttesh/images/round/exception.png";
+                String DETAIL_ICON = "com/uttesh/images/round/detail.png";
+                String IMAGE_ICON = "com/uttesh/images/round/image.png";
+	}
 }

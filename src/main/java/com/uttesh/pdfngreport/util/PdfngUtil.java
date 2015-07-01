@@ -19,6 +19,7 @@ import com.uttesh.pdfngreport.common.Constants;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Iterator;
 import java.util.Properties;
 
 /**
@@ -35,11 +36,20 @@ public class PdfngUtil {
             input = new FileInputStream(path);
             // load a properties file
             prop.load(input);
+            Iterator iterator = prop.keySet().iterator();
+            while(iterator.hasNext()){
+                String key = (String)iterator.next();
+                cache.putConfig(key, prop.get(key));
+            }
             cache.putConfig("pdfngreport-properties", prop.get(Constants.SystemProps.REPORT_TITLE_PROP));
-            cache.putConfig(Constants.SystemProps.REPORT_TITLE_PROP, prop.get(Constants.SystemProps.REPORT_TITLE_PROP));
-            cache.putConfig(Constants.SystemProps.REPORT_CHART_PROP, prop.get(Constants.SystemProps.REPORT_CHART_PROP));
-            cache.putConfig(Constants.SystemProps.REPORT_LOGGER_PROP, prop.get(Constants.SystemProps.REPORT_LOGGER_PROP));
-            cache.putConfig(Constants.SystemProps.REPORT_OUPUT_DIR, prop.get(Constants.SystemProps.REPORT_OUPUT_DIR));
+//            cache.putConfig(Constants.SystemProps.REPORT_TITLE_PROP, prop.get(Constants.SystemProps.REPORT_TITLE_PROP));
+//            cache.putConfig(Constants.SystemProps.REPORT_TITLE_PROP, prop.get(Constants.SystemProps.REPORT_TITLE_PROP));
+//            cache.putConfig(Constants.SystemProps.REPORT_CHART_PROP, prop.get(Constants.SystemProps.REPORT_CHART_PROP));
+//            cache.putConfig(Constants.SystemProps.REPORT_LOGGER_PROP, prop.get(Constants.SystemProps.REPORT_LOGGER_PROP));
+//            cache.putConfig(Constants.SystemProps.REPORT_OUPUT_DIR, prop.get(Constants.SystemProps.REPORT_OUPUT_DIR));
+//            cache.putConfig(Constants.SystemProps.REPORT_PIE_CHART_TYPE_PROP,prop.get(Constants.SystemProps.REPORT_PIE_CHART_TYPE_PROP));
+//            cache.putConfig(Constants.SystemProps.REPORT_LOGO_FILE,prop.get(Constants.SystemProps.REPORT_LOGO_FILE));
+//            cache.putConfig(Constants.SystemProps.REPORT_LOGO,prop.get(Constants.SystemProps.REPORT_LOGO));
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {

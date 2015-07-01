@@ -5,6 +5,8 @@
 	<xsl:strip-space elements="*" />
 	<xsl:template match="/">
 		<fo:root>
+                 
+                    
 			<fo:layout-master-set>
 				<fo:simple-page-master master-name="rest"
 					page-height="150mm" margin-left="3mm" margin-right="3mm"
@@ -21,26 +23,25 @@
 			<fo:page-sequence initial-page-number="1" language="en"
 				country="us" master-reference="rest">
 				<fo:static-content flow-name="xsl-region-before">
-					<fo:block font-size="10pt">
-						<fo:table width="100%" table-layout="fixed">
-							<fo:table-column column-width="20cm" />
-							<fo:table-body>
-								<fo:table-row>
-									<fo:table-cell>
-										<fo:block font-weight="bold" 
+                                    <fo:block-container position="absolute" font-weight="bold" color="#2580BC" line-height="5mm"
 											font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
-											padding-top="1.5%" padding-bottom="1.3%" font-size="14pt"
+											padding-top="1cm" font-size="18pt"
 											text-align="left"  margin-left="2mm">
-                                                                                        <xsl:value-of select="ReportData/ReportTitle" />
-										</fo:block>
-									</fo:table-cell>
-								</fo:table-row>
-							</fo:table-body>
-						</fo:table>
-					</fo:block>
+                                        
+                                        <fo:block text-align="{ReportData/TitleAlign}" padding-top="5mm">
+                                             <xsl:value-of select="ReportData/ReportTitle" text-align="center"/>
+                                        </fo:block>
+                                    </fo:block-container>
+                                    <xsl:if test="(ReportData/Logo)='show'">
+                                    <fo:block-container position="absolute">
+                                        <fo:block text-align="{ReportData/LogoAlign}" margin-right="4mm">
+                                            <fo:external-graphic content-width="2in" src="url(file:/{ReportData/LogoFile})" content-height="2cm" />
+                                        </fo:block>
+                                    </fo:block-container>
+                                    </xsl:if>
 				</fo:static-content>
 
-				<fo:static-content flow-name="xsl-region-after">
+				<fo:static-content flow-name="xsl-region-after" >
 					<fo:block font-size="10pt" >
 						<fo:table width="100%" table-layout="fixed"
 							border-top-color="black" border-top-width=".5pt"
@@ -83,10 +84,10 @@
 		</fo:root>
 	</xsl:template>
         
-	<xsl:template match="ReportData">
+	<xsl:template match="ReportData" >
 
 		<xsl:for-each select="Table">
-                    <fo:block font-size="10pt" margin-top="10pt">
+                    <fo:block font-size="10pt" margin-top="1.2cm">
 						<fo:table width="100%" table-layout="fixed" >
 							<fo:table-column 
 								column-width="20cm" />
@@ -97,8 +98,8 @@
 											font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
 											padding-top="1.5%" padding-bottom="1.3%" font-size="10pt"
 											text-align="left" color="#fff" margin-left="2mm">
-                                                                                    <!--fo:external-graphic content-height="scale-to-fit" height="10pt" margin-right="2mm"  content-width="20pt" src="{TableHeaderIcon}"/-->
-                                                                                    <xsl:value-of select="TableName"/>
+											<fo:external-graphic content-height="scale-to-fit" height="15pt" margin-right="2mm"   content-width="25pt" src="{TableHeaderIcon}"/>
+                                                                                <xsl:value-of select="TableName" />
 										</fo:block>
 									</fo:table-cell>
 								</fo:table-row>
@@ -125,18 +126,19 @@
 				<fo:block break-after="page" />
 			</xsl:if>
 		</xsl:for-each>
-                <fo:block font-size="10pt" margin-top="10pt">
+                <fo:block font-size="10pt" >
                     <fo:block break-after="page" />
-                    <fo:table width="100%" table-layout="fixed" >
+                    <fo:table width="100%" table-layout="fixed" margin-top="1.2cm">
                         <fo:table-column  column-width="20cm" />
-                        <fo:table-body>
+                        <fo:table-body background-color="#D54125">
                             <fo:table-row>
                                 <fo:table-cell>
                                     <fo:block font-weight="bold"
                                         font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
                                         padding-top="1.5%" padding-bottom="1.3%" font-size="10pt"
-                                        text-align="left" color="red" margin-left="2mm">
-                                        Exception Summary
+                                        text-align="left" color="#fff" margin-left="2mm">
+                                        <fo:external-graphic content-height="scale-to-fit" height="15pt" margin-right="2mm"  content-width="25pt" src="{ExceptionIcon}"/>
+                                        Exception Summary \uf0c0;
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -145,10 +147,11 @@
                 </fo:block>
                      
             <xsl:for-each select="ExceptionMeta">
-                <fo:block id="{ErrorCode}" 
+               <fo:block id="{ErrorCode}" 
                                         font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
                                         padding-top="1.5%" padding-bottom="1.3%" font-size="10pt"
-                                        text-align="left" margin-left="2mm">
+                                        text-align="left" margin-left=".2mm" margin-right="3.6mm" border=".5pt"
+			border-style="solid" border-color="black" padding="1mm">
                     <fo:inline border-after-width=".5pt" color="red" border-after-style="solid">
                         <xsl:value-of select="Heading"/>
                     </fo:inline>
@@ -256,9 +259,14 @@
                                         <fo:block font-size="7.5pt"
                                             font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
                                             font-style="italic" text-align="left">
-                                              <fo:basic-link internal-destination="{BLOCKID}">
-                                                    Click for Details
+                                              <fo:basic-link internal-destination="{BLOCKID}" show-destination="new">
+                                                    <fo:external-graphic content-height="scale-to-fit" height="12pt" margin-right="2mm"  content-width="25pt"  src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACABAMAAAAxEHz4AAAAMFBMVEUAAAD///+cpLDIzNPT19yRmqj09fa9wst7hpYAAAAAAAAAAAAAAAAAAAAAAAAAAABeYK5aAAAAAXRSTlMAQObYZgAAARhJREFUeNpjYBgFo2AUjIJRAAOMuCQE0fjvcahjotQFA28AWhgwGd0loMHo7gM8LmCNJ6Sf4dy3ABQ+MwovfwVhN/97/hWnF1h5iPK2/QZcXmAkLtwEcOpR/EBcwL/D5QIBMmKOYgMY0dM/LM03TkDRxP4CoYb1FTEpsQ2VG4HE/k1UUv6ZgMxjm0B6XpiejEgfZpnEBYggnnyPS80wKA9GDRg1AARYiKsZcdeOwzcM3o+mg9F0MJoORtPBaDoYTQej6WA0HYzkdDBqwKgBGHnB4AL2kgANMON0AXFDKAz/aWfAU+IM8MNpwH/iDPiA04DfCcToZ9uAOxqnBBDWz2qJewiEiOFAVl204cBRMApGwSgYBaMAGQAAyJ4yiurAIEIAAAAASUVORK5CYII="/>
                                               </fo:basic-link>
+                                              <xsl:if test="SHOW_SCREEN_SHOT_LINK = 'show'">
+                                                  <fo:basic-link external-destination="{FAILED_SCREEN_SHOT_LOCATION}//{BLOCKID}.png" show-destination="new">
+                                                      <fo:external-graphic content-height="scale-to-fit" height="15pt" margin-right="2mm"  content-width="25pt" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACABAMAAAAxEHz4AAAAMFBMVEUAAACcpLDIzNPT19z///+Rmqj09fa9wst7hpbe4eVwe42nrrmyuMKGkJ/p6+5lcYXfCGFQAAAAAXRSTlMAQObYZgAAAedJREFUeNpjYBgFo2AUjIJRMAoQgBGNq6RIQMO7ex/wGMAa/4CglUxcG1C4KJL5hPUz/PuOwmVGcQAHMb7+r3cDlwsYiQs3AZxe4CPOgIc4DRAgI+YoNoAF3YA9BHS7oAU8ExmJ7x+lBjCMGjBSDeAoNm+gyICci7zHKTGA/QIDw98CCgyoBRE3KDAAXBD/p8CAAyDiz0BGowNG2UOiAQK4y2ziDGgGERoUGPDTAFgSTqAkEKfoB1til2EhzoAfvSOzPODabHyWEgO4tCYKlr+lwAAvUPILLyDbAB5IW+om2QZ4QKjfBWQawAVrzF0k0wB46cHcQJ4BfXDWA7IMYEc0Jl+SZYAvgkkgGJnwByEIXCXDAJQCmHEB6Qb0obSpHCB0u1EAsQawo7THGZIhSXOv0M8PRBrgi9awBJuXgT08mQgFIQjMhdav2KKUiVAQggtlYDDmgqP0AFEG9GE0TT8wcF4As3qJMQAtCEFgE0M31C3EGOCLxaM7oYb+UyBsABeWuII5gIFBl7ABf/BXcoQN6CO+qY/VACxBSFpm8qW0Yvkw2tgeNWDUAMoNIDIj/R/EBnwizgB5nAb8J86ADzgN+G1AjH5mPGNpExWIiDdO3GNCRAwHMr2594FhFIyCUTAKRsEowAUAuqVjKkMvEHEAAAAASUVORK5CYII="/>
+                                                  </fo:basic-link>
+                                              </xsl:if>
                                       </fo:block>
                     </fo:table-cell>
                 </xsl:if>

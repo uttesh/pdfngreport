@@ -29,7 +29,8 @@ public class TableMeta  {
     String method;
     String time;
     String status;
-    Long blockId;
+    String blockId;
+    String suiteName;
 
     public String getClassName() {
         return className;
@@ -71,14 +72,23 @@ public class TableMeta  {
         this.status = status;
     }
 
-    public Long getBlockId() {
+    public String getBlockId() {
         return blockId;
     }
 
-    public void setBlockId(Long blockId) {
+    public void setBlockId(String blockId) {
         this.blockId = blockId;
     }
+
+    public String getSuiteName() {
+        return suiteName;
+    }
+
+    public void setSuiteName(String suiteName) {
+        this.suiteName = suiteName;
+    }
   
+    
     public static Comparator<TableMeta> TableMetaComparator  = new Comparator<TableMeta>() {
 	    public int compare(TableMeta tableMeta1, TableMeta tableMeta2) {
 	      String ClassName1 = tableMeta1.getClassName().toUpperCase();

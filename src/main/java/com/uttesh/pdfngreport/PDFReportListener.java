@@ -22,6 +22,8 @@ import com.uttesh.pdfngreport.util.PdfngUtil;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.testng.IReporter;
 import org.testng.ISuite;
 import org.testng.ISuiteResult;
@@ -59,6 +61,7 @@ public class PDFReportListener implements IReporter {
                     resultMeta = new ResultMeta();
                     resultMeta.setSuiteName(suiteName);
                 }
+                resultMeta.setPropertiesFileLocation(configPath);
                 ITestContext tc = sr.getTestContext();
                 if (tc.getFailedTests().getAllResults() != null && tc.getFailedTests().getAllResults().size() > 0) {
                     resultMeta.getFailedList().add(tc.getFailedTests().getAllResults());
@@ -77,7 +80,11 @@ public class PDFReportListener implements IReporter {
                 if (outpurDir == null || outpurDir.trim().length() == 0) {
                     outpurDir = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
                 }
-                generator.generateReport(outpurDir + "\\" + Constants.PDF_REPORT_FILE_NAME, result);
+                try {
+                    generator.generateReport(outpurDir + "\\" + Constants.PDF_REPORT_FILE_NAME, result);
+                } catch (Exception ex) {
+                    Logger.getLogger(PDFReportListener.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }

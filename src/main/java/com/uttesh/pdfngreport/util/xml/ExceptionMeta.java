@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 public class ExceptionMeta {
     
     @XmlElement(name = "ErrorCode")
-    private Long errorCode;
+    private String errorCode;
     
     @XmlElement(name = "Description")
     private String description;
@@ -42,11 +42,11 @@ public class ExceptionMeta {
     
 
     @XmlTransient
-    public Long getErrorCode() {
+    public String getErrorCode() {
         return errorCode;
     }
 
-    public void setErrorCode(Long errorCode) {
+    public void setErrorCode(String errorCode) {
         this.errorCode = errorCode;
     }
 

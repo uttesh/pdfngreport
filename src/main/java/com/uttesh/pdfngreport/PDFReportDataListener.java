@@ -21,6 +21,8 @@ import com.uttesh.pdfngreport.util.PDFCache;
 import com.uttesh.pdfngreport.util.PdfngUtil;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ISuiteResult;
@@ -72,7 +74,11 @@ public class PDFReportDataListener implements ISuiteListener {
             if (outpurDir == null || outpurDir.trim().length() == 0) {
                 outpurDir = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
             }
-            generator.generateReport(outpurDir + "\\" + suiteName + "_" + Constants.PDF_REPORT_FILE_NAME, result);
+            try {
+                generator.generateReport(outpurDir + "\\" + suiteName + "_" + Constants.PDF_REPORT_FILE_NAME, result);
+            } catch (Exception ex) {
+                Logger.getLogger(PDFReportDataListener.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 

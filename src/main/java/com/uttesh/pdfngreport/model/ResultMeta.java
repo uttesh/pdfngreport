@@ -35,6 +35,7 @@ public class ResultMeta {
     public List<Set<ITestResult>> passedList = new ArrayList<Set<ITestResult>>();
     public List<Set<ITestResult>> failedList = new ArrayList<Set<ITestResult>>();
     public List<Set<ITestResult>> skippedList = new ArrayList<Set<ITestResult>>();
+    public String propertiesFileLocation = null;
 
     public String getSuiteName() {
         return suiteName;
@@ -67,5 +68,14 @@ public class ResultMeta {
     public void setSkippedList(List<Set<ITestResult>> skippedList) {
         this.skippedList = skippedList;
     }
+
+    public String getPropertiesFileLocation() {
+        return propertiesFileLocation;
+    }
+
+    public void setPropertiesFileLocation(String propertiesFileLocation) {
+        this.propertiesFileLocation = propertiesFileLocation;
+    }
+    
     
 }

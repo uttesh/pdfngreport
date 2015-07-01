@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.uttesh</groupId>
     <artifactId>pdfngreport</artifactId>
-    <version>2.0.4</version>
+    <version>2.0.5</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -69,7 +69,7 @@
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>fop</artifactId>
-            <version>1.1</version>
+            <version>2.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.avalon.framework</groupId>
@@ -89,6 +89,7 @@
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xsl</include>
+					<include>**/*.png</include>
                 </includes>
             </resource>
         </resources>
@@ -109,29 +110,15 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.17</version>
                     <configuration>
-                        <skipTests>true</skipTests>
+                        <skipTests>false</skipTests>
                         <suiteXmlFiles>
                             <suiteXmlFile>testng.xml</suiteXmlFile>
                         </suiteXmlFiles>
-                        <!--systemPropertyVariables>
-                            <pdfreport.title>PDF NG Report Title</pdfreport.title>
-                            <pdfreport.chart>show</pdfreport.chart>
-                            <pdfreport.logger>true</pdfreport.logger>
-                            <pdfreport.outputdir>E:/rivetsys/automation/pdfngreport</pdfreport.outputdir>
-                        </systemPropertyVariables-->
                         <properties>
                             <property>
                                 <name>usedefaultlisteners</name>
                                 <value>false</value>
                             </property>
-                            <!--property>
-                                <name>listener</name>
-                                <value>com.uttesh.pdfngreport.PDFReportListener</value>
-                            </property>
-                            <property>
-                                <name>reporter</name>
-                                <value>listenReport.Reporter</value>
-                            </property>-->
                         </properties>
                     </configuration>
                 </plugin>

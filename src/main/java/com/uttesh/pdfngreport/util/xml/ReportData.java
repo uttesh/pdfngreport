@@ -1,19 +1,20 @@
 package com.uttesh.pdfngreport.util.xml;
 /*
-   Copyright 2015 Uttesh Kumar T.H.
+ Copyright 2015 Uttesh Kumar T.H.
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+ http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
  */
+
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -21,8 +22,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
 /**
  * This class used by the JAXB compiler for the XML tree Element generation,.
+ *
  * @author Uttesh Kumar T.H.
  */
 @XmlRootElement(name = "ReportData")
@@ -31,21 +34,48 @@ public class ReportData {
 
     @XmlElement(name = "CreatedBy")
     String createdBy;
-    
+
     @XmlElement(name = "ReportTitle")
     String reportTitle;
-    
+
     @XmlElement(name = "ReportLocation")
     String reportLocation;
-    
+
+    @XmlElement(name = "LogoFile")
+    String logoFile;
+
+    @XmlElement(name = "TitleLogoFile")
+    String titleLogoFile;
+
+    @XmlElement(name = "TitleType")
+    String titleType;
+
+    @XmlElement(name = "Logo")
+    String logo;
+
+    @XmlElement(name = "LogoAlign")
+    String logoAlign;
+
+    @XmlElement(name = "TitleAlign")
+    String titleAlign;
+
     @XmlElement(name = "Chart")
     String chart;
 
+    @XmlElement(name = "ExceptionIcon")
+    String exceptionIcon;
+
     @XmlElement(name = "Table")
     private List<Table> table;
-    
+
     @XmlElement(name = "ExceptionMeta")
     private List<ExceptionMeta> exceptionMeta;
+
+    @XmlElement(name = "ActionDetailIcon")
+    private String actionDetailIcon;
+
+    @XmlElement(name = "ActionImageIcon")
+    private String actionImageIcon;
 
     @XmlTransient
     public List<Table> getTable() {
@@ -96,5 +126,75 @@ public class ReportData {
         this.exceptionMeta = exceptionMeta;
     }
 
-    
+    public String getLogoFile() {
+        return logoFile;
+    }
+
+    public void setLogoFile(String logoFile) {
+        this.logoFile = logoFile;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public String getExceptionIcon() {
+        return exceptionIcon;
+    }
+
+    public void setExceptionIcon(String exceptionIcon) {
+        this.exceptionIcon = exceptionIcon;
+    }
+
+    public String getLogoAlign() {
+        return logoAlign;
+    }
+
+    public void setLogoAlign(String logoAlign) {
+        this.logoAlign = logoAlign;
+    }
+
+    public String getTitleAlign() {
+        return titleAlign;
+    }
+
+    public void setTitleAlign(String titleAlign) {
+        this.titleAlign = titleAlign;
+    }
+
+    public String getTitleLogoFile() {
+        return titleLogoFile;
+    }
+
+    public void setTitleLogoFile(String titleLogoFile) {
+        this.titleLogoFile = titleLogoFile;
+    }
+
+    public String getTitleType() {
+        return titleType;
+    }
+
+    public void setTitleType(String titleType) {
+        this.titleType = titleType;
+    }
+
+    public String getActionDetailIcon() {
+       return actionDetailIcon;
+    }
+
+    public void setActionDetailIcon(String actionDetailIcon) {
+        this.actionDetailIcon = actionDetailIcon;
+    }
+
+    public String getActionImageIcon() {
+       return actionImageIcon;
+    }
+
+    public void setActionImageIcon(String actionImageIcon) {
+        this.actionImageIcon = actionImageIcon;
+    }
 }
