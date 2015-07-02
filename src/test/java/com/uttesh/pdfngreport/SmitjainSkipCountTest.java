@@ -15,7 +15,6 @@
  */
 package com.uttesh.pdfngreport;
 
-import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 

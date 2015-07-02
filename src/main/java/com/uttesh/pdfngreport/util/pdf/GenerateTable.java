@@ -24,6 +24,7 @@ import com.uttesh.pdfngreport.util.xml.ColumnHeader;
 import com.uttesh.pdfngreport.util.xml.Row;
 import com.uttesh.pdfngreport.util.xml.RowMeta;
 import com.uttesh.pdfngreport.util.xml.Table;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -77,16 +78,21 @@ public class GenerateTable {
         } else {
             populateColumnHeader(columns, names, Constants.SKIPPED_TABLE_HEADER_COLOR);
         }
+
+        String timeFormat = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TIME_COLUMN_DATE_FORMAT);
+        if (timeFormat == null || timeFormat.isEmpty()) {
+            timeFormat = Constants.DATE_FORMAT;
+        }
         List<Row> rows = new ArrayList<Row>();
         List<TableMeta> dataList = new ArrayList<TableMeta>();
-        populateTableData(dataList, results, status);
+        populateTableData(dataList, results, status, timeFormat);
         Collections.sort(dataList, TableMeta.TableMetaComparator);
         Row row = null;
         RowMeta rowMeta = null;
         for (TableMeta tableMeta : dataList) {
             row = new Row();
             rowMeta = new RowMeta();
-            if(exceptionPage!=null){
+            if (exceptionPage != null) {
                 rowMeta.setExceptionPage(exceptionPage);
             }
             if (failedTestScreenShotLink != null) {
@@ -96,6 +102,7 @@ public class GenerateTable {
             rowMeta.setPackagePath(tableMeta.getPackagePath());
             rowMeta.setClassName(tableMeta.getClassName());
             rowMeta.setMethod(tableMeta.getMethod());
+            rowMeta.setTimeTaken(tableMeta.getTimeTaken());
             rowMeta.setTime(tableMeta.getTime());
             rowMeta.setStatus(status);
             rowMeta.setBlockId(tableMeta.getBlockId());
@@ -115,7 +122,7 @@ public class GenerateTable {
      * @param status
      * @throws DocumentException
      */
-    private void populateTableData(List<TableMeta> tableMetas, Set<ITestResult> results, String status) {
+    private void populateTableData(List<TableMeta> tableMetas, Set<ITestResult> results, String status, String timeFormat) {
         logger.log("----------------------- " + status + " Test class/methods " + "-----------------");
         TableMeta tableMeta = null;
         for (ITestResult result : results) {
@@ -138,7 +145,9 @@ public class GenerateTable {
             tableMeta.setMethod(result.getMethod().getMethodName());
             long duration = result.getEndMillis() - result.getStartMillis();
             totalExecutionTime += duration;
-            tableMeta.setTime(duration + "");
+            tableMeta.setTimeTaken(duration + "");
+            String timeTaken = new SimpleDateFormat(timeFormat).format(result.getStartMillis());
+            tableMeta.setTime(timeTaken);
             tableMeta.setBlockId(className + "_" + result.getMethod().getMethodName());
             if (status.equalsIgnoreCase(Constants.STATUS_FAILED)) {
                 ExceptionBean exceptionBean = new ExceptionBean();

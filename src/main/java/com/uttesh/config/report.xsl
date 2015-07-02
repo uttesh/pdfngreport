@@ -204,7 +204,7 @@
                                       <xsl:value-of select="PASSED"/>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                     <xsl:value-of select="CLASSNAME"/>
+                                     <xsl:value-of select="TIME"/>
                                     </xsl:otherwise>
                              </xsl:choose>
                        </fo:block>
@@ -219,7 +219,7 @@
                                       <xsl:value-of select="SKIPPED"/>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                    <xsl:value-of select="METHOD"/>
+                                        <xsl:value-of select="CLASSNAME"/>
                                     </xsl:otherwise>
                              </xsl:choose>
                           
@@ -235,7 +235,7 @@
                                        <xsl:value-of select="FAILED"/> 
                                     </xsl:when>
                                     <xsl:otherwise>
-                                    
+                                        <xsl:value-of select="METHOD"/>
                                     </xsl:otherwise>
                              </xsl:choose>
                          
@@ -251,7 +251,7 @@
                                        <xsl:value-of select="PERCENTAGE"/> 
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:value-of select="TIME"/>
+                                        <xsl:value-of select="TIMETAKEN"/>
                                     </xsl:otherwise>
                              </xsl:choose>
                           

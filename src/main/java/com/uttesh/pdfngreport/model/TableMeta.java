@@ -31,6 +31,7 @@ public class TableMeta  {
     String status;
     String blockId;
     String suiteName;
+    String timeTaken;
 
     public String getClassName() {
         return className;
@@ -87,7 +88,16 @@ public class TableMeta  {
     public void setSuiteName(String suiteName) {
         this.suiteName = suiteName;
     }
+
+    public String getTimeTaken() {
+        return timeTaken;
+    }
+
+    public void setTimeTaken(String timeTaken) {
+        this.timeTaken = timeTaken;
+    }
   
+    
     
     public static Comparator<TableMeta> TableMetaComparator  = new Comparator<TableMeta>() {
 	    public int compare(TableMeta tableMeta1, TableMeta tableMeta2) {

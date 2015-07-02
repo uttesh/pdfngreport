@@ -64,7 +64,6 @@ public class StatisticsTable {
             pieChartType = System.getProperty(Constants.SystemProps.REPORT_PIE_CHART_TYPE_PROP);
             if (pieChartType == null || pieChartType.trim().length() == 0) {
                 pieChartType = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_PIE_CHART_TYPE_PROP);
-                System.out.println("inside if loop pieChartType :"+pieChartType);
             }
         }
 

@@ -13,7 +13,6 @@ public class AmazonTests {
 
         @Test
 	public void Page1Test() {
-            
             Assert.assertEquals(true,false);
 	}
         
@@ -24,7 +23,7 @@ public class AmazonTests {
 	}
         
         @Test
-	public void Page3Test() {
+	public void Page3Test()  {
             Reporter.log("Page3Test WAS CALLED");
             assertTrue(true);
 	}

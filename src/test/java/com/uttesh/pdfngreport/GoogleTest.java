@@ -10,7 +10,6 @@ public class GoogleTest {
 
     @Test
     public void GooglePage1Test() {
-
         Assert.assertEquals(true, false);
     }
 
@@ -24,7 +23,6 @@ public class GoogleTest {
     public void GooglePage3Test() {
         throw new SkipException("Skipping - This is not ready for testing ");
     }
-
-
+    
 
 }

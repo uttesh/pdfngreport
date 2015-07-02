@@ -27,8 +27,9 @@ public interface Constants {
     String COLUMN_CLASS = "Test";
     String COLUMN_PACKAGE = "Package";
     String COLUMN_METHOD = "Case";
-    String COLUMN_TIME = "Time(ms)";
+    String COLUMN_TIME_TAKEN = "TimeTaken(ms)";
     String COLUMN_STATUS = "Status";
+    String COLUMN_TIME="Time";
     String DATE_FORMAT = "MMMM dd YYYY hh:MM:ss";
 
     public enum TestCaseStatus {
@@ -53,26 +54,23 @@ public interface Constants {
         Constants.STATISTIC_TABLE_PERCENT_HEADER};
 
     String[] STATUS_TABLE_COLUMS = {
-        //Constants.COLUMN_PACKAGE,
+        Constants.COLUMN_TIME,
         Constants.COLUMN_CLASS,
         Constants.COLUMN_METHOD,
-        "",
-        Constants.COLUMN_TIME};
+        Constants.COLUMN_TIME_TAKEN};
 
     String[] FAILED_STATUS_TABLE_COLUMS = {
-        //Constants.COLUMN_PACKAGE,
+        Constants.COLUMN_TIME,
         Constants.COLUMN_CLASS,
         Constants.COLUMN_METHOD,
-        "",
-        Constants.COLUMN_TIME,
+        Constants.COLUMN_TIME_TAKEN,
         Constants.STATUS_EXCEPTION};
     
         String[] FAILED_STATUS_TABLE_COLUMS_NO_EXCEPTION = {
-        //Constants.COLUMN_PACKAGE,
+        Constants.COLUMN_TIME,
         Constants.COLUMN_CLASS,
         Constants.COLUMN_METHOD,
-        "",
-        Constants.COLUMN_TIME};
+        Constants.COLUMN_TIME_TAKEN};
 
     String STATUS_FAILED = "FAILED";
     String STATUS_PASSED = "PASSED";
@@ -121,6 +119,7 @@ public interface Constants {
         String REPORT_LOGO_FILE = "pdfreport.report.logo.file";
         String REPORT_LOGO_ALIGN = "pdfreport.report.logo.align";
         String REPORT_EXCEPTION_PAGE = "pdfreport.exception.page";
+        String REPORT_TIME_COLUMN_DATE_FORMAT="pdfngreport.time.column.format";
     }
 
     public interface Icons {

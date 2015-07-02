@@ -19,7 +19,7 @@ This is the part of maven repository now,Directly add in pom following.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.6</version>
+            <version>2.0.7</version>
         </dependency>
         
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
@@ -27,7 +27,7 @@ This is the pdf report plugin written for testng, this listener will generate th
 <b>How to use pdfngreport Plugin</b>
 <hr/>
 
-Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.6/">download</a>
+Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.7/">download</a>
 
 Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">download sample</a>
 
@@ -135,7 +135,7 @@ For Maven pom.xml configuration, Add this dependecy.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.6</version>
+            <version>2.0.7</version>
         </dependency> 
  ```
 
@@ -166,6 +166,20 @@ For Maven pom.xml configuration, Add this dependecy.
 pdfreport.title.text=Report Title Here
 pdfreport.title.align=left
 
+#TimeColumn Date Format
+#"yyyy.MM.dd G 'at' HH:mm:ss z" | 2001.07.04 AD at 12:08:56 PDT
+#"EEE, MMM d, ''yy" | Wed, Jul 4, '01
+#"h:mm a"  |  12:08 PM
+#"hh 'o''clock' a, zzzz" | 12 o'clock PM, Pacific Daylight Time
+#"K:mm a, z" | 0:08 PM, PDT
+#"yyyyy.MMMMM.dd GGG hh:mm aaa" | 02001.July.04 AD 12:08 PM
+#"EEE, d MMM yyyy HH:mm:ss Z"  |  Wed, 4 Jul 2001 12:08:56 -0700
+#"yyMMddHHmmssZ" | 010704120856-0700
+#"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" |  2001-07-04T12:08:56.235-0700
+#"yyyy-MM-dd'T'HH:mm:ss.SSSXXX" |  2001-07-04T12:08:56.235-07:00
+#"YYYY-'W'ww-u" | 2001-W27-3
+
+pdfngreport.time.column.format=MMMM dd YYYY hh:MM:sss
 
 #Logo
 pdfreport.logo=show

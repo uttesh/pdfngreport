@@ -27,7 +27,7 @@ import org.testng.annotations.Test;
 public class SunalpsTest {
 
     @Test
-    public void testA() {
+    public void testA(){
         Assert.assertEquals("A", "B");
     }
 

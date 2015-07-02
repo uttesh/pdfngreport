@@ -45,6 +45,9 @@ public class RowMeta {
     @XmlElement(name = "TIME")
     String time;
 
+    @XmlElement(name = "TIMETAKEN")
+    String timeTaken;
+
     @XmlElement(name = "PASSED")
     String passed;
     @XmlElement(name = "FAILED")
@@ -192,6 +195,14 @@ public class RowMeta {
         this.exceptionPage = exceptionPage;
     }
 
-    
+    @XmlTransient
+    public String getTimeTaken() {
+        return timeTaken;
+    }
+
+    public void setTimeTaken(String timeTaken) {
+        this.timeTaken = timeTaken;
+    }
+
     
 }
