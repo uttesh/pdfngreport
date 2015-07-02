@@ -9,8 +9,10 @@ pdfngreport (PDF report plugin for TestNG)
 [![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/uttesh/)-->
 
 
-Join our online chat at [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/uttesh/pdfngreport?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+<h4>Join our online chat at </h4>[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/uttesh/pdfngreport?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+<h4>PDF NG Report home page <a href="http://uttesh.github.io/pdfngreport/">http://uttesh.github.io/pdfngreport/
+</a></h4>
 
 ======================================================================
 This is the part of maven repository now,Directly add in pom following.
