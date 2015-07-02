@@ -40,6 +40,9 @@ PDF report sample <a href="https://github.com/uttesh/pdfngreportdemo/raw/master/
 ![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_1.png)
 ![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_2.png)
 ![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_3.png)
+![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_4.png)
+explode pie chart
+![demo](https://raw.github.com/uttesh/pdfngreportdemo/master/report_snaps/pdfngreport_5.png)
 
 <b>Environment and dependent jar file</b>
 <hr/>
