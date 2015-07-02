@@ -183,8 +183,10 @@ pdfreport.outputdir=E:/rivetsys/automation/pdfngreport
 
 
 # Below setting only for selenium user for selenium failed screen shot link show related
-#pdfreport.show.selenium.screenshot.link=hide
-#pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots
+# screen shot file should be saved with name as "classname"_"method_name".png
+i.e if 'classA' test method 'methodx' is failed then screen shot name will be 'classA_methodx'.png 
+#pdfreport.show.selenium.screenshot.link=show
+#pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screen shots
 
 ```
 contributions
