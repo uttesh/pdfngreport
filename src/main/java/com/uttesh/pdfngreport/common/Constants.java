@@ -66,6 +66,13 @@ public interface Constants {
         "",
         Constants.COLUMN_TIME,
         Constants.STATUS_EXCEPTION};
+    
+        String[] FAILED_STATUS_TABLE_COLUMS_NO_EXCEPTION = {
+        //Constants.COLUMN_PACKAGE,
+        Constants.COLUMN_CLASS,
+        Constants.COLUMN_METHOD,
+        "",
+        Constants.COLUMN_TIME};
 
     String STATUS_FAILED = "FAILED";
     String STATUS_PASSED = "PASSED";
@@ -77,7 +84,12 @@ public interface Constants {
     String HEADER_SKIPPED = "Skipped";
     String HEADER_STATSTICS = "Statistic's";
 
-    String PDF_REPORT_FILE_NAME = "pdfng-report-"+new SimpleDateFormat("dd-MMM-yyyy-hh-mm-s-a").format(new Date())+".pdf";
+    String SHOW = "show";
+    String HIDE = "hide";
+    String ALIGN_LEFT = "left";
+    String ALIGN_RIGHT = "right";
+
+    String PDF_REPORT_FILE_NAME = "pdfng-report-" + new SimpleDateFormat("dd-MMM-yyyy-hh-mm-s-a").format(new Date()) + ".pdf";
 
     String STATISTIC_TABLE_PASSED_HEADER = "Passed";
     String STATISTIC_TABLE_SKIPPED_HEADER = "Skipped";
@@ -94,8 +106,8 @@ public interface Constants {
     String FORWARD_SLASH = "\\";
 
     public interface SystemProps {
-        
-        String REPORT_TITLE_TYPE="pdfreport.title.type";
+
+        String REPORT_TITLE_TYPE = "pdfreport.title.type";
         String REPORT_TITLE_PROP = "pdfreport.title.text";
         String REPORT_TITLE_ALIGN = "pdfreport.title.align";
         String REPORT_TITLE_LOGO = "pdfreport.title.logo";
@@ -107,16 +119,18 @@ public interface Constants {
         String REPORT_PIE_CHART_TYPE_PROP = "pdfreport.pie.chart.type";
         String REPORT_LOGO = "pdfreport.logo";
         String REPORT_LOGO_FILE = "pdfreport.report.logo.file";
-        String REPORT_LOGO_ALIGN ="pdfreport.report.logo.align";
+        String REPORT_LOGO_ALIGN = "pdfreport.report.logo.align";
+        String REPORT_EXCEPTION_PAGE = "pdfreport.exception.page";
     }
-	
-	public interface Icons {
-		String SUCCESS_ICON = "com/uttesh/images/round/pass.png";
-		String FAILED_ICON = "com/uttesh/images/round/failed.png";
-		String SKIPPED_ICON = "com/uttesh/images/round/skip.png";
-		String CHART_ICON = "com/uttesh/images/round/statistics.png";
-                String EXCEPTION_ICON = "com/uttesh/images/round/exception.png";
-                String DETAIL_ICON = "com/uttesh/images/round/detail.png";
-                String IMAGE_ICON = "com/uttesh/images/round/image.png";
-	}
+
+    public interface Icons {
+
+        String SUCCESS_ICON = "com/uttesh/images/round/pass.png";
+        String FAILED_ICON = "com/uttesh/images/round/failed.png";
+        String SKIPPED_ICON = "com/uttesh/images/round/skip.png";
+        String CHART_ICON = "com/uttesh/images/round/statistics.png";
+        String EXCEPTION_ICON = "com/uttesh/images/round/exception.png";
+        String DETAIL_ICON = "com/uttesh/images/round/detail.png";
+        String IMAGE_ICON = "com/uttesh/images/round/image.png";
+    }
 }

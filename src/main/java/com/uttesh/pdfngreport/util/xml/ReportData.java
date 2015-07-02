@@ -77,6 +77,9 @@ public class ReportData {
     @XmlElement(name = "ActionImageIcon")
     private String actionImageIcon;
 
+    @XmlElement(name = "ExceptionPage")
+    private String exceptionPage;
+
     @XmlTransient
     public List<Table> getTable() {
         return table;
@@ -183,7 +186,7 @@ public class ReportData {
     }
 
     public String getActionDetailIcon() {
-       return actionDetailIcon;
+        return actionDetailIcon;
     }
 
     public void setActionDetailIcon(String actionDetailIcon) {
@@ -191,10 +194,20 @@ public class ReportData {
     }
 
     public String getActionImageIcon() {
-       return actionImageIcon;
+        return actionImageIcon;
     }
 
     public void setActionImageIcon(String actionImageIcon) {
         this.actionImageIcon = actionImageIcon;
     }
+
+    public String getExceptionPage() {
+        return exceptionPage;
+    }
+
+    public void setExceptionPage(String exceptionPage) {
+        this.exceptionPage = exceptionPage;
+    }
+    
+    
 }

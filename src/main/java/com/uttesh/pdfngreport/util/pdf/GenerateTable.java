@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.uttesh.pdfngreport.util.pdf;
 
 import com.uttesh.pdfngreport.common.Constants;
@@ -33,34 +32,47 @@ import org.testng.ITestResult;
 
 /**
  * This Class process the result set and populate the tables
+ *
  * @author Uttesh Kumar T.H.
  */
 public class GenerateTable {
-    
+
     PdfLogger logger = PdfLogger.getLogger(GenerateTable.class.getName());
-    
+
     private int exceptionCount = 0;
     private static long totalExecutionTime = 0;
-    
+
     /**
      * This constructor populated table data by ITestResult
+     *
      * @param results
      * @param table
-     * @param status 
+     * @param status
      */
     public void generate(Set<ITestResult> results, Table table, String status) {
         List<ColumnHeader> columns = new ArrayList<ColumnHeader>();
         String[] names = Constants.STATUS_TABLE_COLUMS;
         String failedTestScreenShotLink = null;
-        String showLink =null;
+        String showLink = null;
+        String exceptionPage = null;
         if (status.equalsIgnoreCase(Constants.STATUS_PASSED)) {
             populateColumnHeader(columns, names, Constants.SUCCESS_TABLE_HEADER_COLOR);
         } else if (status.equalsIgnoreCase(Constants.STATUS_FAILED)) {
-            showLink = (String) PDFCache.getConfig(Constants.SystemProps.SHOW_SELENIUM_FAILED_SCREENSHOT_LINK);
-            if(showLink!=null){
-                failedTestScreenShotLink = (String) PDFCache.getConfig(Constants.SystemProps.SELENIUM_FAILED_TEST_SCREENSHOT_OUPUT_DIR);
+
+            exceptionPage = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_EXCEPTION_PAGE);
+            if ((exceptionPage != null || exceptionPage.trim().length() > 0)
+                    && exceptionPage.equalsIgnoreCase(Constants.HIDE)) {
+                exceptionPage = Constants.HIDE;
+                names = Constants.FAILED_STATUS_TABLE_COLUMS_NO_EXCEPTION;
+
+            } else {
+                exceptionPage = Constants.SHOW;
+                showLink = (String) PDFCache.getConfig(Constants.SystemProps.SHOW_SELENIUM_FAILED_SCREENSHOT_LINK);
+                if (showLink != null) {
+                    failedTestScreenShotLink = (String) PDFCache.getConfig(Constants.SystemProps.SELENIUM_FAILED_TEST_SCREENSHOT_OUPUT_DIR);
+                }
+                names = Constants.FAILED_STATUS_TABLE_COLUMS;
             }
-            names = Constants.FAILED_STATUS_TABLE_COLUMS;
             populateColumnHeader(columns, names, Constants.FAILED_TABLE_HEADER_COLOR);
         } else {
             populateColumnHeader(columns, names, Constants.SKIPPED_TABLE_HEADER_COLOR);
@@ -74,9 +86,12 @@ public class GenerateTable {
         for (TableMeta tableMeta : dataList) {
             row = new Row();
             rowMeta = new RowMeta();
-            if(failedTestScreenShotLink!=null){
+            if(exceptionPage!=null){
+                rowMeta.setExceptionPage(exceptionPage);
+            }
+            if (failedTestScreenShotLink != null) {
                 rowMeta.setFailedScreenShotLocation(failedTestScreenShotLink);
-                rowMeta.setShowScreenshotLink("show");
+                rowMeta.setShowScreenshotLink(Constants.SHOW);
             }
             rowMeta.setPackagePath(tableMeta.getPackagePath());
             rowMeta.setClassName(tableMeta.getClassName());
@@ -91,7 +106,7 @@ public class GenerateTable {
         table.setColumnHeader(columns);
         table.setRow(rows);
     }
-    
+
     /**
      * This is the generic method which will populate the table data.
      *
@@ -124,34 +139,34 @@ public class GenerateTable {
             long duration = result.getEndMillis() - result.getStartMillis();
             totalExecutionTime += duration;
             tableMeta.setTime(duration + "");
-            tableMeta.setBlockId(className +"_"+ result.getMethod().getMethodName());
+            tableMeta.setBlockId(className + "_" + result.getMethod().getMethodName());
             if (status.equalsIgnoreCase(Constants.STATUS_FAILED)) {
                 ExceptionBean exceptionBean = new ExceptionBean();
-                exceptionBean.setLable(className + "(" + result.getMethod().getMethodName()+")");
-                exceptionLog(result, tableMeta,exceptionBean);
+                exceptionBean.setLable(className + "(" + result.getMethod().getMethodName() + ")");
+                exceptionLog(result, tableMeta, exceptionBean);
             }
             tableMetas.add(tableMeta);
         }
         logger.log("--------------------- END " + status + " Test class/methods " + "--------------------");
         logger.log("\n\n");
     }
-    
+
     /**
      * This method take the error from thrownMap and populate the error summary.
      *
      * @param table
      * @param result
      */
-    private void exceptionLog(ITestResult result, TableMeta tableMeta,ExceptionBean exceptionBean) {
+    private void exceptionLog(ITestResult result, TableMeta tableMeta, ExceptionBean exceptionBean) {
         Throwable throwable = result.getThrowable();
         if (throwable != null) {
-            tableMeta.setBlockId(tableMeta.getClassName() +"_"+tableMeta.getMethod());
+            tableMeta.setBlockId(tableMeta.getClassName() + "_" + tableMeta.getMethod());
             exceptionBean.setThrowable(throwable);
             PDFCache.put(tableMeta.getBlockId(), exceptionBean);
             this.exceptionCount++;
         }
     }
-    
+
     public static void populateColumnHeader(List<ColumnHeader> columns, String[] names, String color) {
         ColumnHeader columnHeader = null;
         for (String name : names) {
@@ -177,5 +192,5 @@ public class GenerateTable {
     public static void setTotalExecutionTime(long totalExecutionTime) {
         GenerateTable.totalExecutionTime = totalExecutionTime;
     }
-    
+
 }

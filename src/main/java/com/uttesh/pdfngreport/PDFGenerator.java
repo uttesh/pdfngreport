@@ -23,6 +23,7 @@ import com.uttesh.pdfngreport.model.ResultMeta;
 import com.uttesh.pdfngreport.util.ExceptionSummary;
 import com.uttesh.pdfngreport.util.PDFCache;
 import com.uttesh.pdfngreport.util.PdfLogger;
+import com.uttesh.pdfngreport.util.PdfngUtil;
 import com.uttesh.pdfngreport.util.pdf.FailedTable;
 import com.uttesh.pdfngreport.util.pdf.ITable;
 import com.uttesh.pdfngreport.util.pdf.SkippedTable;
@@ -60,62 +61,8 @@ public class PDFGenerator {
     public void generateReport(String location, Map<String, ResultMeta> result) throws Exception {
         ReportData reportData = new ReportData();
         List<Table> tables = new ArrayList<Table>();
-        String reportTitle = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TITLE_PROP);
-        if (reportTitle == null || reportTitle.trim().length() == 0) {
-            reportTitle = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TITLE_PROP);
-        }
-        String reportLocation = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
-        if (reportLocation == null || reportLocation.trim().length() == 0) {
-            reportLocation = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
-        }
-        String logoFile = System.getProperty(Constants.SystemProps.REPORT_LOGO_FILE);
-        if (logoFile == null || logoFile.trim().length() == 0) {
-            logoFile = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_LOGO_FILE);
-        }
-        String logo = System.getProperty(Constants.SystemProps.REPORT_LOGO);
-        if (logo == null || logo.trim().length() == 0) {
-            logo = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_LOGO);
-        }
-        String chart = System.getProperty(Constants.SystemProps.REPORT_CHART_PROP);
-        if (chart == null || chart.trim().length() == 0) {
-            chart = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_CHART_PROP);
-        }
-        String logoAlign = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_LOGO_ALIGN);
-        if (logoAlign == null || logoAlign.trim().length() == 0) {
-            logoAlign = "right";
-        }
-        String titleAlign = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TITLE_ALIGN);
-        if (titleAlign == null || titleAlign.trim().length() == 0) {
-            titleAlign = "left";
-        }
-
-        InputStream exceptionIcon = getClass().getClassLoader().getResourceAsStream(Constants.Icons.EXCEPTION_ICON);
-
-//        if (reportTitle == null || reportTitle.trim().length() == 0) {
-//            InputStream titleLogoFile = getClass().getClassLoader().getResourceAsStream(Constants.SystemProps.REPORT_TITLE_LOGO);
-//            reportData.setTitleLogoFile(ImageUtils.imageToBase64String(titleLogoFile));
-//        } else {
-        reportData.setReportTitle(reportTitle);
-        //}
-
-//        String titleType=(String) PDFCache.getConfig(Constants.SystemProps.REPORT_TITLE_TYPE);
-//        if(titleType==null || titleType.trim().length() == 0){
-//            titleType ="text";
-//        }
-        //reportData.setTitleType(titleType);
-        //InputStream detailio = getClass().getClassLoader().getResourceAsStream(Constants.Icons.DETAIL_ICON);
-
-        //InputStream imageio = getClass().getClassLoader().getResourceAsStream(Constants.Icons.IMAGE_ICON);
-
-        reportData.setTitleAlign(titleAlign);
-        reportData.setReportLocation(reportLocation);
-        reportData.setChart(chart);
-        reportData.setLogoFile(logoFile);
-        reportData.setLogo(logo);
-        reportData.setLogoAlign(logoAlign);
-        reportData.setExceptionIcon(ImageUtils.imageToBase64String(exceptionIcon));
-        //reportData.setActionDetailIcon(ImageUtils.imageToBase64String(detailio));
-        //reportData.setActionImageIcon(ImageUtils.imageToBase64String(imageio));
+        PdfngUtil pdfngUtil = new PdfngUtil();
+        pdfngUtil.populateReportDataProperties(reportData);
 
         try {
             createFile(location);

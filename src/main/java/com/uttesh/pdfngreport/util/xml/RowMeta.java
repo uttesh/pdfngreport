@@ -59,9 +59,12 @@ public class RowMeta {
 
     @XmlElement(name = "FAILED_SCREEN_SHOT_LOCATION")
     String failedScreenShotLocation;
-    
+
     @XmlElement(name = "SHOW_SCREEN_SHOT_LINK")
-    String showScreenshotLink="hide";
+    String showScreenshotLink = "hide";
+
+    @XmlElement(name = "ExceptionPage")
+    private String exceptionPage;
 
     @XmlTransient
     public String getStatus() {
@@ -180,5 +183,15 @@ public class RowMeta {
         this.showScreenshotLink = showScreenshotLink;
     }
 
+    public String getExceptionPage() {
+        return exceptionPage;
+    }
 
+    @XmlTransient
+    public void setExceptionPage(String exceptionPage) {
+        this.exceptionPage = exceptionPage;
+    }
+
+    
+    
 }
