@@ -19,7 +19,7 @@ This is the part of maven repository now,Directly add in pom following.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.5</version>
+            <version>2.0.6</version>
         </dependency>
         
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
@@ -27,7 +27,7 @@ This is the pdf report plugin written for testng, this listener will generate th
 <b>How to use pdfngreport Plugin</b>
 <hr/>
 
-Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.5/">download</a>
+Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.6/">download</a>
 
 Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">download sample</a>
 
@@ -135,7 +135,7 @@ For Maven pom.xml configuration, Add this dependecy.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.5</version>
+            <version>2.0.6</version>
         </dependency> 
  ```
 
@@ -179,14 +179,15 @@ pdfreport.pie.chart.type=normal
 # pdf report output location
 pdfreport.outputdir=E:/rivetsys/automation/pdfngreport
 
-# Custom color setting Coming soon on 3.0.0 version
-
+# tables/page setting
+# pdfreport.exception.page=show
+pdfreport.exception.page=hide
 
 # Below setting only for selenium user for selenium failed screen shot link show related
-# screen shot file should be saved with name as "classname"_"method_name".png
-i.e if 'classA' test method 'methodx' is failed then screen shot name will be 'classA_methodx'.png 
-#pdfreport.show.selenium.screenshot.link=show
-#pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screen shots
+#pdfreport.show.selenium.screenshot.link=hide
+#pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots
+
+# Custom color setting Coming soon on 3.0.0 version
 
 ```
 contributions
