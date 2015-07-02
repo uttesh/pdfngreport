@@ -5,7 +5,8 @@ pdfngreport (PDF report plugin for TestNG)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.uttesh/pdfngreport/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.uttesh/pdfngreport/)
 [![Build Status](https://travis-ci.org/uttesh/pdfngreport.svg)](https://travis-ci.org/uttesh/pdfngreport)
 
-[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/uttesh/)
+<!--
+[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/uttesh/)-->
 
 
 Join our online chat at [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/uttesh/pdfngreport?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
