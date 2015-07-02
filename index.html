@@ -59,7 +59,7 @@
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
         <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
         <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
-        <span style="color: #007700">&lt;version&gt;</span>2.0.5<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;version&gt;</span>2.0.6<span style="color: #007700">&lt;/version&gt;</span>
 <span style="color: #007700">&lt;/dependency&gt;</span>
 </pre></div>
 
@@ -89,7 +89,6 @@
 </pre></div>
 <h4> pdfngreport.properties file</h4>
 <hr/>
-
 <div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">#Title</span>
 <span style="color: #330099">pdfreport.title.text</span><span style="color: #555555">=</span><span style="color: #CC3300">Report Title Here</span>
 <span style="color: #330099">pdfreport.title.align</span><span style="color: #555555">=</span><span style="color: #CC3300">left</span>
@@ -107,14 +106,15 @@
 <span style="color: #0099FF; font-style: italic"># pdf report output location</span>
 <span style="color: #330099">pdfreport.outputdir</span><span style="color: #555555">=</span><span style="color: #CC3300">E:/rivetsys/automation/pdfngreport</span>
 
-<span style="color: #0099FF; font-style: italic"># Custom color setting Coming soon on 3.0.0 version</span>
-
+<span style="color: #0099FF; font-style: italic"># tables/page setting</span>
+<span style="color: #0099FF; font-style: italic"># pdfreport.exception.page=show</span>
+<span style="color: #330099">pdfreport.exception.page</span><span style="color: #555555">=</span><span style="color: #CC3300">hide</span>
 
 <span style="color: #0099FF; font-style: italic"># Below setting only for selenium user for selenium failed screen shot link show related</span>
-<span style="color: #0099FF; font-style: italic"># sceenshot file should be saved with name as "classname"_"method_name".png
-i.e if 'classA' test method 'methodx' is failed then screen shot name will be 'classA_methodx'.png </span>
-<span style="color: #0099FF; font-style: italic">#pdfreport.show.selenium.screenshot.link=show</span>
+<span style="color: #0099FF; font-style: italic">#pdfreport.show.selenium.screenshot.link=hide</span>
 <span style="color: #0099FF; font-style: italic">#pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots</span>
+
+<span style="color: #0099FF; font-style: italic"># Custom color setting Coming soon on 3.0.0 version</span>
 </pre></div>
 
 
