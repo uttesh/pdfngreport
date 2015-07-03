@@ -112,6 +112,8 @@ public class GenerateTable {
         }
         table.setColumnHeader(columns);
         table.setRow(rows);
+        String name = System.getProperty(Constants.BuidSystem.OS_NAME).trim().substring(0, 1);
+        table.setOsName(name.toLowerCase());
     }
 
     /**

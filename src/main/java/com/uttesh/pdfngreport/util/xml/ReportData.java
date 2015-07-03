@@ -80,6 +80,27 @@ public class ReportData {
     @XmlElement(name = "ExceptionPage")
     private String exceptionPage;
 
+    @XmlElement(name = "BuildSystemDetails")
+    private String buildSystemDetails;
+
+    @XmlElement(name = "BuildSystemDetailBy")
+    private String buildSystemDetailsBy;
+
+    @XmlElement(name = "BuildVersion")
+    private String buildVersion;
+
+    @XmlElement(name = "OSName")
+    private String osName;
+
+    @XmlElement(name = "ADDITIONAL_LINE1")
+    private String additionLine1;
+
+    @XmlElement(name = "ADDITIONAL_LINE2")
+    private String additionLine2;
+
+    @XmlElement(name = "ADDITIONAL_LINE3")
+    private String additionLine3;
+
     @XmlTransient
     public List<Table> getTable() {
         return table;
@@ -208,6 +229,62 @@ public class ReportData {
     public void setExceptionPage(String exceptionPage) {
         this.exceptionPage = exceptionPage;
     }
-    
+
+    public String getBuildSystemDetails() {
+        return buildSystemDetails;
+    }
+
+    public void setBuildSystemDetails(String buildSystemDetails) {
+        this.buildSystemDetails = buildSystemDetails;
+    }
+
+    public String getBuildVersion() {
+        return buildVersion;
+    }
+
+    public void setBuildVersion(String buildVersion) {
+        this.buildVersion = buildVersion;
+    }
+
+    public String getOsName() {
+        return osName;
+    }
+
+    public void setOsName(String osName) {
+        this.osName = osName;
+    }
+
+    public String getBuildSystemDetailsBy() {
+        return buildSystemDetailsBy;
+    }
+
+    public void setBuildSystemDetailsBy(String buildSystemDetailsBy) {
+        this.buildSystemDetailsBy = buildSystemDetailsBy;
+    }
+
+    public String getAdditionLine1() {
+        return additionLine1;
+    }
+
+    public void setAdditionLine1(String additionLine1) {
+        this.additionLine1 = additionLine1;
+    }
+
+    public String getAdditionLine2() {
+        return additionLine2;
+    }
+
+    public void setAdditionLine2(String additionLine2) {
+        this.additionLine2 = additionLine2;
+    }
+
+    public String getAdditionLine3() {
+        return additionLine3;
+    }
+
+    public void setAdditionLine3(String additionLine3) {
+        this.additionLine3 = additionLine3;
+    }
+
     
 }

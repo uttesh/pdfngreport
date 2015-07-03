@@ -59,7 +59,8 @@ public class Table {
     @XmlElement(name = "TableHeaderIcon")
     private String tableHeaderIcon;
 
-
+    @XmlElement(name = "OSName")
+    private String osName;
 
     @XmlTransient
     public List<ColumnHeader> getColumnHeader() {
@@ -121,5 +122,15 @@ public class Table {
         this.reportLocation = reportLocation;
     }
 
-   
+    @XmlTransient
+    public String getOsName() {
+        return osName;
+    }
+
+    public void setOsName(String osName) {
+        this.osName = osName;
+    }
+
+ 
+    
 }

@@ -222,7 +222,7 @@ public class PdfReportHandler {
             plot.setSimpleLabels(true);
             PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator("{1} ({2})", new DecimalFormat("0"), new DecimalFormat("0%"));
             plot.setLabelGenerator(gen);
-            ChartUtilities.saveChartAsPNG(new File(reportLocation + "\\" + "chart.png"), chart, 560, 240);
+            ChartUtilities.saveChartAsPNG(new File(reportLocation + "\\" + "chart.png"), chart, 560, 200);
         } catch (Exception e) {
             e.printStackTrace(System.err);
             new File(reportLocation + "\\" + "chart.png").delete();

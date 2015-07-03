@@ -29,7 +29,7 @@ public interface Constants {
     String COLUMN_METHOD = "Case";
     String COLUMN_TIME_TAKEN = "TimeTaken(ms)";
     String COLUMN_STATUS = "Status";
-    String COLUMN_TIME="Time";
+    String COLUMN_TIME = "Time";
     String DATE_FORMAT = "MMMM dd YYYY hh:MM:ss";
 
     public enum TestCaseStatus {
@@ -65,8 +65,8 @@ public interface Constants {
         Constants.COLUMN_METHOD,
         Constants.COLUMN_TIME_TAKEN,
         Constants.STATUS_EXCEPTION};
-    
-        String[] FAILED_STATUS_TABLE_COLUMS_NO_EXCEPTION = {
+
+    String[] FAILED_STATUS_TABLE_COLUMS_NO_EXCEPTION = {
         Constants.COLUMN_TIME,
         Constants.COLUMN_CLASS,
         Constants.COLUMN_METHOD,
@@ -119,7 +119,15 @@ public interface Constants {
         String REPORT_LOGO_FILE = "pdfreport.report.logo.file";
         String REPORT_LOGO_ALIGN = "pdfreport.report.logo.align";
         String REPORT_EXCEPTION_PAGE = "pdfreport.exception.page";
-        String REPORT_TIME_COLUMN_DATE_FORMAT="pdfngreport.time.column.format";
+        String REPORT_TIME_COLUMN_DATE_FORMAT = "pdfngreport.time.column.format";
+        String REPORT_APP_BUILD_VERSION = "pdfreport.app.build.version";
+        String REPORT_BUILD_SYSTEM_DETAILS_BY = "pdfreport.build.system.details.by";
+        
+        
+        String REPORT_ADDITIONAL_LINE1 = "pdfreport.additional.line1";
+        String REPORT_ADDITIONAL_LINE2 = "pdfreport.additional.line2";
+        String REPORT_ADDITIONAL_LINE3 = "pdfreport.additional.line3";
+        
     }
 
     public interface Icons {
@@ -131,5 +139,14 @@ public interface Constants {
         String EXCEPTION_ICON = "com/uttesh/images/round/exception.png";
         String DETAIL_ICON = "com/uttesh/images/round/detail.png";
         String IMAGE_ICON = "com/uttesh/images/round/image.png";
+    }
+
+    public interface BuidSystem {
+
+        String OS_NAME = "os.name";
+        String OS_ARCHETECTURE = "os.arch";
+        String JAVA_VERSION = "java.version";
+        String JAVA_VERDOR = "java.vendor";
+        String USER_NAME = "user.name";
     }
 }

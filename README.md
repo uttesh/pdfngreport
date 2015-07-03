@@ -19,7 +19,7 @@ This is the part of maven repository now,Directly add in pom following.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.7</version>
+            <version>2.0.8</version>
         </dependency>
         
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
@@ -138,7 +138,7 @@ For Maven pom.xml configuration, Add this dependecy.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.7</version>
+            <version>2.0.8</version>
         </dependency> 
  ```
 
@@ -169,6 +169,18 @@ For Maven pom.xml configuration, Add this dependecy.
 pdfreport.title.text=Report Title Here
 pdfreport.title.align=left
 
+# application build version
+pdfreport.app.build.version=Build v2.0.8
+
+# Build System Details manual/code/hide code is default, use hide for not to display
+# enable below only for manual setting by setting code mode it will automactically populate the values in report
+# manual only for the mobile/tab env related details
+pdfreport.build.system.details.by=code
+#pdfreport.additional.line1=OS : testOS (64 bit)
+#pdfreport.additional.line2=SYSTEM : test@testingbox
+#pdfreport.additional.line3=Lorem ipsum dolor sit amet
+
+
 #TimeColumn Date Format
 #"yyyy.MM.dd G 'at' HH:mm:ss z" | 2001.07.04 AD at 12:08:56 PDT
 #"EEE, MMM d, ''yy" | Wed, Jul 4, '01
@@ -196,12 +208,11 @@ pdfreport.pie.chart.type=normal
 # pdf report output location
 pdfreport.outputdir=E:/rivetsys/automation/pdfngreport
 
-# tables/page setting
-# pdfreport.exception.page=show
+# tables/page setting : show/hude
 pdfreport.exception.page=hide
 
 # Below setting only for selenium user for selenium failed screen shot link show related
-#pdfreport.show.selenium.screenshot.link=hide
+#pdfreport.show.selenium.screenshot.link=show
 #pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots
 
 # Custom color setting Coming soon on 3.0.0 version

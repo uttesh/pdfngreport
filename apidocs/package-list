@@ -1,5 +1,9 @@
 com.uttesh.pdfngreport
 com.uttesh.pdfngreport.common
 com.uttesh.pdfngreport.exceptionHandler
+com.uttesh.pdfngreport.handler
 com.uttesh.pdfngreport.model
 com.uttesh.pdfngreport.util
+com.uttesh.pdfngreport.util.chart
+com.uttesh.pdfngreport.util.pdf
+com.uttesh.pdfngreport.util.xml
