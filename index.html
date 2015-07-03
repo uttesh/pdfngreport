@@ -59,14 +59,14 @@
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;dependency&gt;</span>
         <span style="color: #007700">&lt;groupId&gt;</span>com.uttesh<span style="color: #007700">&lt;/groupId&gt;</span>
         <span style="color: #007700">&lt;artifactId&gt;</span>pdfngreport<span style="color: #007700">&lt;/artifactId&gt;</span>
-        <span style="color: #007700">&lt;version&gt;</span>2.0.7<span style="color: #007700">&lt;/version&gt;</span>
+        <span style="color: #007700">&lt;version&gt;</span>2.0.8<span style="color: #007700">&lt;/version&gt;</span>
 <span style="color: #007700">&lt;/dependency&gt;</span>
 </pre></div>
 
 
 
 <br/>
-<a href="http://search.maven.org/#artifactdetails%7Ccom.uttesh%7Cpdfngreport%7C2.0.4%7Cjar" class="btn btn-info" target="_blank" >Maven central repository <i class="fa fa-long-arrow-right"></i></a>
+<a href="http://search.maven.org/#artifactdetails%7Ccom.uttesh%7Cpdfngreport%7C2.0.8%7Cjar" class="btn btn-info" target="_blank" >Maven central repository <i class="fa fa-long-arrow-right"></i></a>
 
 			 <h4>testng suit xml file</h4>
 			<hr/>
@@ -90,9 +90,21 @@
 <h4> pdfngreport.properties file</h4>
 <hr/>
 
-<!-- HTML generated using hilite.me --><div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">#Title</span>
+<div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0099FF; font-style: italic">#Title</span>
 <span style="color: #330099">pdfreport.title.text</span><span style="color: #555555">=</span><span style="color: #CC3300">Report Title Here</span>
 <span style="color: #330099">pdfreport.title.align</span><span style="color: #555555">=</span><span style="color: #CC3300">left</span>
+
+<span style="color: #0099FF; font-style: italic"># application build version</span>
+<span style="color: #330099">pdfreport.app.build.version</span><span style="color: #555555">=</span><span style="color: #CC3300">Build v2.0.8</span>
+
+<span style="color: #0099FF; font-style: italic"># Build System Details manual/code/hide code is default, use hide for not to display</span>
+<span style="color: #0099FF; font-style: italic"># enable below only for manual setting by setting code mode it will automactically populate the values in report</span>
+<span style="color: #0099FF; font-style: italic"># manual only for the mobile/tab env related details</span>
+<span style="color: #330099">pdfreport.build.system.details.by</span><span style="color: #555555">=</span><span style="color: #CC3300">code</span>
+<span style="color: #0099FF; font-style: italic">#pdfreport.additional.line1=OS : testOS (64 bit)</span>
+<span style="color: #0099FF; font-style: italic">#pdfreport.additional.line2=SYSTEM : test@testingbox</span>
+<span style="color: #0099FF; font-style: italic">#pdfreport.additional.line3=Lorem ipsum dolor sit amet</span>
+
 
 <span style="color: #0099FF; font-style: italic">#TimeColumn Date Format</span>
 <span style="color: #0099FF; font-style: italic">#&quot;yyyy.MM.dd G &#39;at&#39; HH:mm:ss z&quot; | 2001.07.04 AD at 12:08:56 PDT</span>
@@ -111,26 +123,26 @@
 
 <span style="color: #0099FF; font-style: italic">#Logo</span>
 <span style="color: #330099">pdfreport.logo</span><span style="color: #555555">=</span><span style="color: #CC3300">show</span>
-<span style="color: #330099">pdfreport.report.logo.file</span><span style="color: #555555">=</span><span style="color: #CC3300">E:/rivetsys/automation/pdfnglogo/logo.jpg</span>
+<span style="color: #330099">pdfreport.report.logo.file</span><span style="color: #555555">=</span><span style="color: #CC3300">E:/rivetsys/automation/pdfnglogo/logo.png</span>
 <span style="color: #330099">pdfreport.report.logo.align</span><span style="color: #555555">=</span><span style="color: #CC3300">right</span>
 
 <span style="color: #0099FF; font-style: italic"># chat related</span>
-<span style="color: #0099FF; font-style: italic">#pdfreport.pie.chart.type=normal</span>
-<span style="color: #330099">pdfreport.pie.chart.type</span><span style="color: #555555">=</span><span style="color: #CC3300">explode</span>
+<span style="color: #330099">pdfreport.pie.chart.type</span><span style="color: #555555">=</span><span style="color: #CC3300">normal</span>
+<span style="color: #0099FF; font-style: italic">#pdfreport.pie.chart.type=explode</span>
 
 <span style="color: #0099FF; font-style: italic"># pdf report output location</span>
 <span style="color: #330099">pdfreport.outputdir</span><span style="color: #555555">=</span><span style="color: #CC3300">E:/rivetsys/automation/pdfngreport</span>
 
-<span style="color: #0099FF; font-style: italic"># tables/page setting</span>
-<span style="color: #0099FF; font-style: italic"># pdfreport.exception.page=show</span>
+<span style="color: #0099FF; font-style: italic"># tables/page setting : show/hude</span>
 <span style="color: #330099">pdfreport.exception.page</span><span style="color: #555555">=</span><span style="color: #CC3300">hide</span>
 
 <span style="color: #0099FF; font-style: italic"># Below setting only for selenium user for selenium failed screen shot link show related</span>
-<span style="color: #0099FF; font-style: italic">#pdfreport.show.selenium.screenshot.link=hide</span>
+<span style="color: #0099FF; font-style: italic">#pdfreport.show.selenium.screenshot.link=show</span>
 <span style="color: #0099FF; font-style: italic">#pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots</span>
 
 <span style="color: #0099FF; font-style: italic"># Custom color setting Coming soon on 3.0.0 version</span>
 </pre></div>
+
 
 
 
