@@ -172,7 +172,7 @@ pdfreport.title.align=left
 # application build version
 pdfreport.app.build.version=Build v2.0.8
 
-# Build System Details manual/code/hide code is default, use hide for not to display
+# Build System Details manual/code/hide, hide is default
 # enable below only for manual setting by setting code mode it will automactically populate the values in report
 # manual only for the mobile/tab env related details
 pdfreport.build.system.details.by=code
