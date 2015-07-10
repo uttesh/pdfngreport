@@ -216,10 +216,7 @@ pdfreport.exception.page=hide
 #pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots
 
 ## Custom color setting Coming soon on 3.0.0 version
-
-
-
-
+```
 ## Properties :
 
 property | default | description
@@ -239,7 +236,6 @@ property | default | description
 `pdfreport.outputdir` |  | set the location where generated report will be saved.
 
 
-```
 contributions
 =============
 
