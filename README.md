@@ -215,6 +215,26 @@ pdfreport.exception.page=hide
 #pdfreport.show.selenium.screenshot.link=show
 #pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots
 
+
+## Properties
+
+property | default | description
+-----|---------|------------
+`pdfreport.title.text` |  | Specifies the required report title.
+`pdfreport.title.align` | left | align the title left/right
+`pdfreport.app.build.version` |  | Specifies the required application build version.
+`pdfreport.build.system.details.by` |  | Build System Details manual/code/hide
+`pdfreport.additional.line1` |  | by setting the system details properties, we can set this for the manual system details data entry
+`pdfreport.additional.line2` |  | by setting the system details properties, we can set this for the manual system details data entry
+`pdfreport.additional.line3` |  | by setting the system details properties, we can set this for the manual system details data entry
+`pdfngreport.time.column.format` | MMMM dd YYYY hh:mm:sss | set date format for the test case execution time display.
+`pdfreport.logo` | hide | by setting this property along with below properties we can add logo image to report
+`pdfreport.report.logo.file` | no default value | set the location of the logo image
+`pdfreport.report.logo.align` | right | align the logo image right/left 
+`pdfreport.pie.chart.type` | normal | set the values 'explode' for the ex[plode pie chart
+`pdfreport.outputdir` |  | set the location where generated report will be saved
+
+
 # Custom color setting Coming soon on 3.0.0 version
 
 ```
