@@ -215,11 +215,15 @@ pdfreport.exception.page=hide
 #pdfreport.show.selenium.screenshot.link=show
 #pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots
 
+## Custom color setting Coming soon on 3.0.0 version
 
-## Properties
+
+
+
+## Properties :
 
 property | default | description
------|---------|------------
+---------|---------|------------
 `pdfreport.title.text` |  | Specifies the required report title.
 `pdfreport.title.align` | left | align the title left/right
 `pdfreport.app.build.version` |  | Specifies the required application build version.
@@ -232,10 +236,8 @@ property | default | description
 `pdfreport.report.logo.file` | no default value | set the location of the logo image
 `pdfreport.report.logo.align` | right | align the logo image right/left 
 `pdfreport.pie.chart.type` | normal | set the values 'explode' for the ex[plode pie chart
-`pdfreport.outputdir` |  | set the location where generated report will be saved
+`pdfreport.outputdir` |  | set the location where generated report will be saved.
 
-
-# Custom color setting Coming soon on 3.0.0 version
 
 ```
 contributions
