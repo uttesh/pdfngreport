@@ -194,7 +194,7 @@ pdfreport.build.system.details.by=code
 #"yyyy-MM-dd'T'HH:mm:ss.SSSXXX" |  2001-07-04T12:08:56.235-07:00
 #"YYYY-'W'ww-u" | 2001-W27-3
 
-pdfngreport.time.column.format=MMMM dd YYYY hh:MM:sss
+pdfngreport.time.column.format=MMMM dd YYYY hh:mm:sss
 
 #Logo
 pdfreport.logo=show
