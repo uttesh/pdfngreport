@@ -16,12 +16,10 @@
 package com.uttesh.pdfngreport;
 
 import com.uttesh.pdfngreport.common.Constants;
-import com.uttesh.pdfngreport.common.ImageUtils;
 import com.uttesh.pdfngreport.exceptionHandler.ReportException;
 import com.uttesh.pdfngreport.handler.PdfReportHandler;
 import com.uttesh.pdfngreport.model.ResultMeta;
 import com.uttesh.pdfngreport.util.ExceptionSummary;
-import com.uttesh.pdfngreport.util.PDFCache;
 import com.uttesh.pdfngreport.util.PdfLogger;
 import com.uttesh.pdfngreport.util.PdfngUtil;
 import com.uttesh.pdfngreport.util.pdf.FailedTable;
@@ -33,7 +31,6 @@ import com.uttesh.pdfngreport.util.xml.ReportData;
 import com.uttesh.pdfngreport.util.xml.Table;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

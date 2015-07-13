@@ -101,7 +101,8 @@ public interface Constants {
     String REPORT_XSL_TEMPLATE = "com/uttesh/config/report.xsl";
     String XML_EXTENSION = ".xml";
     String REPORT_CHART_FILE = "chart.png";
-    String FORWARD_SLASH = "\\";
+    String FORWARD_SLASH = "/";
+    String BACKWARD_SLASH = "\\";
 
     public interface SystemProps {
 

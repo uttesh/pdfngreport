@@ -66,8 +66,8 @@ public class StatisticsTable {
                 pieChartType = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_PIE_CHART_TYPE_PROP);
             }
         }
-        String name = System.getProperty(Constants.BuidSystem.OS_NAME).trim().substring(0, 1);
-        statisticsTable.setOsName(name.toLowerCase());
+        String os = System.getProperty(Constants.BuidSystem.OS_NAME).trim().substring(0, 1);
+        statisticsTable.setOsName(os.toLowerCase());
         for (String className : result.keySet()) {
             ResultMeta resultMeta = result.get(className);
             passed = passed + getPassedCount(resultMeta);
@@ -107,9 +107,9 @@ public class StatisticsTable {
             dataSet.setValue("Skipped", skipped);
             dataSet.setValue("Passed", passed);
             if (pieChartType.equalsIgnoreCase("normal")) {
-                pdfReportHandler.generateChart(dataSet);
+                pdfReportHandler.generateChart(dataSet,os);
             } else {
-                pdfReportHandler.pieExplodeChart(dataSet);
+                pdfReportHandler.pieExplodeChart(dataSet,os);
             }
         }
     }

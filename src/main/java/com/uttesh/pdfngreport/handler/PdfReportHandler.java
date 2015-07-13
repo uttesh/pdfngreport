@@ -69,7 +69,6 @@ public class PdfReportHandler {
 
     PdfLogger logger = PdfLogger.getLogger(PdfReportHandler.class.getName());
 
-
     String reportLocation = PdfngUtil.getReportLocation();
 
     /**
@@ -91,7 +90,11 @@ public class PdfReportHandler {
             jc = JAXBContext.newInstance(ReportData.class);
             Marshaller marshaller = jc.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            file = new File(reportLocation + Constants.FORWARD_SLASH + fileName + Constants.XML_EXTENSION);
+            if (reportData.getOsName().equalsIgnoreCase("w")) {
+                file = new File(reportLocation + Constants.BACKWARD_SLASH + fileName + Constants.XML_EXTENSION);
+            } else {
+                file = new File(reportLocation + Constants.FORWARD_SLASH + fileName + Constants.XML_EXTENSION);
+            }
             marshaller.marshal(reportData, file);
         } catch (JAXBException ex) {
             Logger.getLogger(PdfReportHandler.class.getName()).log(Level.SEVERE, null, ex);
@@ -127,7 +130,12 @@ public class PdfReportHandler {
      */
     public void generatePdfReport(ReportData reportData, File reportFile) throws FileNotFoundException, FOPException, TransformerConfigurationException, TransformerException, IOException, InterruptedException, URISyntaxException {
         int fileName = generateXmlData(reportData);
-        File xmlfile = new File(reportLocation + Constants.FORWARD_SLASH + fileName + Constants.XML_EXTENSION);
+        File xmlfile = null;
+        if (reportData.getOsName().equalsIgnoreCase("w")) {
+            xmlfile = new File(reportLocation + Constants.BACKWARD_SLASH + fileName + Constants.XML_EXTENSION);
+        } else {
+            xmlfile = new File(reportLocation + Constants.FORWARD_SLASH + fileName + Constants.XML_EXTENSION);
+        }
         //File xsltfile = new File(getClass().getClassLoader().getResource(Constants.REPORT_XSL_TEMPLATE).toURI());
         InputStream input = getClass().getClassLoader().getResourceAsStream(Constants.REPORT_XSL_TEMPLATE);
         //File xsltfile = new File(Thread.currentThread().getContextClassLoader().getResource("pl/shenlon/io/gui/appData/list.txt").getFile());
@@ -146,12 +154,23 @@ public class PdfReportHandler {
             transformer.transform(src, res);
         } catch (Exception e) {
             e.printStackTrace(System.err);
-            new File(reportLocation + Constants.FORWARD_SLASH + fileName + Constants.XML_EXTENSION).delete();
+            if (reportData.getOsName().equalsIgnoreCase("w")) {
+                new File(reportLocation + Constants.BACKWARD_SLASH + fileName + Constants.XML_EXTENSION).delete();
+            } else {
+                new File(reportLocation + Constants.FORWARD_SLASH + fileName + Constants.XML_EXTENSION).delete();
+            }
+
             System.exit(-1);
         } finally {
             out.close();
-            new File(reportLocation + Constants.FORWARD_SLASH + fileName + Constants.XML_EXTENSION).delete();
-            new File(reportLocation + Constants.FORWARD_SLASH + Constants.REPORT_CHART_FILE).delete();
+            if (reportData.getOsName().equalsIgnoreCase("w")) {
+                new File(reportLocation + Constants.BACKWARD_SLASH + fileName + Constants.XML_EXTENSION).delete();
+                new File(reportLocation + Constants.BACKWARD_SLASH + Constants.REPORT_CHART_FILE).delete();
+            } else {
+                new File(reportLocation + Constants.FORWARD_SLASH + fileName + Constants.XML_EXTENSION).delete();
+                new File(reportLocation + Constants.FORWARD_SLASH + Constants.REPORT_CHART_FILE).delete();
+            }
+
         }
     }
 
@@ -165,7 +184,7 @@ public class PdfReportHandler {
      *
      * @see DefaultPieDataset
      */
-    public void generateChart(DefaultPieDataset dataSet) throws FileNotFoundException, IOException {
+    public void generateChart(DefaultPieDataset dataSet,String os) throws FileNotFoundException, IOException {
         try {
             JFreeChart chart = ChartFactory.createPieChart3D("", dataSet, true, true, false);
             ChartStyle.theme(chart);
@@ -184,10 +203,18 @@ public class PdfReportHandler {
             plot.setLabelFont(font);
             PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator("{0}: {1} ({2})", new DecimalFormat("0"), new DecimalFormat("0%"));
             plot.setLabelGenerator(gen);
-            ChartUtilities.saveChartAsPNG(new File(reportLocation + Constants.FORWARD_SLASH + Constants.REPORT_CHART_FILE), chart, 560, 240);
+            if (os != null && os.equalsIgnoreCase("w")) {
+                ChartUtilities.saveChartAsPNG(new File(reportLocation + Constants.BACKWARD_SLASH + Constants.REPORT_CHART_FILE), chart, 560, 200);
+            } else {
+                ChartUtilities.saveChartAsPNG(new File(reportLocation + Constants.FORWARD_SLASH + Constants.REPORT_CHART_FILE), chart, 560, 200);
+            }
         } catch (Exception e) {
             e.printStackTrace(System.err);
-            new File(reportLocation + Constants.FORWARD_SLASH + Constants.REPORT_CHART_FILE).delete();
+            if (os != null && os.equalsIgnoreCase("w")) {
+                new File(reportLocation + Constants.BACKWARD_SLASH + Constants.REPORT_CHART_FILE).delete();
+            } else {
+                new File(reportLocation + Constants.FORWARD_SLASH + Constants.REPORT_CHART_FILE).delete();
+            }
             System.exit(-1);
         }
     }
@@ -197,7 +224,7 @@ public class PdfReportHandler {
      *
      * @param dataSet
      */
-    public void pieExplodeChart(DefaultPieDataset dataSet) {
+    public void pieExplodeChart(DefaultPieDataset dataSet,String os) {
         try {
             JFreeChart chart = ChartFactory.createPieChart("", dataSet, true, true, false);
             ChartStyle.theme(chart);
@@ -222,10 +249,19 @@ public class PdfReportHandler {
             plot.setSimpleLabels(true);
             PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator("{1} ({2})", new DecimalFormat("0"), new DecimalFormat("0%"));
             plot.setLabelGenerator(gen);
-            ChartUtilities.saveChartAsPNG(new File(reportLocation + "\\" + "chart.png"), chart, 560, 200);
+
+            if (os != null && os.equalsIgnoreCase("w")) {
+                ChartUtilities.saveChartAsPNG(new File(reportLocation + Constants.BACKWARD_SLASH + Constants.REPORT_CHART_FILE), chart, 560, 200);
+            } else {
+                ChartUtilities.saveChartAsPNG(new File(reportLocation + Constants.FORWARD_SLASH + Constants.REPORT_CHART_FILE), chart, 560, 200);
+            }
         } catch (Exception e) {
             e.printStackTrace(System.err);
-            new File(reportLocation + "\\" + "chart.png").delete();
+            if (os != null && os.equalsIgnoreCase("w")) {
+                new File(reportLocation + Constants.BACKWARD_SLASH + Constants.REPORT_CHART_FILE).delete();
+            } else {
+                new File(reportLocation + Constants.FORWARD_SLASH + Constants.REPORT_CHART_FILE).delete();
+            }
             System.exit(-1);
         }
     }

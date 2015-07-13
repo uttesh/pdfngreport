@@ -66,7 +66,7 @@
                                                     <fo:external-graphic content-width="2in" src="url(file:/{ReportData/LogoFile})" content-height="2cm" />
                                                 </xsl:when>
                                                 <xsl:otherwise>
-                                                    <fo:external-graphic content-width="2in" src="url(ReportData/LogoFile)" content-height="2cm" />
+                                                    <fo:external-graphic content-width="2in" src="{ReportData/LogoFile}" content-height="2cm" />
                                                 </xsl:otherwise>
                                             </xsl:choose>
                                         </fo:block>
@@ -157,7 +157,7 @@
                                  <fo:external-graphic src="url(file:/{ReportLocation}/chart.png)"  content-height="scale-to-fit" scaling="non-uniform"/>
                              </xsl:when>
                              <xsl:otherwise>
-                                 <fo:external-graphic src="url(ReportLocation/chart.png)"  content-height="scale-to-fit" scaling="non-uniform"/>
+                                 <fo:external-graphic src="{ReportLocation}/chart.png"  content-height="scale-to-fit" scaling="non-uniform"/>
                              </xsl:otherwise>
                          </xsl:choose>
                      </fo:block>

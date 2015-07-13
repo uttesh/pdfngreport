@@ -48,6 +48,7 @@ public class PDFReportListener implements IReporter {
      */
     public void generateReport(List<XmlSuite> list, List<ISuite> suites, String outputFolder) {
         ResultMeta resultMeta = null;
+        String os = System.getProperty(Constants.BuidSystem.OS_NAME).trim().substring(0, 1);
         for (ISuite suite : suites) {
             String suiteName = suite.getName();
             String configPath = suite.getParameter("pdfngreport-properties");
@@ -81,7 +82,12 @@ public class PDFReportListener implements IReporter {
                     outpurDir = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
                 }
                 try {
-                    generator.generateReport(outpurDir + "\\" + Constants.PDF_REPORT_FILE_NAME, result);
+                    if (os != null && os.equalsIgnoreCase("w")) {
+                        generator.generateReport(outpurDir + Constants.BACKWARD_SLASH + Constants.PDF_REPORT_FILE_NAME, result);
+                    } else {
+                        generator.generateReport(outpurDir + Constants.FORWARD_SLASH + Constants.PDF_REPORT_FILE_NAME, result);
+                    }
+                    
                 } catch (Exception ex) {
                     Logger.getLogger(PDFReportListener.class.getName()).log(Level.SEVERE, null, ex);
                 }
