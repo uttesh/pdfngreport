@@ -27,7 +27,8 @@ public class TableMeta  {
     String className;
     String packagePath;
     String method;
-    String testName;
+    String testCaseName;
+    String testContextName;
     String time;
     String status;
     String blockId;
@@ -98,13 +99,23 @@ public class TableMeta  {
         this.timeTaken = timeTaken;
     }
 
-    public String getTestName() {
-        return testName;
+    public String getTestCaseName() {
+        return testCaseName;
     }
 
-    public void setTestName(String testName) {
-        this.testName = testName;
+    public void setTestCaseName(String testCaseName) {
+        this.testCaseName = testCaseName;
     }
+
+    public String getTestContextName() {
+        return testContextName;
+    }
+
+    public void setTestContextName(String testContextName) {
+        this.testContextName = testContextName;
+    }
+
+
   
     public static Comparator<TableMeta> TableMetaComparator  = new Comparator<TableMeta>() {
 	    public int compare(TableMeta tableMeta1, TableMeta tableMeta2) {
