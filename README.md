@@ -138,7 +138,7 @@ For Maven pom.xml configuration, Add this dependecy.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.0.8</version>
+            <version>2.1.0</version>
         </dependency> 
  ```
 
