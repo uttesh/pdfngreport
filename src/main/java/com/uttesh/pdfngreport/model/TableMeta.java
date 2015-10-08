@@ -27,6 +27,7 @@ public class TableMeta  {
     String className;
     String packagePath;
     String method;
+    String testName;
     String time;
     String status;
     String blockId;
@@ -96,9 +97,15 @@ public class TableMeta  {
     public void setTimeTaken(String timeTaken) {
         this.timeTaken = timeTaken;
     }
+
+    public String getTestName() {
+        return testName;
+    }
+
+    public void setTestName(String testName) {
+        this.testName = testName;
+    }
   
-    
-    
     public static Comparator<TableMeta> TableMetaComparator  = new Comparator<TableMeta>() {
 	    public int compare(TableMeta tableMeta1, TableMeta tableMeta2) {
 	      String ClassName1 = tableMeta1.getClassName().toUpperCase();

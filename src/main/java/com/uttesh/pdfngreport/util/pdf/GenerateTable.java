@@ -30,6 +30,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import org.testng.ITestResult;
+import org.testng.annotations.Test;
 
 /**
  * This Class process the result set and populate the tables
@@ -101,7 +102,11 @@ public class GenerateTable {
             }
             rowMeta.setPackagePath(tableMeta.getPackagePath());
             rowMeta.setClassName(tableMeta.getClassName());
-            rowMeta.setMethod(tableMeta.getMethod());
+            if (tableMeta.getTestName() != null && tableMeta.getTestName().trim().length() > 0) {
+                rowMeta.setMethod(tableMeta.getTestName());
+            } else {
+                rowMeta.setMethod(tableMeta.getMethod());
+            }
             rowMeta.setTimeTaken(tableMeta.getTimeTaken());
             rowMeta.setTime(tableMeta.getTime());
             rowMeta.setStatus(status);
@@ -114,6 +119,19 @@ public class GenerateTable {
         table.setRow(rows);
         String name = System.getProperty(Constants.BuidSystem.OS_NAME).trim().substring(0, 1);
         table.setOsName(name.toLowerCase());
+    }
+
+    private String populateSpace(String text) {
+        StringBuilder sb = new StringBuilder();
+        if (text.length() > 30) {
+            sb.append(text.substring(0, 30));
+            sb.append("\n");
+            sb.append(text.substring(30, text.length()));
+            sb.append("\n");
+            return sb.toString();
+        } else {
+            return text;
+        }
     }
 
     /**
@@ -132,19 +150,34 @@ public class GenerateTable {
             tableMeta.setStatus(status);
             String str[] = result.getTestClass().getName().trim().split("\\.");
             String className = result.getTestClass().getName();
+            String _className = "";
             if (str.length > 0) {
                 String instanceName = result.getTestClass().getName();
                 className = str[str.length - 1];
-                String packageName = instanceName.substring(0, instanceName.indexOf(className) - 1);
+                if (className != null) {
+                    _className = className;
+                    _className = populateSpace(_className);
+                }
+                String packageName = instanceName.substring(0, ((instanceName.indexOf(className))-1));
+                if (packageName != null) {
+                    packageName = populateSpace(packageName);
+                }
                 tableMeta.setPackagePath(packageName);
-                tableMeta.setClassName(className);
+                tableMeta.setClassName(_className);
             } else {
-                tableMeta.setPackagePath(className);
-                tableMeta.setClassName(className);
+                tableMeta.setPackagePath(_className);
+                tableMeta.setClassName(_className);
             }
             logger.log("| class :: " + className + " :: method :: " + result.getMethod().getMethodName() + " |");
             logger.log("-------------------------------------------------------------------------");
-            tableMeta.setMethod(result.getMethod().getMethodName());
+            String testName = result.getTestName();
+            tableMeta.setTestName(testName);
+            String methodName = result.getMethod().getMethodName();
+            Test _test = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(Test.class);
+            if (_test != null && _test.testName()!=null && _test.testName().trim().length() > 0) {
+                methodName = _test.testName();
+            }
+            tableMeta.setMethod(populateSpace(methodName));
             long duration = result.getEndMillis() - result.getStartMillis();
             totalExecutionTime += duration;
             tableMeta.setTimeTaken(duration + "");

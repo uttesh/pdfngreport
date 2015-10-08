@@ -30,5 +30,11 @@
     </classes>
   </test>
   
+    <test name="Lengthy Names">
+    <classes>
+      <class name="com.uttesh.pdfngreport.DeepalicrDSConfirmapointmentfrompatientreminderscreen" />
+    </classes>
+  </test>
+  
 </suite>
 

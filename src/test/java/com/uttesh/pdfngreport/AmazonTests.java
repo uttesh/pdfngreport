@@ -11,12 +11,12 @@ public class AmazonTests {
 
 
 
-        @Test
+        @Test(testName = "testing the testname attribute 1 ")
 	public void Page1Test() {
             Assert.assertEquals(true,false);
 	}
         
-        @Test
+        @Test(testName = "testing the testname attribute 2 ")
 	public void Page2Test() {
             Reporter.log("M3 WAS CALLED");
             assertTrue(true);
@@ -28,7 +28,7 @@ public class AmazonTests {
             assertTrue(true);
 	}
 
-        @Test
+        @Test(testName = "testing the testname attribute 3 ")
 	public void Page4Test() {
            throw new SkipException("Skipping - This is not ready for testing ");
 	}
