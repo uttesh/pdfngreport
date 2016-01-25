@@ -208,7 +208,7 @@ pdfreport.pie.chart.type=normal
 # pdf report output location
 pdfreport.outputdir=E:/rivetsys/automation/pdfngreport
 
-# tables/page setting : show/hude
+# tables/page setting : show/hide
 pdfreport.exception.page=hide
 
 # Below setting only for selenium user for selenium failed screen shot link show related
