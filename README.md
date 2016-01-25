@@ -215,6 +215,13 @@ pdfreport.exception.page=hide
 #pdfreport.show.selenium.screenshot.link=show
 #pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots
 
+# error screen shot/image name standards.
+
+#image type : png
+#image name : className + "_" + methodName
+
+
+
 # Custom color setting Coming soon on 3.0.0 version
 
 ```
