@@ -1,5 +1,5 @@
 /*
- Copyright 2015 Uttesh Kumar T.H. Kumar T.H.
+ Copyright 2015 Uttesh Kumar T.H.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -88,6 +88,7 @@ public interface Constants {
     String ALIGN_RIGHT = "right";
 
     String PDF_REPORT_FILE_NAME = "pdfng-report-" + new SimpleDateFormat("dd-MMM-yyyy-hh-mm-s-a").format(new Date()) + ".pdf";
+    String PDF_FILE_EXT = ".pdf";
 
     String STATISTIC_TABLE_PASSED_HEADER = "Passed";
     String STATISTIC_TABLE_SKIPPED_HEADER = "Skipped";
@@ -113,6 +114,7 @@ public interface Constants {
         String REPORT_CHART_PROP = "pdfreport.chart";
         String REPORT_LOGGER_PROP = "pdfreport.logger";
         String REPORT_OUPUT_DIR = "pdfreport.outputdir";
+        String REPORT_FILE_NAME = "pdfreport.file.name";
         String SELENIUM_FAILED_TEST_SCREENSHOT_OUPUT_DIR = "pdfreport.selenium.failed.test.screenshot.outputdir";
         String SHOW_SELENIUM_FAILED_SCREENSHOT_LINK = "pdfreport.show.selenium.screenshot.link";
         String REPORT_PIE_CHART_TYPE_PROP = "pdfreport.pie.chart.type";

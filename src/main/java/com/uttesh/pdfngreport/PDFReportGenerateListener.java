@@ -49,11 +49,15 @@ public class PDFReportGenerateListener implements ITestListener, ISuiteListener 
         if (result.size() > 0) {
             PDFGenerator generator = new PDFGenerator();
             String outpurDir = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
+            String reportFileName = System.getProperty(Constants.SystemProps.REPORT_FILE_NAME);
             if (outpurDir == null || outpurDir.trim().length() == 0) {
                 outpurDir = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
             }
+            if (reportFileName == null || reportFileName.trim().length() == 0) {
+                reportFileName = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_FILE_NAME);
+            }
             try {
-                generator.generateReport(outpurDir + "\\" + Constants.PDF_REPORT_FILE_NAME, result);
+                generator.generateReport(outpurDir + "\\" + reportFileName+Constants.PDF_FILE_EXT, result);
             } catch (Exception ex) {
                 Logger.getLogger(PDFReportGenerateListener.class.getName()).log(Level.SEVERE, null, ex);
             }

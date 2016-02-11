@@ -78,14 +78,19 @@ public class PDFReportListener implements IReporter {
             if (result.size() > 0) {
                 PDFGenerator generator = new PDFGenerator();
                 String outpurDir = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
+                String reportFileName = System.getProperty(Constants.SystemProps.REPORT_FILE_NAME);
                 if (outpurDir == null || outpurDir.trim().length() == 0) {
                     outpurDir = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
                 }
+                if(reportFileName ==null || reportFileName.trim().length() ==0){
+                   reportFileName = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_FILE_NAME);
+                }
+                System.out.println("Report Location : "+outpurDir +"File Name : "+ reportFileName+Constants.PDF_FILE_EXT);
                 try {
                     if (os != null && os.equalsIgnoreCase("w")) {
-                        generator.generateReport(outpurDir + Constants.BACKWARD_SLASH + Constants.PDF_REPORT_FILE_NAME, result);
+                        generator.generateReport(outpurDir + Constants.BACKWARD_SLASH + reportFileName+Constants.PDF_FILE_EXT, result);
                     } else {
-                        generator.generateReport(outpurDir + Constants.FORWARD_SLASH + Constants.PDF_REPORT_FILE_NAME, result);
+                        generator.generateReport(outpurDir + Constants.FORWARD_SLASH + reportFileName+Constants.PDF_FILE_EXT, result);
                     }
                     
                 } catch (Exception ex) {

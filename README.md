@@ -19,7 +19,7 @@ This is the part of maven repository now,Directly add in pom following.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.1.0</version>
+            <version>2.1.1</version>
         </dependency>
         
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
@@ -27,7 +27,7 @@ This is the pdf report plugin written for testng, this listener will generate th
 <b>How to use pdfngreport Plugin</b>
 <hr/>
 
-Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.0.9/">download</a>
+Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.1.1/">download</a>
 
 Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">download sample</a>
 
@@ -138,7 +138,7 @@ For Maven pom.xml configuration, Add this dependecy.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.1.0</version>
+            <version>2.1.1</version>
         </dependency> 
  ```
 
@@ -198,29 +198,30 @@ pdfngreport.time.column.format=MMMM dd yyyy hh:mm:sss
 
 #Logo
 pdfreport.logo=show
-pdfreport.report.logo.file=E:/rivetsys/automation/pdfnglogo/logo.png
+pdfreport.report.logo.file=E://rivetsys//automation//pdfnglogo//logo.png
 pdfreport.report.logo.align=right
 
-# chat related
+# chart related
 pdfreport.pie.chart.type=normal
 #pdfreport.pie.chart.type=explode
 
-# pdf report output location
-pdfreport.outputdir=E:/rivetsys/automation/pdfngreport
+#report file name
+pdfreport.file.name=sample_pdf_report
+
+# pdf report output location note: use duble forward slash for the windows system
+pdfreport.outputdir=E://rivetsys//automation//pdfngreport
 
 # tables/page setting : show/hide
 pdfreport.exception.page=hide
 
 # Below setting only for selenium user for selenium failed screen shot link show related
 #pdfreport.show.selenium.screenshot.link=show
-#pdfreport.selenium.failed.test.screenshot.outputdir=E:/rivetsys/automation/loan_connector_10Sep14Nova/loan_connector/screenshots
+#pdfreport.selenium.failed.test.screenshot.outputdir=E://rivetsys/automation//loan_connector_10Sep14Nova//loan_connector/screenshots
 
 # error screen shot/image name standards.
 
 #image type : png
 #image name : className + "_" + methodName
-
-
 
 # Custom color setting Coming soon on 3.0.0 version
 
@@ -242,6 +243,7 @@ property | default | description
 `pdfreport.report.logo.file` | no default value | set the location of the logo image
 `pdfreport.report.logo.align` | right | align the logo image right/left 
 `pdfreport.pie.chart.type` | normal | set the values 'explode' for the ex[plode pie chart
+`pdfreport.file.name` |  | set the report file name
 `pdfreport.outputdir` |  | set the location where generated report will be saved
 
 
