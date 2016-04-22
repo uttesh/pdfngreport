@@ -79,6 +79,13 @@ public class PdfngUtil {
         String logo = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_LOGO);
         String chart = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_CHART_PROP);
         String logoAlign = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_LOGO_ALIGN);
+
+        String showTimeColumn = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TIME);
+        String showTestNameColumn = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TEST_NAME);
+        String showTestCaseColumn = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TEST_CASE);
+        String showTimeTakenColumn = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TIME_TAKEN);
+        String showDescriptionColumn = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_DESCRIPTION);
+
         if (logoAlign == null || logoAlign.trim().length() == 0) {
             logoAlign = Constants.ALIGN_RIGHT;
         }
@@ -118,7 +125,13 @@ public class PdfngUtil {
         reportData.setLogoAlign(logoAlign);
         reportData.setExceptionPage(exceptionPage);
         reportData.setExceptionIcon(ImageUtils.imageToBase64String(exceptionIcon));
+        reportData.setShowTime(showTimeColumn);
+        reportData.setShowTestName(showTestNameColumn);
+        reportData.setShowTestCase(showTestCaseColumn);
+        reportData.setShowTimeTaken(showTimeTakenColumn);
+        reportData.setShowDesciprtion(showDescriptionColumn);
         populatedSystemDetails(reportData);
+        
     }
 
     public String getSystemDetails(String buildVersion) {
@@ -154,10 +167,10 @@ public class PdfngUtil {
             reportData.setAdditionLine1((String) PDFCache.getConfig(Constants.SystemProps.REPORT_ADDITIONAL_LINE1));
             reportData.setAdditionLine2((String) PDFCache.getConfig(Constants.SystemProps.REPORT_ADDITIONAL_LINE2));
             reportData.setAdditionLine3((String) PDFCache.getConfig(Constants.SystemProps.REPORT_ADDITIONAL_LINE3));
-        } else if(buildDetailsMode != null && buildDetailsMode.equalsIgnoreCase("code")) {
+        } else if (buildDetailsMode != null && buildDetailsMode.equalsIgnoreCase("code")) {
             reportData.setBuildSystemDetailsBy("code");
             reportData.setBuildSystemDetails(getSystemDetails(buildVersion));
-        }else{
+        } else {
             // dont display system details
         }
     }

@@ -1,4 +1,5 @@
 package com.uttesh.pdfngreport.util.xml;
+
 /*
  Copyright 2015 Uttesh Kumar T.H.
 
@@ -100,6 +101,21 @@ public class ReportData {
 
     @XmlElement(name = "ADDITIONAL_LINE3")
     private String additionLine3;
+
+    @XmlElement(name = "SHOW_COLUMN_TIME")
+    String showTime;
+    
+    @XmlElement(name = "SHOW_COLUMN_TEST_NAME")
+    String showTestName;
+    
+    @XmlElement(name = "SHOW_COLUMN_TEST_CASE")
+    String showTestCase;
+    
+    @XmlElement(name = "SHOW_COLUMN_TIME_TAKEN")
+    String showTimeTaken;
+    
+    @XmlElement(name = "SHOW_COLUMN_DESCRIPTION")
+    String showDesciprtion;
 
     @XmlTransient
     public List<Table> getTable() {
@@ -284,6 +300,46 @@ public class ReportData {
 
     public void setAdditionLine3(String additionLine3) {
         this.additionLine3 = additionLine3;
+    }
+
+    public String getShowTime() {
+        return showTime;
+    }
+
+    public void setShowTime(String showTime) {
+        this.showTime = showTime;
+    }
+
+    public String getShowTestName() {
+        return showTestName;
+    }
+
+    public void setShowTestName(String showTestName) {
+        this.showTestName = showTestName;
+    }
+
+    public String getShowTestCase() {
+        return showTestCase;
+    }
+
+    public void setShowTestCase(String showTestCase) {
+        this.showTestCase = showTestCase;
+    }
+
+    public String getShowTimeTaken() {
+        return showTimeTaken;
+    }
+
+    public void setShowTimeTaken(String showTimeTaken) {
+        this.showTimeTaken = showTimeTaken;
+    }
+
+    public String getShowDesciprtion() {
+        return showDesciprtion;
+    }
+
+    public void setShowDesciprtion(String showDesciprtion) {
+        this.showDesciprtion = showDesciprtion;
     }
 
     

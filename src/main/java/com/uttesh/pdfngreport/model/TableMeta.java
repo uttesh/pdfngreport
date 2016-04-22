@@ -22,7 +22,7 @@ import java.util.Comparator;
  * Bean handler class for the PDF generation.
  * @author Uttesh Kumar T.H.
  */
-public class TableMeta  {
+public class TableMeta extends ColumnMeta{
     
     String className;
     String packagePath;
@@ -34,6 +34,7 @@ public class TableMeta  {
     String blockId;
     String suiteName;
     String timeTaken;
+    String description;
 
     public String getClassName() {
         return className;
@@ -115,8 +116,14 @@ public class TableMeta  {
         this.testContextName = testContextName;
     }
 
+    public String getDescription() {
+        return description;
+    }
 
-  
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public static Comparator<TableMeta> TableMetaComparator  = new Comparator<TableMeta>() {
 	    public int compare(TableMeta tableMeta1, TableMeta tableMeta2) {
 	      String ClassName1 = tableMeta1.getClassName().toUpperCase();

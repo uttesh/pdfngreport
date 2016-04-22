@@ -98,7 +98,7 @@ public class PdfReportHandler {
             marshaller.marshal(reportData, file);
         } catch (JAXBException ex) {
             Logger.getLogger(PdfReportHandler.class.getName()).log(Level.SEVERE, null, ex);
-            new File(reportLocation + Constants.FORWARD_SLASH + fileName + Constants.XML_EXTENSION).delete();
+            //new File(reportLocation + Constants.FORWARD_SLASH + fileName + Constants.XML_EXTENSION).delete();
         }
         return fileName;
     }
@@ -138,7 +138,6 @@ public class PdfReportHandler {
         }
         //File xsltfile = new File(getClass().getClassLoader().getResource(Constants.REPORT_XSL_TEMPLATE).toURI());
         InputStream input = getClass().getClassLoader().getResourceAsStream(Constants.REPORT_XSL_TEMPLATE);
-        //File xsltfile = new File(Thread.currentThread().getContextClassLoader().getResource("pl/shenlon/io/gui/appData/list.txt").getFile());
         File pdffile = reportFile;
         FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
         FOUserAgent foUserAgent = fopFactory.newFOUserAgent();

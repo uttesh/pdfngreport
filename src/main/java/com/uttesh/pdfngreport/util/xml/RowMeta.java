@@ -1,4 +1,5 @@
 package com.uttesh.pdfngreport.util.xml;
+
 /*
  Copyright 2015 Uttesh Kumar T.H.
 
@@ -42,6 +43,9 @@ public class RowMeta {
     @XmlElement(name = "METHOD")
     String method;
 
+    @XmlElement(name = "DESCRIPTION")
+    String description;
+
     @XmlElement(name = "TIME")
     String time;
 
@@ -68,6 +72,21 @@ public class RowMeta {
 
     @XmlElement(name = "ExceptionPage")
     private String exceptionPage;
+    
+    @XmlElement(name = "SHOW_COLUMN_TIME")
+    String showTime;
+    
+    @XmlElement(name = "SHOW_COLUMN_TEST_NAME")
+    String showTestName;
+    
+    @XmlElement(name = "SHOW_COLUMN_TEST_CASE")
+    String showTestCase;
+    
+    @XmlElement(name = "SHOW_COLUMN_TIME_TAKEN")
+    String showTimeTaken;
+    
+    @XmlElement(name = "SHOW_COLUMN_DESCRIPTION")
+    String showDesciprtion;
 
     @XmlTransient
     public String getStatus() {
@@ -204,5 +223,59 @@ public class RowMeta {
         this.timeTaken = timeTaken;
     }
 
+    @XmlTransient
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     
+    @XmlTransient
+    public String getShowTime() {
+        return showTime;
+    }
+
+    public void setShowTime(String showTime) {
+        this.showTime = showTime;
+    }
+
+    @XmlTransient
+    public String getShowTestName() {
+        return showTestName;
+    }
+
+    public void setShowTestName(String showTestName) {
+        this.showTestName = showTestName;
+    }
+
+    @XmlTransient
+    public String getShowTestCase() {
+        return showTestCase;
+    }
+
+    public void setShowTestCase(String showTestCase) {
+        this.showTestCase = showTestCase;
+    }
+
+    @XmlTransient
+    public String getShowTimeTaken() {
+        return showTimeTaken;
+    }
+
+    public void setShowTimeTaken(String showTimeTaken) {
+        this.showTimeTaken = showTimeTaken;
+    }
+
+    @XmlTransient
+    public String getShowDesciprtion() {
+        return showDesciprtion;
+    }
+
+    public void setShowDesciprtion(String showDesciprtion) {
+        this.showDesciprtion = showDesciprtion;
+    }
+
+
 }

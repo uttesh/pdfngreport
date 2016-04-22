@@ -19,7 +19,7 @@ This is the part of maven repository now,Directly add in pom following.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.2</version>
         </dependency>
         
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
@@ -27,7 +27,7 @@ This is the pdf report plugin written for testng, this listener will generate th
 <b>How to use pdfngreport Plugin</b>
 <hr/>
 
-Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.1.1/">download</a>
+Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.1.2/">download</a>
 
 Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">download sample</a>
 
@@ -138,7 +138,7 @@ For Maven pom.xml configuration, Add this dependecy.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.2</version>
         </dependency> 
  ```
 
@@ -245,6 +245,11 @@ property | default | description
 `pdfreport.pie.chart.type` | normal | set the values 'explode' for the ex[plode pie chart
 `pdfreport.file.name` |  | set the report file name
 `pdfreport.outputdir` |  | set the location where generated report will be saved
+`pdfreport.table.column.time` |  | set the value to show/hide the column in the report table 
+`pdfreport.table.column.test` |  | set the value to show/hide the column in the report table 
+`pdfreport.table.column.case` |  | set the value to show/hide the column in the report table 
+`pdfreport.table.column.timetaken` |  | set the value to show/hide the column in the report table 
+`pdfreport.table.column.description` |  | set the value to show/hide the column in the report table 
 
 
 contributions
@@ -259,7 +264,7 @@ PDFngreport Developer : <a href="http://www.uttesh.com" target="_blank">uttesh.c
 
 <p>(The Apache License)</p>
 
-<p>Copyright (c) 2013 Uttesh Kumar T.H.</p>
+<p>Copyright (c) 2016 Uttesh Kumar T.H.</p>
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

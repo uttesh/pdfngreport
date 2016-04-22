@@ -109,11 +109,13 @@ public class GenerateTable {
                 rowMeta.setClassName(tableMeta.getClassName());
             }
             rowMeta.setMethod(tableMeta.getMethod());
+            rowMeta.setDescription(tableMeta.getDescription());
             rowMeta.setTimeTaken(tableMeta.getTimeTaken());
             rowMeta.setTime(tableMeta.getTime());
             rowMeta.setStatus(status);
             rowMeta.setBlockId(tableMeta.getBlockId());
             rowMeta.setTableName(status);
+            populteColumnDataShow(rowMeta);
             row.setRowMeta(rowMeta);
             rows.add(row);
         }
@@ -123,20 +125,29 @@ public class GenerateTable {
         table.setOsName(name.toLowerCase());
     }
 
+    private void populteColumnDataShow(RowMeta meta) {
+        meta.setShowTime(PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TIME).toString());
+        meta.setShowTestName(PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TEST_CASE).toString());
+        meta.setShowTestCase(PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TEST_NAME).toString());
+        meta.setShowTimeTaken(PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TIME_TAKEN).toString());
+        meta.setShowDesciprtion(PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_DESCRIPTION).toString());
+    }
+
     private String populateSpace(String text) {
         Pattern pattern = Pattern.compile("\\s");
         Matcher matcher = pattern.matcher(text);
         boolean found = matcher.find();
         StringBuilder sb = new StringBuilder();
-        if (text.length() > 30 && !found) {
-            sb.append(text.substring(0, 30));
-            sb.append("\n");
-            sb.append(text.substring(30, text.length()));
-            sb.append("\n");
+        int limit = 20;
+        if (text.length() > limit && !found) {
+            for (int start = 0; start < text.length(); start += limit) {
+                int _size = start + limit;
+                sb.append(text.substring(start, Math.min(text.length(), _size)));
+                sb.append("\n");
+            }
             return sb.toString();
-        } else {
-            return text;
         }
+        return text;
     }
 
     /**
@@ -177,10 +188,13 @@ public class GenerateTable {
             logger.log("| class :: " + className + " :: method :: " + result.getMethod().getMethodName() + " |");
             logger.log("-------------------------------------------------------------------------");
             String methodName = result.getMethod().getMethodName();
+            String description = "";
             Test _test = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(Test.class);
             if (_test != null && _test.testName() != null && _test.testName().trim().length() > 0) {
                 methodName = _test.testName();
+                description = _test.description();
             }
+            tableMeta.setDescription(description);
             tableMeta.setTestContextName(testContextName);
             tableMeta.setMethod(populateSpace(methodName));
             long duration = result.getEndMillis() - result.getStartMillis();
@@ -222,7 +236,32 @@ public class GenerateTable {
             columnHeader = new ColumnHeader();
             columnHeader.setColorCode(color);
             columnHeader.setName(name);
-            columns.add(columnHeader);
+
+            if (name.equalsIgnoreCase(Constants.COLUMN_TIME)) {
+                if (PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TIME).toString().equalsIgnoreCase("show")) {
+                    columns.add(columnHeader);
+                }
+            }
+            if (name.equalsIgnoreCase(Constants.COLUMN_CLASS)) {
+                if (PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TEST_CASE).toString().equalsIgnoreCase("show")) {
+                    columns.add(columnHeader);
+                }
+            }
+            if (name.equalsIgnoreCase(Constants.COLUMN_METHOD)) {
+                if (PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TEST_NAME).toString().equalsIgnoreCase("show")) {
+                    columns.add(columnHeader);
+                }
+            }
+            if (name.equalsIgnoreCase(Constants.COLUMN_TIME_TAKEN)) {
+                if (PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_TIME_TAKEN).toString().equalsIgnoreCase("show")) {
+                    columns.add(columnHeader);
+                }
+            }
+            if (name.equalsIgnoreCase(Constants.COLUMN_DESCRIPTION)) {
+                if (PDFCache.getConfig(Constants.SystemProps.REPORT_TABLE_COLUMN_DESCRIPTION).toString().equalsIgnoreCase("show")) {
+                    columns.add(columnHeader);
+                }
+            }
         }
     }
 

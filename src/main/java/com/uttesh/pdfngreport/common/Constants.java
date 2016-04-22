@@ -30,6 +30,7 @@ public interface Constants {
     String COLUMN_TIME_TAKEN = "TimeTaken(ms)";
     String COLUMN_STATUS = "Status";
     String COLUMN_TIME = "Time";
+    String COLUMN_DESCRIPTION="Description";
     String DATE_FORMAT = "MMMM dd YYYY hh:MM:ss";
 
     public enum TestCaseStatus {
@@ -57,20 +58,23 @@ public interface Constants {
         Constants.COLUMN_TIME,
         Constants.COLUMN_CLASS,
         Constants.COLUMN_METHOD,
-        Constants.COLUMN_TIME_TAKEN};
+        Constants.COLUMN_TIME_TAKEN,
+        Constants.COLUMN_DESCRIPTION};
 
     String[] FAILED_STATUS_TABLE_COLUMS = {
         Constants.COLUMN_TIME,
         Constants.COLUMN_CLASS,
         Constants.COLUMN_METHOD,
         Constants.COLUMN_TIME_TAKEN,
-        Constants.STATUS_EXCEPTION};
+        Constants.STATUS_EXCEPTION,
+        Constants.COLUMN_DESCRIPTION};
 
     String[] FAILED_STATUS_TABLE_COLUMS_NO_EXCEPTION = {
         Constants.COLUMN_TIME,
         Constants.COLUMN_CLASS,
         Constants.COLUMN_METHOD,
-        Constants.COLUMN_TIME_TAKEN};
+        Constants.COLUMN_TIME_TAKEN,
+        Constants.COLUMN_DESCRIPTION};
 
     String STATUS_FAILED = "FAILED";
     String STATUS_PASSED = "PASSED";
@@ -130,6 +134,12 @@ public interface Constants {
         String REPORT_ADDITIONAL_LINE1 = "pdfreport.additional.line1";
         String REPORT_ADDITIONAL_LINE2 = "pdfreport.additional.line2";
         String REPORT_ADDITIONAL_LINE3 = "pdfreport.additional.line3";
+        
+        String REPORT_TABLE_COLUMN_TIME="pdfreport.table.column.time";
+        String REPORT_TABLE_COLUMN_TEST_NAME="pdfreport.table.column.test";
+        String REPORT_TABLE_COLUMN_TEST_CASE="pdfreport.table.column.case";
+        String REPORT_TABLE_COLUMN_TIME_TAKEN="pdfreport.table.column.timetaken";
+        String REPORT_TABLE_COLUMN_DESCRIPTION="pdfreport.table.column.description";
         
     }
 

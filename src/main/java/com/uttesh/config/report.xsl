@@ -233,70 +233,119 @@
 	</xsl:template>
 	<xsl:template match="RowMeta">
             
+            <xsl:if test="TableName = 'Statistics'">
                 <fo:table-cell border-bottom-width=".5pt"
-			border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="2mm">
+                               border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="2mm">
+                    <fo:block font-size="7.5pt"
+                                  font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
+                                  font-style="normal" text-align="left" wrap-option="wrap">
+                        <xsl:value-of select="PASSED"/>
+                    </fo:block>
+                </fo:table-cell>
+            </xsl:if>
+                
+            <xsl:if test="TableName != 'Statistics'">
+                <xsl:if test="SHOW_COLUMN_TIME = 'show'">
+                    <fo:table-cell border-bottom-width=".5pt"
+                                   border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="1mm">
                         <fo:block font-size="7.5pt"
-                            font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
-                            font-style="normal" text-align="left" wrap-option="wrap">
-                            
-                             <xsl:choose>
-                                    <xsl:when test="TableName = 'Statistics'">
-                                      <xsl:value-of select="PASSED"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                     <xsl:value-of select="TIME"/>
-                                    </xsl:otherwise>
-                             </xsl:choose>
-                       </fo:block>
-		</fo:table-cell>
+                                  font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
+                                  font-style="normal" text-align="left" wrap-option="wrap">
+                                <xsl:value-of select="TIME"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </xsl:if>
+            </xsl:if>
+            
+            
+            
+            <xsl:if test="TableName = 'Statistics'">
                 <fo:table-cell border-bottom-width=".5pt"
-			border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="2mm">
-			<fo:block font-size="7.5pt"
-				font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
-				font-style="normal" text-align="left" wrap-option="wrap">
-                            <xsl:choose>
-                                    <xsl:when test="TableName = 'Statistics'">
-                                      <xsl:value-of select="SKIPPED"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:value-of select="CLASSNAME"/>
-                                    </xsl:otherwise>
-                             </xsl:choose>
-                          
-			</fo:block>
-		</fo:table-cell>
+                               border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="2mm">
+                    <fo:block font-size="7.5pt"
+                                  font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
+                                  font-style="normal" text-align="left" wrap-option="wrap">
+                        <xsl:value-of select="SKIPPED"/>
+                    </fo:block>
+                </fo:table-cell>
+            </xsl:if>
+                
+            <xsl:if test="TableName != 'Statistics'">
+                <xsl:if test="SHOW_COLUMN_TEST_NAME = 'show'">
+                    <fo:table-cell border-bottom-width=".5pt"
+                                   border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="1mm">
+                        <fo:block font-size="7.5pt"
+                                  font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
+                                  font-style="normal" text-align="left" wrap-option="wrap">
+                                <xsl:value-of select="CLASSNAME"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </xsl:if>
+            </xsl:if>
+                
+             
+            <xsl:if test="TableName = 'Statistics'">
                 <fo:table-cell border-bottom-width=".5pt"
-			border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="2mm">
-			<fo:block font-size="7.5pt"
-				font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
-				font-style="normal" text-align="left" wrap-option="wrap">
-                             <xsl:choose>
-                                    <xsl:when test="TableName = 'Statistics'">
-                                       <xsl:value-of select="FAILED"/> 
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:value-of select="METHOD"/>
-                                    </xsl:otherwise>
-                             </xsl:choose>
-                         
-			</fo:block>
-		</fo:table-cell>
+                               border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="2mm">
+                    <fo:block font-size="7.5pt"
+                              font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
+                              font-style="normal" text-align="left" wrap-option="wrap">
+                        <xsl:value-of select="FAILED"/>
+                    </fo:block>
+                </fo:table-cell>
+            </xsl:if>
+                
+            <xsl:if test="TableName != 'Statistics'">
+                <xsl:if test="SHOW_COLUMN_TEST_CASE = 'show'">
+                    <fo:table-cell border-bottom-width=".5pt"
+                                   border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="1mm">
+                        <fo:block font-size="7.5pt"
+                                  font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
+                                  font-style="normal" text-align="left" wrap-option="wrap">
+                            <xsl:value-of select="METHOD"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </xsl:if>
+            </xsl:if>
+            
+            
+            <xsl:if test="TableName = 'Statistics'">
                 <fo:table-cell border-bottom-width=".5pt"
-			border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="2mm">
-			<fo:block font-size="7.5pt"
-				font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
-				font-style="normal" text-align="left" wrap-option="wrap">
-                            <xsl:choose>
-                                    <xsl:when test="TableName = 'Statistics'">
-                                       <xsl:value-of select="PERCENTAGE"/> 
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:value-of select="TIMETAKEN"/>
-                                    </xsl:otherwise>
-                             </xsl:choose>
-                          
-			</fo:block>
-		</fo:table-cell>
+                               border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="2mm">
+                    <fo:block font-size="7.5pt"
+                              font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
+                              font-style="normal" text-align="left" wrap-option="wrap">
+                        <xsl:value-of select="PERCENTAGE"/>
+                    </fo:block>
+                </fo:table-cell>
+            </xsl:if>
+                
+            <xsl:if test="TableName != 'Statistics'">
+                <xsl:if test="SHOW_COLUMN_TIME_TAKEN = 'show'">
+                    <fo:table-cell border-bottom-width=".5pt"
+                                   border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="1mm">
+                        <fo:block font-size="7.5pt"
+                                  font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
+                                  font-style="normal" text-align="left" wrap-option="wrap">
+                            <xsl:value-of select="TIMETAKEN"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </xsl:if>
+            </xsl:if>
+ 
+            <xsl:if test="TableName != 'Statistics'">
+                    <xsl:if test="SHOW_COLUMN_DESCRIPTION = 'show'">
+                        <fo:table-cell border-bottom-width=".5pt"
+                                       border-bottom-style="solid" border-bottom-color="black" padding="1mm" margin-left="1mm">
+                            <fo:block font-size="7.5pt"
+                                      font-family="Arial, Helvetica, Gyosho, Trado, sans-serif"
+                                      font-style="normal" text-align="left" wrap-option="wrap">
+                                <xsl:value-of select="DESCRIPTION"/>
+                            </fo:block>
+                        </fo:table-cell>
+                    </xsl:if>
+            </xsl:if>           
+                
                 <xsl:if test="ExceptionPage = 'show'">
                     <xsl:if test="STATUS='FAILED'">
                         <fo:table-cell border-bottom-width=".5pt"
