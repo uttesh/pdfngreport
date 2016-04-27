@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Simple Reporter Suite">
   
-  <parameter name="pdfngreport-properties" value="src/test/resources/pdfngreport.properties" />
-  <listeners>
-    <listener class-name="com.uttesh.pdfngreport.PDFReportListener" />
-  </listeners>
+    <parameter name="pdfngreport-properties" value="src/test/resources/pdfngreport.properties" />
+    <listeners>
+        <listener class-name="com.uttesh.pdfngreport.PDFReportListener" />
+    </listeners>
 
-  <test name="Simple Reporter test 1 ">
-    <classes>
-      <class name="com.uttesh.pdfngreport.SunalpsTest" />
-    </classes>
-  </test>
+    <test name="Simple Reporter test 1 ">
+        <classes>
+            <class name="com.uttesh.pdfngreport.SunalpsTest" />
+        </classes>
+    </test>
   
-  <test name="Simple Reporter test 2 ">
-    <classes>
-      <class name="com.uttesh.pdfngreport.GoogleTest" />
-    </classes>
-  </test>
+    <test name="Simple Reporter test 2 ">
+        <classes>
+            <class name="com.uttesh.pdfngreport.GoogleTest" />
+        </classes>
+    </test>
   
-  <test name="Simple Reporter test 3 ">
-    <classes>
-      <class name="com.uttesh.pdfngreport.AmazonTests" />
-    </classes>
-  </test>
+    <test name="Simple Reporter test 3 ">
+        <classes>
+            <class name="com.uttesh.pdfngreport.AmazonTests" />
+        </classes>
+    </test>
   
-  <test name="Simple Reporter test 4 ">
-    <classes>
-      <class name="com.uttesh.pdfngreport.SmitjainSkipCountTest" />
-    </classes>
-  </test>
+    <test name="Simple Reporter test 4 ">
+        <classes>
+            <class name="com.uttesh.pdfngreport.SmitjainSkipCountTest" />
+        </classes>
+    </test>
   
     <test name="Lengthy Names">
-    <classes>
-      <class name="com.uttesh.pdfngreport.DeepalicrDSConfirmapointmentfrompatientreminderscreen" />
-    </classes>
-  </test>
+        <classes>
+            <class name="com.uttesh.pdfngreport.DeepalicrDSConfirmapointmentfrompatientreminderscreen" />
+        </classes>
+    </test>
+  
+    <test name="Dynamic data provider test name ">
+        <classes>
+            <class name="com.uttesh.pdfngreport.dynamic_test_name.DynamicDataProviderTestName" />
+        </classes>
+    </test>
   
 </suite>
 

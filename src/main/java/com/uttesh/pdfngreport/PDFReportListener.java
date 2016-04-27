@@ -82,21 +82,23 @@ public class PDFReportListener implements IReporter {
                 if (outpurDir == null || outpurDir.trim().length() == 0) {
                     outpurDir = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
                 }
-                if(reportFileName ==null || reportFileName.trim().length() ==0){
-                   reportFileName = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_FILE_NAME);
+                if (reportFileName == null || reportFileName.trim().length() == 0) {
+                    reportFileName = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_FILE_NAME);
                 }
-                System.out.println("Report Location : "+outpurDir +"File Name : "+ reportFileName+Constants.PDF_FILE_EXT);
+                System.out.println("Report Location : " + outpurDir + "File Name : " + reportFileName + Constants.PDF_FILE_EXT);
                 try {
                     if (os != null && os.equalsIgnoreCase("w")) {
-                        generator.generateReport(outpurDir + Constants.BACKWARD_SLASH + reportFileName+Constants.PDF_FILE_EXT, result);
+                        generator.generateReport(outpurDir + Constants.BACKWARD_SLASH + reportFileName + Constants.PDF_FILE_EXT, result);
                     } else {
-                        generator.generateReport(outpurDir + Constants.FORWARD_SLASH + reportFileName+Constants.PDF_FILE_EXT, result);
+                        generator.generateReport(outpurDir + Constants.FORWARD_SLASH + reportFileName + Constants.PDF_FILE_EXT, result);
                     }
-                    
+
                 } catch (Exception ex) {
                     Logger.getLogger(PDFReportListener.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
     }
+
+   
 }

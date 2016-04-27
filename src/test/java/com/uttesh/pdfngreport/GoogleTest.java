@@ -8,8 +8,8 @@ import org.testng.annotations.Test;
 
 public class GoogleTest {
 
-    @Test
-    public void GooglePage1Test() {
+    @Test(testName = "Custom Google test name1")
+    public void GooglePage1Test(String name) {
         Assert.assertEquals(true, false);
     }
 
@@ -19,7 +19,7 @@ public class GoogleTest {
         assertTrue(true);
     }
 
-    @Test()
+    @Test(testName = "Custom Google test name3")
     public void GooglePage3Test() {
         throw new SkipException("Skipping - This is not ready for testing ");
     }

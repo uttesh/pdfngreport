@@ -194,6 +194,12 @@ public class GenerateTable {
                 methodName = _test.testName();
                 description = _test.description();
             }
+
+            if (_test != null && _test.dataProvider() != null && !_test.dataProvider().isEmpty()) {
+                if (result.getName() != null && !result.getName().isEmpty()) {
+                    methodName = result.getName();
+                }
+            }
             tableMeta.setDescription(description);
             tableMeta.setTestContextName(testContextName);
             tableMeta.setMethod(populateSpace(methodName));
