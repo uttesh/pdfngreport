@@ -255,7 +255,7 @@ property | default | description
 Miscellaneous
 =============
 
-1. If the dataproviders are used in the test classes and need to update test case dynamically on scenario do the following changes.
+1. If dataproviders are used in the test classes and need to update test case dynamically on scenario data base do the following changes.
 
 	a. Test class should implements 'ITest'
 		<div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">DynamicDataProviderTestName</span> <span style="color: #007020; font-weight: bold">implements</span> ITest <span style="color: #666666">{</span>
@@ -291,9 +291,10 @@ Miscellaneous
     <span style="color: #666666">}</span>
 </pre></div>
 
-    c. full Test sample class
+    c. Full Test sample class
+	 <br/>
 	 <a href="https://github.com/uttesh/pdfngreport/blob/master/src/test/java/com/uttesh/pdfngreport/dynamic_test_name/DynamicDataProviderTestName.java" target="_blank">
-	 DynamicDataProviderTestName.java </a>
+	 DynamicDataProviderTestName.java </a> <br/>
 	 
 	 <a href="https://github.com/uttesh/pdfngreport/blob/master/src/test/java/com/uttesh/pdfngreport/dynamic_test_name/TestParameters.java" target="_blank">
 	 TestParameters.java </a>
