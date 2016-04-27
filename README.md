@@ -19,7 +19,7 @@ This is the part of maven repository now,Directly add in pom following.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.1.2</version>
+            <version>2.1.3</version>
         </dependency>
         
 This is the pdf report plugin written for testng, this listener will generate the pdf report on testcases run, its very simple to configure no need to write any code.
@@ -27,7 +27,7 @@ This is the pdf report plugin written for testng, this listener will generate th
 <b>How to use pdfngreport Plugin</b>
 <hr/>
 
-Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.1.2/">download</a>
+Download latest version of pdfreport <a href="https://oss.sonatype.org/content/repositories/releases/com/uttesh/pdfngreport/2.1.3/">download</a>
 
 Sample demo example source <a href="https://github.com/uttesh/pdfngreportdemo">download sample</a>
 
@@ -138,7 +138,7 @@ For Maven pom.xml configuration, Add this dependecy.
         <dependency>
             <groupId>com.uttesh</groupId>
             <artifactId>pdfngreport</artifactId>
-            <version>2.1.2</version>
+            <version>2.1.3</version>
         </dependency> 
  ```
 
@@ -252,7 +252,56 @@ property | default | description
 `pdfreport.table.column.description` |  | set the value to show/hide the column in the report table 
 
 
-contributions
+Miscellaneous
+=============
+
+1. If the dataproviders are used in the test classes and need to update test case dynamically on scenario do the following changes.
+
+	a. Test class should implements 'ITest'
+		<div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">DynamicDataProviderTestName</span> <span style="color: #007020; font-weight: bold">implements</span> ITest <span style="color: #666666">{</span>
+</pre></div>
+
+	b. Add @BeforeMethod(alwaysRun = true) method to update the test cases dynamically according to data provider data.
+	
+	<div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #555555; font-weight: bold">@BeforeMethod</span><span style="color: #666666">(</span>alwaysRun <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">true</span><span style="color: #666666">)</span>
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">testData</span><span style="color: #666666">(</span>Method method<span style="color: #666666">,</span> Object<span style="color: #666666">[]</span> testData<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        String testCase <span style="color: #666666">=</span> <span style="color: #4070a0">&quot;&quot;</span><span style="color: #666666">;</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>testData <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> testData<span style="color: #666666">.</span><span style="color: #4070a0">length</span> <span style="color: #666666">&gt;</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            TestParameters testParams <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+            String _dyna_name <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+            <span style="color: #60a0b0; font-style: italic">//Check if test method has actually received required parameters</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span>Object testParameter <span style="color: #666666">:</span> testData<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>testParameter <span style="color: #007020; font-weight: bold">instanceof</span> TestParameters<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    testParams <span style="color: #666666">=</span> <span style="color: #666666">(</span>TestParameters<span style="color: #666666">)</span> testParameter<span style="color: #666666">;</span>
+                    <span style="color: #007020; font-weight: bold">break</span><span style="color: #666666">;</span>
+                <span style="color: #666666">}</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>testParameter <span style="color: #007020; font-weight: bold">instanceof</span> String<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    _dyna_name <span style="color: #666666">=</span> <span style="color: #666666">(</span>String<span style="color: #666666">)</span> testParameter<span style="color: #666666">;</span>
+                    <span style="color: #007020; font-weight: bold">break</span><span style="color: #666666">;</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>testParams <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                testCase <span style="color: #666666">=</span> testParams<span style="color: #666666">.</span><span style="color: #4070a0">getTestName</span><span style="color: #666666">();</span>
+            <span style="color: #666666">}</span>
+            <span style="color: #007020; font-weight: bold">if</span><span style="color: #666666">(</span>_dyna_name<span style="color: #666666">!=</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">){</span>
+                testCase <span style="color: #666666">=</span> _dyna_name<span style="color: #666666">;</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">mTestCaseName</span> <span style="color: #666666">=</span> String<span style="color: #666666">.</span><span style="color: #4070a0">format</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;%s(%s)&quot;</span><span style="color: #666666">,</span> method<span style="color: #666666">.</span><span style="color: #4070a0">getName</span><span style="color: #666666">(),</span> testCase<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+
+    c. full Test sample class
+	 <a href="https://github.com/uttesh/pdfngreport/blob/master/src/test/java/com/uttesh/pdfngreport/dynamic_test_name/DynamicDataProviderTestName.java" target="_blank">
+	 DynamicDataProviderTestName.java </a>
+	 
+	 <a href="https://github.com/uttesh/pdfngreport/blob/master/src/test/java/com/uttesh/pdfngreport/dynamic_test_name/TestParameters.java" target="_blank">
+	 TestParameters.java </a>
+	 
+
+
+
+Contributions
 =============
 
 All credit goes to <a href="http://www.jfree.org/jfreechart/">jfree</a> and <a href="https://xmlgraphics.apache.org">Apache fop</a> open source jar file which were used to generate the pdf report and pie chart statistic graph.
