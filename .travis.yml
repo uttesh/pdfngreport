@@ -1,3 +1,19 @@
 language: java
+
+addons:
+  sonarqube:
+    token:
+      secure: "36e1a1433f7c1425a362704ce26accb67d82ac72"
+
 install: mvn clean install -Dmaven.compiler.target=1.6 -Dmaven.compiler.source=1.6 -DskipTests=true
-script: mvn test -Dmaven.compiler.target=1.6 -Dmaven.compiler.source=1.6
+script: mvn test -Dmaven.compiler.target=1.6 -Dmaven.compiler.source=1.6 sonar:sonar
+
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+
+notifications:
+  email: false
+
