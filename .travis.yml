@@ -7,7 +7,7 @@ addons:
 jdk:
   - oraclejdk8
   
-install: mvn clean install  sonar:sonar
+install: mvn clean install  sonar:sonar -Dsonar.host.url=https://sonarqube.com  -Dsonar.login=36e1a1433f7c1425a362704ce26accb67d82ac72
 script: mvn test 
 
 
