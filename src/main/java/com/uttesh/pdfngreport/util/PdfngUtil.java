@@ -65,12 +65,20 @@ public class PdfngUtil {
     }
 
     public static String getReportLocation() {
-        String location = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
-        if (location == null || location.trim().length() == 0) {
-            location = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
-        }
-        return location;
+        String outputDir = System.getProperty(Constants.SystemProps.REPORT_OUPUT_DIR);
+    	if (outputDir == null || outputDir.trim().length() == 0) {
+    		String configOption = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_OUPUT_DIR);
+    		return absolutify(configOption);
+    	} else {
+    		return absolutify(outputDir);
+    	}
     }
+    
+    private static String absolutify(String relative) {
+		String backSlashes = new java.io.File(relative).getAbsolutePath();
+		String forwardSlashes = backSlashes.replace('\\', '/');
+		return forwardSlashes;
+	}
 
     public void populateReportDataProperties(ReportData reportData) throws Exception {
         String reportTitle = (String) PDFCache.getConfig(Constants.SystemProps.REPORT_TITLE_PROP);
