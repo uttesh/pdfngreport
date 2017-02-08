@@ -19,6 +19,8 @@ import com.uttesh.pdfngreport.common.Constants;
 import com.uttesh.pdfngreport.common.ImageUtils;
 import com.uttesh.pdfngreport.model.SystemMeta;
 import com.uttesh.pdfngreport.util.xml.ReportData;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -75,7 +77,7 @@ public class PdfngUtil {
     }
     
     private static String absolutify(String relative) {
-		String backSlashes = new java.io.File(relative).getAbsolutePath();
+		String backSlashes = new File(relative).getAbsolutePath();
 		String forwardSlashes = backSlashes.replace('\\', '/');
 		return forwardSlashes;
 	}
@@ -108,6 +110,18 @@ public class PdfngUtil {
         } else {
             exceptionPage = Constants.SHOW;
         }
+        
+        File logoFilepath = new File(logoFile);
+        if (logoFilepath.exists()) {
+        	// This isn't really necessary; absolutify won't do anything to paths that are already absolute
+        	if (logoFilepath.isAbsolute())
+                reportData.setLogoFile(logoFile);
+        	else
+        		reportData.setLogoFile(absolutify(logoFile));
+        } else {
+        	System.err.println("[ERROR] Logo file located at '" + absolutify(logoFile) + "' cannot be found! Disabling logo...");
+        	logo = "hide";
+        }
 
         InputStream exceptionIcon = getClass().getClassLoader().getResourceAsStream(Constants.Icons.EXCEPTION_ICON);
 
@@ -128,7 +142,6 @@ public class PdfngUtil {
         reportData.setTitleAlign(titleAlign);
         reportData.setReportLocation(reportLocation);
         reportData.setChart(chart);
-        reportData.setLogoFile(logoFile);
         reportData.setLogo(logo);
         reportData.setLogoAlign(logoAlign);
         reportData.setExceptionPage(exceptionPage);
