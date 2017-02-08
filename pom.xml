@@ -101,7 +101,7 @@
                     <configuration>
                         <source>1.6</source>
                         <target>1.6</target>
-                        <executable>F:/devtools/jdk1.6.0_31/bin/javac</executable>
+                        <executable>${env.JAVA_HOME}/bin/javac</executable>
                     </configuration>
                     <version>2.3.2</version>
                 </plugin>
